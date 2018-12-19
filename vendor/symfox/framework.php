@@ -9,9 +9,9 @@ use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
+//use Symfony\Component\HttpKernel\HttpKernelInterface;
 
-class Framework implements HttpKernelInterface
+class Framework 
 {   
     private $dispatcher;
     private $events;
@@ -31,7 +31,7 @@ class Framework implements HttpKernelInterface
 
     }
 
-    public function handle(Request $request, $type = HttpKernelInterface::MASTER_REQUEST, $catch = true)
+    public function handle(Request $request)
     {
         $this->matcher->getContext()->fromRequest($request);
 
@@ -48,6 +48,13 @@ class Framework implements HttpKernelInterface
             $response = new Response('An error occurred', 500);
         }
 
+        $this->introduceEvent($request, $response);
+
+        return $response;
+    }
+
+    public function introduceEvent(Request $request, Response $response){
+
         if(!empty($this->events)){
             foreach($this->events as $e_name => $event){
                 if(!empty($this->listeners[$e_name])){
@@ -58,9 +65,6 @@ class Framework implements HttpKernelInterface
                 } 
             }
         }
-
-        return $response;
     }
-
 
 }

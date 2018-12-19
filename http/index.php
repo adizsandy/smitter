@@ -2,28 +2,32 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-use Symfox\Framework as Framework;
+use Symfox\Router;
+use Symfox\Framework;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
-use Symfony\Component\HttpKernel\HttpCache;
 
-$routes = require_once __DIR__.'/../src/register/routes.php';
-$events = require_once __DIR__.'/../src/register/events.php';
-$listeners = require_once __DIR__.'/../src/register/listeners.php';
+$config = require __DIR__.'/../src/register/config.php';
+$constants = require __DIR__.'/../src/register/constants.php';
+$events = require __DIR__.'/../src/register/events.php';
+$listeners = require __DIR__.'/../src/register/listeners.php';
+$routes = require __DIR__.'/../src/register/routes.php';
+
+$router = new Router();
+$routeCollection = $router->collect($routes);
 
 $context = new RequestContext();
-$request = Request::createFromGlobals();
+$matcher = new UrlMatcher($routeCollection, $context);
+
 $argumentResolver = new ArgumentResolver();
 $controllerResolver = new ControllerResolver();
 
-$matcher = new UrlMatcher($routes, $context);
-
 $framework = new Framework($events, $listeners, $matcher, $controllerResolver, $argumentResolver);
-$framework = new Symfony\Component\HttpKernel\HttpCache\HttpCache($framework,new Symfony\Component\HttpKernel\HttpCache\Store(__DIR__.'/../storage/cache'));
-//print_r($framework);
+
+$request = Request::createFromGlobals();
 $response = $framework->handle($request);
 
 $response->send();

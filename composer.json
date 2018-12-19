@@ -15,13 +15,14 @@
            
         ],
         "psr-4": {
-            "" : "src/",
+            "App\\" : "src/code",
             "Symfox\\" : "vendor/symfox",
-            "App\\" : "src/code/",
             "Symfony\\" : "vendor/symfony"
         }, 
         "files": [
-           
+           "src/register/events.php",
+           "src/register/listeners.php",
+           "src/register/routes.php"
         ]
     },
     "autoload-dev": {

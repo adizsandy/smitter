@@ -9,5 +9,4 @@ return array(
     'Symfox\\' => array($vendorDir . '/symfox'),
     'Symfony\\' => array($vendorDir . '/symfony'),
     'App\\' => array($baseDir . '/src/code'),
-    '' => array($baseDir . '/src'),
 );

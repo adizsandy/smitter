@@ -6,6 +6,12 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
 {
+    public static $files = array (
+        '3dd9e485a10a3eaffff80c3f29f8a884' => __DIR__ . '/../..' . '/src/register/events.php',
+        '9f11692b0b415c84bbc573537ec55dcf' => __DIR__ . '/../..' . '/src/register/listeners.php',
+        'b9b1088821e637f3a6c69525bf739ad3' => __DIR__ . '/../..' . '/src/register/routes.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
@@ -31,10 +37,6 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         array (
             0 => __DIR__ . '/../..' . '/src/code',
         ),
-    );
-
-    public static $fallbackDirsPsr4 = array (
-        0 => __DIR__ . '/../..' . '/src',
     );
 
     public static $classMap = array (
@@ -1138,7 +1140,6 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d::$prefixDirsPsr4;
-            $loader->fallbackDirsPsr4 = ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d::$fallbackDirsPsr4;
             $loader->classMap = ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d::$classMap;
 
         }, null, ClassLoader::class);
