@@ -12,6 +12,10 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
             'Symfox\\' => 7,
             'Symfony\\' => 8,
         ),
+        'A' => 
+        array (
+            'App\\' => 4,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -23,6 +27,10 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         array (
             0 => __DIR__ . '/..' . '/symfony',
         ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/code',
+        ),
     );
 
     public static $fallbackDirsPsr4 = array (
@@ -31,6 +39,7 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
 
     public static $classMap = array (
         'App\\Controller\\HomeController' => __DIR__ . '/../..' . '/src/code/controllers/HomeController.php',
+        'App\\Events\\ResponseEvent' => __DIR__ . '/../..' . '/src/code/events/ResponseEvent.php',
         'App\\Model\\Calculator' => __DIR__ . '/../..' . '/src/code/models/Calculator.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
@@ -1121,7 +1130,7 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         'Symfony\\Polyfill\\Util\\LegacyTestListener' => __DIR__ . '/..' . '/symfony/polyfill-util/LegacyTestListener.php',
         'Symfony\\Polyfill\\Util\\TestListener' => __DIR__ . '/..' . '/symfony/polyfill-util/TestListener.php',
         'Symfony\\Polyfill\\Util\\TestListenerTrait' => __DIR__ . '/..' . '/symfony/polyfill-util/TestListenerTrait.php',
-        'Symfox\\Framework\\Framework' => __DIR__ . '/..' . '/symfox/framework.php',
+        'Symfox\\Framework' => __DIR__ . '/..' . '/symfox/framework.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

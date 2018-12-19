@@ -1,5 +1,5 @@
 {
-    "name": "symfox/framework",
+    "name": "symfox/symfox",
     "description": "The Symfox Framework.",
     "keywords": ["framework", "symfox"],
     "license": "MIT",
@@ -17,6 +17,7 @@
         "psr-4": {
             "" : "src/",
             "Symfox\\" : "vendor/symfox",
+            "App\\" : "src/code/",
             "Symfony\\" : "vendor/symfony"
         }, 
         "files": [

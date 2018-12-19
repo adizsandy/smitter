@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Controller\\HomeController' => $baseDir . '/src/code/controllers/HomeController.php',
+    'App\\Events\\ResponseEvent' => $baseDir . '/src/code/events/ResponseEvent.php',
     'App\\Model\\Calculator' => $baseDir . '/src/code/models/Calculator.php',
     'Symfony\\Component\\Console\\Application' => $vendorDir . '/symfony/console/Application.php',
     'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => $vendorDir . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
@@ -1097,5 +1098,5 @@ return array(
     'Symfony\\Polyfill\\Util\\LegacyTestListener' => $vendorDir . '/symfony/polyfill-util/LegacyTestListener.php',
     'Symfony\\Polyfill\\Util\\TestListener' => $vendorDir . '/symfony/polyfill-util/TestListener.php',
     'Symfony\\Polyfill\\Util\\TestListenerTrait' => $vendorDir . '/symfony/polyfill-util/TestListenerTrait.php',
-    'Symfox\\Framework\\Framework' => $vendorDir . '/symfox/framework.php',
+    'Symfox\\Framework' => $vendorDir . '/symfox/framework.php',
 );
