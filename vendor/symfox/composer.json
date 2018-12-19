@@ -1,0 +1,17 @@
+{
+    "name": "symfox/framework",
+    "description": "Framework Engine",
+    "require": {
+        
+    },
+    "authors": [
+        {
+            "name": "Shudhansh",
+            "email": "erayalakese@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "autoload": {
+        "classmap": ["framework.php"]
+    }
+}

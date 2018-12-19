@@ -1,0 +1,41 @@
+{
+    "name": "symfox/framework",
+    "description": "The Symfox Framework.",
+    "keywords": ["framework", "symfox"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        
+    },
+    "require-dev": {
+        
+    },
+    "autoload": {
+        "classmap": [
+           
+        ],
+        "psr-4": {
+            "" : "src/",
+            "Symfox\\" : "vendor/symfox",
+            "Symfony\\" : "vendor/symfony"
+        }, 
+        "files": [
+           
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            
+        }
+    },
+    "extra": {
+        
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
