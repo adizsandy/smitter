@@ -2,7 +2,6 @@
 
 namespace Symfox;
 
-use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
@@ -14,17 +13,13 @@ use Symfony\Component\Routing\Matcher\UrlMatcher;
 class Framework 
 {   
     private $dispatcher;
-    private $events;
-    private $listeners;
     private $matcher;
     private $controllerResolver;
     private $argumentResolver;
 
-    public function __construct($events, $listeners, UrlMatcher $matcher, ControllerResolver $controllerResolver, ArgumentResolver $argumentResolver)
+    public function __construct($dispatcher, UrlMatcher $matcher, ControllerResolver $controllerResolver, ArgumentResolver $argumentResolver)
     {   
-        $this->dispatcher = new EventDispatcher();
-        $this->events = $events;
-        $this->listeners = $listeners;
+        $this->dispatcher = $dispatcher;
         $this->matcher = $matcher;
         $this->controllerResolver = $controllerResolver;
         $this->argumentResolver = $argumentResolver;
@@ -48,23 +43,9 @@ class Framework
             $response = new Response('An error occurred', 500);
         }
 
-        $this->introduceEvent($request, $response);
+        $this->dispatcher->resolve($request, $response);
 
         return $response;
-    }
-
-    public function introduceEvent(Request $request, Response $response){
-
-        if(!empty($this->events)){
-            foreach($this->events as $e_name => $event){
-                if(!empty($this->listeners[$e_name])){
-                    foreach($this->listeners[$e_name] as $l_name => $listener){
-                        $this->dispatcher->addSubscriber(new $listener());
-                    }
-                    $this->dispatcher->dispatch($name, new $event($response, $request));
-                } 
-            }
-        }
     }
 
 }

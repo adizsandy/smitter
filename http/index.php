@@ -4,6 +4,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 use Symfox\Router;
 use Symfox\Framework;
+use Symfox\DispatchProcessor;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
@@ -16,16 +17,15 @@ $events = require __DIR__.'/../src/register/events.php';
 $listeners = require __DIR__.'/../src/register/listeners.php';
 $routes = require __DIR__.'/../src/register/routes.php';
 
-$router = new Router();
-$routeCollection = $router->collect($routes);
-
+$routeCollection = (new Router())->collect($routes);
 $context = new RequestContext();
-$matcher = new UrlMatcher($routeCollection, $context);
 
+$dispatcher = new DispatchProcessor($events, $listeners);
+$matcher = new UrlMatcher($routeCollection, $context);
 $argumentResolver = new ArgumentResolver();
 $controllerResolver = new ControllerResolver();
 
-$framework = new Framework($events, $listeners, $matcher, $controllerResolver, $argumentResolver);
+$framework = new Framework($dispatcher, $matcher, $controllerResolver, $argumentResolver);
 
 $request = Request::createFromGlobals();
 $response = $framework->handle($request);
