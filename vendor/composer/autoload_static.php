@@ -6,12 +6,6 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
 {
-    public static $files = array (
-        '3dd9e485a10a3eaffff80c3f29f8a884' => __DIR__ . '/../..' . '/src/register/events.php',
-        '9f11692b0b415c84bbc573537ec55dcf' => __DIR__ . '/../..' . '/src/register/listeners.php',
-        'b9b1088821e637f3a6c69525bf739ad3' => __DIR__ . '/../..' . '/src/register/routes.php',
-    );
-
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
@@ -35,14 +29,14 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         ),
         'App\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/code',
+            0 => __DIR__ . '/../..' . '/app/code',
         ),
     );
 
     public static $classMap = array (
-        'App\\Controller\\HomeController' => __DIR__ . '/../..' . '/src/code/controllers/HomeController.php',
-        'App\\Events\\ResponseEvent' => __DIR__ . '/../..' . '/src/code/events/ResponseEvent.php',
-        'App\\Model\\Calculator' => __DIR__ . '/../..' . '/src/code/models/Calculator.php',
+        'App\\Controller\\HomeController' => __DIR__ . '/../..' . '/app/code/controllers/HomeController.php',
+        'App\\Events\\ResponseEvent' => __DIR__ . '/../..' . '/app/code/events/ResponseEvent.php',
+        'App\\Model\\Calculator' => __DIR__ . '/../..' . '/app/code/models/Calculator.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
         'Symfony\\Component\\Console\\CommandLoader\\ContainerCommandLoader' => __DIR__ . '/..' . '/symfony/console/CommandLoader/ContainerCommandLoader.php',
@@ -1132,6 +1126,15 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         'Symfony\\Polyfill\\Util\\LegacyTestListener' => __DIR__ . '/..' . '/symfony/polyfill-util/LegacyTestListener.php',
         'Symfony\\Polyfill\\Util\\TestListener' => __DIR__ . '/..' . '/symfony/polyfill-util/TestListener.php',
         'Symfony\\Polyfill\\Util\\TestListenerTrait' => __DIR__ . '/..' . '/symfony/polyfill-util/TestListenerTrait.php',
+        'Symfox\\Component\\Collector\\Collector' => __DIR__ . '/..' . '/symfox/component/Collector/Collector.php',
+        'Symfox\\Component\\Collector\\EventCollection' => __DIR__ . '/..' . '/symfox/component/Collector/EventCollection.php',
+        'Symfox\\Component\\Collector\\ListenerCollection' => __DIR__ . '/..' . '/symfox/component/Collector/ListenerCollection.php',
+        'Symfox\\Component\\Collector\\RouteCollection' => __DIR__ . '/..' . '/symfox/component/Collector/RouteCollection.php',
+        'Symfox\\Component\\Processor\\Argument' => __DIR__ . '/..' . '/symfox/component/Processor/Argument.php',
+        'Symfox\\Component\\Processor\\Control' => __DIR__ . '/..' . '/symfox/component/Processor/Control.php',
+        'Symfox\\Component\\Processor\\Dispatch' => __DIR__ . '/..' . '/symfox/component/Processor/Dispatch.php',
+        'Symfox\\Component\\Processor\\Match' => __DIR__ . '/..' . '/symfox/component/Processor/Match.php',
+        'Symfox\\Component\\Processor\\Processor' => __DIR__ . '/..' . '/symfox/component/Processor/Processor.php',
         'Symfox\\Framework' => __DIR__ . '/..' . '/symfox/framework.php',
     );
 

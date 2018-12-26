@@ -8,5 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'Symfox\\' => array($vendorDir . '/symfox'),
     'Symfony\\' => array($vendorDir . '/symfony'),
-    'App\\' => array($baseDir . '/src/code'),
+    'App\\' => array($baseDir . '/app/code'),
 );

@@ -6,9 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\Controller\\HomeController' => $baseDir . '/src/code/controllers/HomeController.php',
-    'App\\Events\\ResponseEvent' => $baseDir . '/src/code/events/ResponseEvent.php',
-    'App\\Model\\Calculator' => $baseDir . '/src/code/models/Calculator.php',
+    'App\\Controller\\HomeController' => $baseDir . '/app/code/controllers/HomeController.php',
+    'App\\Events\\ResponseEvent' => $baseDir . '/app/code/events/ResponseEvent.php',
+    'App\\Model\\Calculator' => $baseDir . '/app/code/models/Calculator.php',
     'Symfony\\Component\\Console\\Application' => $vendorDir . '/symfony/console/Application.php',
     'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => $vendorDir . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
     'Symfony\\Component\\Console\\CommandLoader\\ContainerCommandLoader' => $vendorDir . '/symfony/console/CommandLoader/ContainerCommandLoader.php',
@@ -1098,5 +1098,14 @@ return array(
     'Symfony\\Polyfill\\Util\\LegacyTestListener' => $vendorDir . '/symfony/polyfill-util/LegacyTestListener.php',
     'Symfony\\Polyfill\\Util\\TestListener' => $vendorDir . '/symfony/polyfill-util/TestListener.php',
     'Symfony\\Polyfill\\Util\\TestListenerTrait' => $vendorDir . '/symfony/polyfill-util/TestListenerTrait.php',
+    'Symfox\\Component\\Collector\\Collector' => $vendorDir . '/symfox/component/Collector/Collector.php',
+    'Symfox\\Component\\Collector\\EventCollection' => $vendorDir . '/symfox/component/Collector/EventCollection.php',
+    'Symfox\\Component\\Collector\\ListenerCollection' => $vendorDir . '/symfox/component/Collector/ListenerCollection.php',
+    'Symfox\\Component\\Collector\\RouteCollection' => $vendorDir . '/symfox/component/Collector/RouteCollection.php',
+    'Symfox\\Component\\Processor\\Argument' => $vendorDir . '/symfox/component/Processor/Argument.php',
+    'Symfox\\Component\\Processor\\Control' => $vendorDir . '/symfox/component/Processor/Control.php',
+    'Symfox\\Component\\Processor\\Dispatch' => $vendorDir . '/symfox/component/Processor/Dispatch.php',
+    'Symfox\\Component\\Processor\\Match' => $vendorDir . '/symfox/component/Processor/Match.php',
+    'Symfox\\Component\\Processor\\Processor' => $vendorDir . '/symfox/component/Processor/Processor.php',
     'Symfox\\Framework' => $vendorDir . '/symfox/framework.php',
 );
