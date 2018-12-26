@@ -1,15 +1,15 @@
 <?php
 
-namespace Symfox;
+namespace Symfox\Component\Collector;
 
 class Collector{
 
-	private $map;
+	public $map = [];
 
 	public function __construct(){
-
-		$map = require_once __DIR__.'/../../../map.php';
-
-		$this->map = $map;
+		$this->map = require __DIR__.'/../../../../map.php';
+		return $this->map;
 	}
 }
+
+          

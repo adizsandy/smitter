@@ -1,13 +1,18 @@
 <?php
 
-namespace Symfox;
+namespace Symfox\Component\Collector;
 
 class RouteCollection extends Collector{
 
-	private $routes;
+	public $routes;
 
 	public function __construct(){
+		$collection   = new Collector();
 
-		$this->routes = require_once $this->map['routes'];
+		parent::__construct();
+
+		if(!empty($this->map['routes'])){
+			$this->routes = require __DIR__.'/../../../../'.$this->map['routes'];
+		}
 	}
 }

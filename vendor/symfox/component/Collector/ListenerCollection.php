@@ -1,13 +1,17 @@
 <?php
 
-namespace Symfox;
+namespace Symfox\Component\Collector;
 
 class ListenerCollection extends Collector{
 
-	private $listeners;
+	public $listeners;
 
 	public function __construct(){
 
-		$this->listeners = require_once $this->map['listeners'];
+		parent::__construct();
+
+		if(!empty($this->map['listeners'])){
+			$this->listeners = require __DIR__.'/../../../../'.$this->map['listeners'];
+		}
 	}
 }

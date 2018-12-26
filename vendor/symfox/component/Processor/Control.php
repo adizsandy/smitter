@@ -1,6 +1,6 @@
 <?php
 
-namespace Symfox;
+namespace Symfox\Component\Processor;
 
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 
@@ -9,7 +9,10 @@ class Control{
 	private $controllerResolver;
 
 	public function __construct(){
-		
-		return 	new ControllerResolver();
+		$this->controllerResolver =	new ControllerResolver();
+	}
+
+	public function getResolver(){
+		return $this->controllerResolver;
 	}
 } 

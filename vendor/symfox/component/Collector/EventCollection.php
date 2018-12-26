@@ -1,13 +1,17 @@
 <?php
 
-namespace Symfox;
+namespace Symfox\Component\Collector;
 
 class EventCollection extends Collector{
 
-	private $events;
+	public $events;
 
 	public function __construct(){
 
-		$this->events = require_once $this->map['events'];
+		parent::__construct();
+
+		if(!empty($this->map['events'])){
+			$this->events = require __DIR__.'/../../../../'.$this->map['events'];
+		}
 	}
 }

@@ -1,50 +1,46 @@
 <?php
 
-namespace Symfox;
+namespace Symfox\Component\Processor;
 
-use Component\Action;
-use Component\Collector;
+use Symfox\Component\Action;
+use Symfox\Component\Collector;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 
 class Processor 
 {
-	protected $dispatcher;
+    protected $dispatcher;
     protected $matcher;
     protected $controllerResolver;
     protected $argumentResolver;
 
     public function __construct(){
-
-    	$events = new \EventCollection();
-    	$listeners = new \ListenerCollection();
-        $routes = new \RouteCollection();
-    	
-        $this->dispatcher = $this->call_dispatch($events, $listeners);
-        $this->matcher = $this->call_match($routes);
-        $this->controllerResolver = $this->call_control();
-        $this->argumentResolver = $this->call_argument();
+        
+        $this->dispatcher           = $this->call_dispatch(new \Symfox\Component\Collector\EventCollection(), new \Symfox\Component\Collector\ListenerCollection());
+        $this->matcher              = $this->call_match(new \Symfox\Component\Collector\RouteCollection());
+        $this->controllerResolver   = $this->call_control();
+        $this->argumentResolver     = $this->call_argument();
     }
 
-    private function call_match(){
+    protected function call_match($routes){
 
         $matchProcessor = new Match($routes);
-        return $matchProcessor;
+        return $matchProcessor->getMatcher();
     }
 
-    private function call_dispatch($events, $listeners){
+    protected function call_dispatch($events, $listeners){
 
     	$dispatchProcessor = new Dispatch($events, $listeners);
     	return $dispatchProcessor;
     }
 
-    private function call_control(){
+    protected function call_control(){
         $controlProcessor = new Control();
-        return $controlProcessor;
+        return $controlProcessor->getResolver();
     }
 
-    private function call_argument(){
+    protected function call_argument(){
         $argumentProcessor = new Argument();
-        return $argumentProcessor;
+        return $argumentProcessor->getResolver();
     }
 
 }

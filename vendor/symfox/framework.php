@@ -2,38 +2,25 @@
 
 namespace Symfox;
 
+use Symfox\Component\Processor\Processor;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
-use Symfony\Component\HttpKernel\Controller\ControllerResolver;
-use Symfony\Component\Routing\Exception\ResourceNotFoundException;
-use Symfony\Component\Routing\Matcher\UrlMatcher;
-//use Symfony\Component\HttpKernel\HttpKernelInterface;
 
-class Framework 
+class Framework extends Processor
 {   
-    private $dispatcher;
-    private $matcher;
-    private $controllerResolver;
-    private $argumentResolver;
-
-    public function __construct($dispatcher, UrlMatcher $matcher, ControllerResolver $controllerResolver, ArgumentResolver $argumentResolver)
+    public function __construct()
     {   
-        $this->dispatcher = $dispatcher;
-        $this->matcher = $matcher;
-        $this->controllerResolver = $controllerResolver;
-        $this->argumentResolver = $argumentResolver;
-
+        parent::__construct();
     }
 
     public function handle(Request $request)
-    {
+    {   
         $this->matcher->getContext()->fromRequest($request);
 
         try {
             $request->attributes->add($this->matcher->match($request->getPathInfo()));
 
-            $controller = $this->controllerResolver->getController($request);//echo"<pre>";print_r($controller);die;
+            $controller = $this->controllerResolver->getController($request);
             $arguments = $this->argumentResolver->getArguments($request, $controller);
 
             $response = call_user_func_array($controller, $arguments);

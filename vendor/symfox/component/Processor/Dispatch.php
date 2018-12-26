@@ -1,6 +1,6 @@
 <?php
 
-namespace Symfox;
+namespace Symfox\Component\Processor;
 
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
@@ -12,8 +12,8 @@ class Dispatch{
 
 	public function __construct($events, $listeners){
 		$this->dispatcher = new EventDispatcher();
-		$this->events = $events;
-		$this->listeners = $listeners;
+		$this->events = $events->events;
+		$this->listeners = $listeners->listeners;
 	}
 
 	public function resolve($request, $response){
