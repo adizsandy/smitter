@@ -7,6 +7,14 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Symfox\\' => array($vendorDir . '/symfox'),
+    'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
+    'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
     'Symfony\\' => array($vendorDir . '/symfony'),
+    'Stringy\\' => array($vendorDir . '/danielstjules/stringy/src'),
+    'Illuminate\\Support\\' => array($vendorDir . '/illuminate/support'),
+    'Illuminate\\Database\\' => array($vendorDir . '/illuminate/database'),
+    'Illuminate\\Contracts\\' => array($vendorDir . '/illuminate/contracts'),
+    'Illuminate\\Container\\' => array($vendorDir . '/illuminate/container'),
     'App\\' => array($baseDir . '/app/code'),
+    '' => array($vendorDir . '/nesbot/carbon/src'),
 );

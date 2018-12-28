@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        
+        "illuminate/database": "^5.0"
     },
     "require-dev": {
         

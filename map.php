@@ -6,4 +6,5 @@ return [
 	'events' 		=> 'register/events.php',
 	'listeners' 	=> 'register/listeners.php',
 	'routes'		=> 'register/routes.php',
+	'models'		=> 'app/code/models'
 ];

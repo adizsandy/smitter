@@ -5,12 +5,17 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Model\Calculator;
+use App\Model\Test;
 
 class HomeController{
 
 	public function index(Request $request){
+		
+		$test = Test::where(['name'=>'shudhansh'])->first();
+	
+		$name = $test->name;
 
-		return new Response("Hello I am In");
+		return new Response("Hello ".$name." I am In");
 	}
 
 	public function numberGame(Request $request, $number){
