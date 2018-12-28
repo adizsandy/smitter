@@ -95,6 +95,7 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         'App\\Controller\\HomeController' => __DIR__ . '/../..' . '/app/code/controllers/HomeController.php',
         'App\\Events\\ResponseEvent' => __DIR__ . '/../..' . '/app/code/events/ResponseEvent.php',
         'App\\Model\\Calculator' => __DIR__ . '/../..' . '/app/code/models/Calculator.php',
+        'App\\Model\\Model' => __DIR__ . '/../..' . '/app/code/models/Model.php',
         'App\\Model\\Test' => __DIR__ . '/../..' . '/app/code/models/Test.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',

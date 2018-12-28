@@ -9,6 +9,7 @@ return array(
     'App\\Controller\\HomeController' => $baseDir . '/app/code/controllers/HomeController.php',
     'App\\Events\\ResponseEvent' => $baseDir . '/app/code/events/ResponseEvent.php',
     'App\\Model\\Calculator' => $baseDir . '/app/code/models/Calculator.php',
+    'App\\Model\\Model' => $baseDir . '/app/code/models/Model.php',
     'App\\Model\\Test' => $baseDir . '/app/code/models/Test.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
