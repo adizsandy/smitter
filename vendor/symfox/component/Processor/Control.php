@@ -6,13 +6,26 @@ use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 
 class Control{
 
-	private $controllerResolver;
+	private $options;
 
-	public function __construct(){
-		$this->controllerResolver =	new ControllerResolver();
+	public function __construct($options){
+		//....
+		$this->options = $options;
 	}
 
 	public function getResolver(){
-		return $this->controllerResolver;
+		return new ControllerResolver();
 	}
+
+	public function handleRequest($control, $args){
+		$control[0]->db = $this->options[0];
+		$control[0]->fn = $this->options[1];
+		
+		return call_user_func_array($control, $args);
+	}
+
+	public function view($html){
+
+	}
+
 } 

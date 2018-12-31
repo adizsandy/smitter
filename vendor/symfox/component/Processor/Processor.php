@@ -2,7 +2,6 @@
 
 namespace Symfox\Component\Processor;
 
-use Symfox\Component\Action;
 use Symfox\Component\Collector;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 
@@ -10,42 +9,52 @@ class Processor
 {
     protected $dispatcher;
     protected $matcher;
-    protected $controllerResolver;
+    protected $controlProcessor;
     protected $argumentResolver;
-    protected $db;
 
     public function __construct(){
         
-        $this->dispatcher           = $this->call_dispatch(new \Symfox\Component\Collector\EventCollection(), new \Symfox\Component\Collector\ListenerCollection());
-        $this->matcher              = $this->call_match(new \Symfox\Component\Collector\RouteCollection());
-        $this->controllerResolver   = $this->call_control();
+        $event = new \Symfox\Component\Collector\EventCollection();
+        $listen = new \Symfox\Component\Collector\ListenerCollection();
+        $this->dispatcher           = $this->call_dispatch($event, $listen);
+       
+        $routes = new \Symfox\Component\Collector\RouteCollection();
+        $this->matcher              = $this->call_match($routes);
+
+        $db = $this->call_persistance(new \Symfox\Component\Collector\ConnCollection());
+        $fn = $this->call_function(new \Symfox\Component\Collector\FnCollection());
+        $this->controlProcessor     = $this->call_control([$db,$fn->fn]);
+
         $this->argumentResolver     = $this->call_argument();
-        $this->db                   = $this->call_persistance(new \Symfox\Component\Collector\ConnCollection());
     }
 
-    protected function call_match($routes){
+    private function call_match($routes){
         $matchProcessor = new Match($routes);
         return $matchProcessor->getMatcher();
     }
 
-    protected function call_dispatch($events, $listeners){
+    private function call_dispatch($events, $listeners){
     	$dispatchProcessor = new Dispatch($events, $listeners);
     	return $dispatchProcessor;
     }
 
-    protected function call_control(){
-        $controlProcessor = new Control();
-        return $controlProcessor->getResolver();
+    private function call_control($arg){
+        $controlProcessor = new Control($arg);
+        return $controlProcessor;
     }
 
-    protected function call_argument(){
+    private function call_argument(){
         $argumentProcessor = new Argument();
         return $argumentProcessor->getResolver();
     }
 
-    protected function call_persistance($conn){
+    private function call_persistance($conn){
         $persistProcessor = new Persistance($conn);
         return $persistProcessor->getCapsule();
+    }
+
+    private function call_function($fn){
+        return $fn;
     }
 
 }
