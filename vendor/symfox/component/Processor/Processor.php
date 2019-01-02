@@ -57,4 +57,17 @@ class Processor
         return $fn;
     }
 
+    private function process_view(){
+        return new View();
+    }
+
+    public static function provide_component($name){
+
+        $action = "process_".$name;
+        
+        if(method_exists(__CLASS__, $action)){
+             return self::$action();
+        }
+    }
+
 }

@@ -2,9 +2,7 @@
 
 namespace Symfox\Component\Processor;
 
-use Symfony\Component\HttpFoundation\Response;
-
-class View{
+class Cache{
 
 	private $response;
 	private $desDir = __DIR__.'/../../../../app/design/';

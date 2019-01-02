@@ -9,14 +9,12 @@ class HomeController{
 
 	public function index(){
 		
-		$test = $this->db->table('test')->first();
+		$test = Test::first();
 		
-		$name = $test->name;
+		$name = $test->name; 
 		$data['msg'] = "Hello ".$name." I am In";
 		
-		$this->view->render('templates/home',$data);
-		
-		//return new Response("Hello ".$name." I am In");
+		return $this->view->render('templates/home',$data);
 	}
 
 	public function numberGame($number){
@@ -29,7 +27,9 @@ class HomeController{
 			$square = $calculator->get_square($number);
 			$cube = $calculator->get_cube($number);
 		}
-		$this->view->render('templates/double_page',$data);
-		//return new Response("Square : ".$square." and Cube : ".$cube);
+
+		$data['msg'] = "Square : ".$square." and Cube : ".$cube;
+
+		return $this->view->render('templates/double_page',$data);
 	}
 }

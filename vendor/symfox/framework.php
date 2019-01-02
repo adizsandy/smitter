@@ -32,7 +32,7 @@ class Framework extends Processor
         }
 
         $this->dispatcher->resolve($request, $response);
-
+        
         return $response;
     }
 

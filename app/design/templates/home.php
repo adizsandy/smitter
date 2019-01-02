@@ -1,5 +1,5 @@
 <?php
 
-$name = $request->get('name');
-
-echo "Welcome home !".$name; 
+echo "Welcome home !"; 
+echo "Special message for you.";
+echo $msg;

@@ -35,6 +35,7 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         'D' => 
         array (
             'Doctrine\\Common\\Inflector\\' => 26,
+            'Doctrine\\Common\\Cache\\' => 22,
         ),
         'A' => 
         array (
@@ -91,6 +92,10 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
         ),
+        'Doctrine\\Common\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app/code',
@@ -102,12 +107,42 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
     );
 
     public static $classMap = array (
-        'App\\Controller\\Controller' => __DIR__ . '/../..' . '/app/code/controllers/Controller.php',
         'App\\Controller\\HomeController' => __DIR__ . '/../..' . '/app/code/controllers/HomeController.php',
         'App\\Events\\ResponseEvent' => __DIR__ . '/../..' . '/app/code/events/ResponseEvent.php',
         'App\\Model\\Calculator' => __DIR__ . '/../..' . '/app/code/models/Calculator.php',
         'App\\Model\\Model' => __DIR__ . '/../..' . '/app/code/models/Model.php',
         'App\\Model\\Test' => __DIR__ . '/../..' . '/app/code/models/Test.php',
+        'Doctrine\\Common\\Cache\\ApcCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/ApcCache.php',
+        'Doctrine\\Common\\Cache\\ApcuCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/ApcuCache.php',
+        'Doctrine\\Common\\Cache\\ArrayCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/ArrayCache.php',
+        'Doctrine\\Common\\Cache\\Cache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/Cache.php',
+        'Doctrine\\Common\\Cache\\CacheProvider' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/CacheProvider.php',
+        'Doctrine\\Common\\Cache\\ChainCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/ChainCache.php',
+        'Doctrine\\Common\\Cache\\ClearableCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/ClearableCache.php',
+        'Doctrine\\Common\\Cache\\CouchbaseBucketCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/CouchbaseBucketCache.php',
+        'Doctrine\\Common\\Cache\\CouchbaseCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/CouchbaseCache.php',
+        'Doctrine\\Common\\Cache\\ExtMongoDBCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/ExtMongoDBCache.php',
+        'Doctrine\\Common\\Cache\\FileCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/FileCache.php',
+        'Doctrine\\Common\\Cache\\FilesystemCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/FilesystemCache.php',
+        'Doctrine\\Common\\Cache\\FlushableCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/FlushableCache.php',
+        'Doctrine\\Common\\Cache\\LegacyMongoDBCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/LegacyMongoDBCache.php',
+        'Doctrine\\Common\\Cache\\MemcacheCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/MemcacheCache.php',
+        'Doctrine\\Common\\Cache\\MemcachedCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/MemcachedCache.php',
+        'Doctrine\\Common\\Cache\\MongoDBCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/MongoDBCache.php',
+        'Doctrine\\Common\\Cache\\MultiDeleteCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/MultiDeleteCache.php',
+        'Doctrine\\Common\\Cache\\MultiGetCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/MultiGetCache.php',
+        'Doctrine\\Common\\Cache\\MultiOperationCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/MultiOperationCache.php',
+        'Doctrine\\Common\\Cache\\MultiPutCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/MultiPutCache.php',
+        'Doctrine\\Common\\Cache\\PhpFileCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/PhpFileCache.php',
+        'Doctrine\\Common\\Cache\\PredisCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/PredisCache.php',
+        'Doctrine\\Common\\Cache\\RedisCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/RedisCache.php',
+        'Doctrine\\Common\\Cache\\RiakCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/RiakCache.php',
+        'Doctrine\\Common\\Cache\\SQLite3Cache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/SQLite3Cache.php',
+        'Doctrine\\Common\\Cache\\Version' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/Version.php',
+        'Doctrine\\Common\\Cache\\VoidCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/VoidCache.php',
+        'Doctrine\\Common\\Cache\\WinCacheCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/WinCacheCache.php',
+        'Doctrine\\Common\\Cache\\XcacheCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/XcacheCache.php',
+        'Doctrine\\Common\\Cache\\ZendDataCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/ZendDataCache.php',
         'Doctrine\\Common\\Inflector\\Inflector' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector/Inflector.php',
         'Illuminate\\Container\\BoundMethod' => __DIR__ . '/..' . '/illuminate/container/BoundMethod.php',
         'Illuminate\\Container\\Container' => __DIR__ . '/..' . '/illuminate/container/Container.php',
@@ -1266,16 +1301,19 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         'Symfox\\Component\\Collector\\Collector' => __DIR__ . '/..' . '/symfox/component/Collector/Collector.php',
         'Symfox\\Component\\Collector\\ConnCollection' => __DIR__ . '/..' . '/symfox/component/Collector/ConnCollection.php',
         'Symfox\\Component\\Collector\\EventCollection' => __DIR__ . '/..' . '/symfox/component/Collector/EventCollection.php',
+        'Symfox\\Component\\Collector\\FnCollection' => __DIR__ . '/..' . '/symfox/component/Collector/FnCollection.php',
         'Symfox\\Component\\Collector\\ListenerCollection' => __DIR__ . '/..' . '/symfox/component/Collector/ListenerCollection.php',
         'Symfox\\Component\\Collector\\ModelCollection' => __DIR__ . '/..' . '/symfox/component/Collector/ModelCollection.php',
         'Symfox\\Component\\Collector\\RouteCollection' => __DIR__ . '/..' . '/symfox/component/Collector/RouteCollection.php',
         'Symfox\\Component\\Processor\\Argument' => __DIR__ . '/..' . '/symfox/component/Processor/Argument.php',
+        'Symfox\\Component\\Processor\\Cache' => __DIR__ . '/..' . '/symfox/component/Processor/Cache.php',
         'Symfox\\Component\\Processor\\Control' => __DIR__ . '/..' . '/symfox/component/Processor/Control.php',
         'Symfox\\Component\\Processor\\Dispatch' => __DIR__ . '/..' . '/symfox/component/Processor/Dispatch.php',
         'Symfox\\Component\\Processor\\Match' => __DIR__ . '/..' . '/symfox/component/Processor/Match.php',
         'Symfox\\Component\\Processor\\Persistanc' => __DIR__ . '/..' . '/symfox/component/Processor/Persistance_DOCTRINE.php',
         'Symfox\\Component\\Processor\\Persistance' => __DIR__ . '/..' . '/symfox/component/Processor/Persistance.php',
         'Symfox\\Component\\Processor\\Processor' => __DIR__ . '/..' . '/symfox/component/Processor/Processor.php',
+        'Symfox\\Component\\Processor\\View' => __DIR__ . '/..' . '/symfox/component/Processor/View.php',
         'Symfox\\Framework' => __DIR__ . '/..' . '/symfox/framework.php',
     );
 
