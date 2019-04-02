@@ -1,4 +1,13 @@
 <?php
+/**
+ * Symfox : Melting the Rocks of PHP 
+ * 
+ * @version 0.0.3 | Alfa  
+ * @author Shudhansh Dubey < sudhanshs4@gmail.com >
+ * @link https://adizsandy@bitbucket.org/adizsandy/symfox.git
+ * @copyright 2019 Symfox, All rights reserved
+ * @license MIT
+ */
 
 namespace Symfox;
 
@@ -6,6 +15,11 @@ use Symfox\Component\Processor\Processor;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+ /**  
+ * Framework Class
+ * Base of framework
+ * 
+ */
 class Framework extends Processor
 {   
     public function __construct()

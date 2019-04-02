@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Symfox : Simplifying the PHP  
+ * Symfox : Melting the Rocks of PHP   
  * 
  * @version 0.0.3 | Alfa  
  * @author Shudhansh Dubey < sudhanshs4@gmail.com >

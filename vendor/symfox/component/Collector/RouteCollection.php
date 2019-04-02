@@ -7,8 +7,6 @@ class RouteCollection extends Collector{
 	public $routes;
 
 	public function __construct(){
-		$collection   = new Collector();
-
 		parent::__construct();
 
 		if(!empty($this->map['routes'])){
