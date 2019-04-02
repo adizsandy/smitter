@@ -24,7 +24,7 @@ class Dispatch{
                     foreach($this->listeners[$e_name] as $l_name => $listener){
                         $this->dispatcher->addSubscriber(new $listener());
                     }
-                    $this->dispatcher->dispatch($name, new $event($response, $request));
+                    $this->dispatcher->dispatch($e_name, new $event($response, $request));
                 } 
             }
         }

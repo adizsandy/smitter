@@ -1,5 +1,22 @@
 <?php
 
+/**
+ * Symfox : Simplifying the PHP  
+ * 
+ * @version 0.0.3 | Alfa  
+ * @author Shudhansh Dubey < sudhanshs4@gmail.com >
+ * @link https://adizsandy@bitbucket.org/adizsandy/symfox.git
+ * @copyright 2019 Symfox, All rights reserved
+ * @license MIT
+ */
+
+ /**  
+ * HTTP Landing 
+ * 
+ * I/O Port of the framework
+ * Accepts the request and outputs the response
+ */
+
 require_once __DIR__.'/../vendor/autoload.php';
 
 use Symfox\Framework;
