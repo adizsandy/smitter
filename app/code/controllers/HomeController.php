@@ -2,18 +2,22 @@
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use App\Model\Calculator;
+use App\Model\Test;
 
 class HomeController{
 
-	public function index(Request $request){
-
-		return new Response("Hello I am In");
+	public function index(){
+		
+		$test = Test::first();
+		
+		$name = $test->name; 
+		$data['msg'] = "Hello ".$name." I am In";
+		
+		return $this->view->render('templates/home',$data);
 	}
 
-	public function numberGame(Request $request, $number){
+	public function numberGame($number){
 
 		$square = 0; $cube = 0;
 
@@ -23,7 +27,9 @@ class HomeController{
 			$square = $calculator->get_square($number);
 			$cube = $calculator->get_cube($number);
 		}
-		
-		return new Response("Square : ".$square." and Cube : ".$cube);
+
+		$data['msg'] = "Square : ".$square." and Cube : ".$cube;
+
+		return $this->view->render('templates/double_page',$data);
 	}
 }

@@ -20,18 +20,19 @@ class Framework extends Processor
         try {
             $request->attributes->add($this->matcher->match($request->getPathInfo()));
 
-            $controller = $this->controllerResolver->getController($request);
+            $controller = $this->controlProcessor->getResolver()->getController($request);
             $arguments = $this->argumentResolver->getArguments($request, $controller);
 
-            $response = call_user_func_array($controller, $arguments);
+            $response = $this->controlProcessor->handleRequest($controller,$arguments);
+
         } catch (ResourceNotFoundException $exception) {
             $response = new Response('Not Found', 404);
         } catch (\Exception $exception) {
-            $response = new Response('An error occurred', 500);
+            $response = new Response($exception->getMessage(), 500);
         }
 
         $this->dispatcher->resolve($request, $response);
-
+        
         return $response;
     }
 
