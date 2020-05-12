@@ -1,3 +1,3 @@
-# Symfox - Melting the rocks of PHP #
+# Symfox - Simply Clever #
 ## A secure, modular, compact framework for lightning fast applications ##
 
