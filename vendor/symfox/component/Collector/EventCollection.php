@@ -11,7 +11,7 @@ class EventCollection extends Collector{
 		parent::__construct();
 
 		if(!empty($this->map['events'])){
-			$this->events = require __DIR__.'/../../../../'.$this->map['events'];
+			$this->events = require __DIR__.'/../../../../core/'.$this->map['events'];
 		}
 	}
 }

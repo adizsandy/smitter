@@ -16,7 +16,7 @@
            
         ],
         "psr-4": {
-            "App\\" : "app/code",
+            "App\\" : "core/app/code",
             "Symfox\\" : "vendor/symfox",
             "Symfony\\" : "vendor/symfony"
         }, 

@@ -11,7 +11,7 @@ class ListenerCollection extends Collector{
 		parent::__construct();
 
 		if(!empty($this->map['listeners'])){
-			$this->listeners = require __DIR__.'/../../../../'.$this->map['listeners'];
+			$this->listeners = require __DIR__.'/../../../../core/'.$this->map['listeners'];
 		}
 	}
 }

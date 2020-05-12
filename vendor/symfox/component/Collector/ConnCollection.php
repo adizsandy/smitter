@@ -12,7 +12,7 @@ class ConnCollection extends Collector{
 		parent::__construct();
 
 		if(!empty($this->map['config'])){
-			$this->conParam = require __DIR__.'/../../../../'.$this->map['config'];
+			$this->conParam = require __DIR__.'/../../../../core/'.$this->map['config'];
 		}
 	}
 }

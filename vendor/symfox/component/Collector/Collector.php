@@ -2,12 +2,13 @@
 
 namespace Symfox\Component\Collector;
 
-class Collector{
+class Collector {
 
 	public $map = [];
 
-	public function __construct(){
-		$this->map = require __DIR__.'/../../../../map.php';
+	public function __construct()
+	{	
+		$this->map = require __DIR__.'/../../../../core/register/map.php';
 		return $this->map;
 	}
 }

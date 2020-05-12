@@ -39,7 +39,7 @@ class Framework extends Processor
 
             $response = $this->controlProcessor->handleRequest($controller,$arguments);
 
-        } catch (ResourceNotFoundException $exception) {
+        } catch (\ResourceNotFoundException $exception) {
             $response = new Response('Not Found', 404);
         } catch (\Exception $exception) {
             $response = new Response($exception->getMessage(), 500);

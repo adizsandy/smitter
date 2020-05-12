@@ -12,7 +12,7 @@ class FnCollection extends Collector{
 		parent::__construct();
 
 		if(!empty($this->map['function'])){
-			$this->fn = require __DIR__.'/../../../../'.$this->map['function'];
+			$this->fn = require __DIR__.'/../../../../core/'.$this->map['function'];
 		}
 	}
 }

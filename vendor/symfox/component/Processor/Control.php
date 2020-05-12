@@ -4,28 +4,33 @@ namespace Symfox\Component\Processor;
 
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 
-class Control{
+class Control {
 
 	private $options;
-	private $view;
 
-	public function __construct($options){
+	public function __construct($options)
+	{
 		$this->options = $options;
 	}
 
-	public function getResolver(){
+	public function getResolver()
+	{
 		return new ControllerResolver();
 	}
 
-	public function handleRequest($control, $args){
+	public function handleRequest($control, $args)
+	{
 		$this->setCustoms($control);
 		return call_user_func_array($control, $args);
 	}
 
-	private function setCustoms($control){
+	private function setCustoms($control)
+	{
 		$control[0]->db 	= $this->options[0];
 		$control[0]->fn 	= $this->options[1];
+
 		$this->setViewProcessor($control[0]);
+		$this->setSessionProcessor($control[0]);
 
 		return $control;
 	}
@@ -38,6 +43,18 @@ class Control{
 	private function setViewProcessor($control){
 		$view = $this->getViewProcessor();
 		$control->view = $view;
+	}
+
+	private function getSessionProcessor() 
+	{
+		$session = Processor::provide_component('session');
+		return $session;
+	}
+
+	private function setSessionProcessor($control) 
+	{
+		$session = $this->getSessionProcessor();
+		$control->session = $session;
 	}
 
 } 

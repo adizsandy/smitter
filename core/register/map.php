@@ -1,0 +1,13 @@
+<?php
+
+return [ 
+	'config' 		=> 'register/config.php',
+	'constants' 	=> 'register/constants.php',
+	'events' 		=> 'register/events.php',
+	'listeners' 	=> 'register/listeners.php',
+	'routes'		=> 'register/routes.php',
+	'models'		=> 'app/code/models',
+	'function'		=> 'register/functions.php',
+	'design'		=> 'app/design',
+	'controller'	=> 'app/code/controllers',
+];
