@@ -30,10 +30,8 @@ class View {
 				$content = $this->setLayout( $this->layout, ['content' => $content ] );
 			}
 		}  
-
-		return ResponseAction::output($content, 'html');
-		//$this->response->setContent($content);
-		//return $this->response;
+		
+		return (new ResponseAction)->output($content);
 	}
 
 	public function layout($layout) 

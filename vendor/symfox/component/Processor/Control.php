@@ -64,8 +64,8 @@ class Control {
 
 	private function getResponseAction() 
 	{
-		$session = Processor::call_component('response'); 
-		return $session;
+		$response = Processor::call_component('response'); 
+		return $response;
 	}
 
 	private function setResponseAction($control) 

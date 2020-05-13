@@ -14,7 +14,7 @@ class ResponseAction {
         $this->response = new Response();
     }
 
-    public static function output ($content = null, $type = null) 
+    public function output ($content = null, $type = null) 
     {
         if ($type == 'json') {
             $this->response->setContent(json_encode($content));
@@ -27,14 +27,16 @@ class ResponseAction {
         return $this->response;
     }
 
-    public static function json ($content = null) 
+    public function json ($content = null) 
     {
         $this->response->setContent(json_encode($content));
+        
         $this->setContentType('json'); 
+        
         return $this->response;
     }
 
-    public static function redirect($url) 
+    public function redirect($url) 
     {
         $this->response = new RedirectResponse($url);
         return $this->response;
@@ -49,7 +51,5 @@ class ResponseAction {
         } else {
             $this->response->headers->set('Content-Type', 'text/html');
         }
-
-        return $this;
     }
 }

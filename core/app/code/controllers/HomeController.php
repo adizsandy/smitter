@@ -16,7 +16,6 @@ class HomeController {
 		$name = $test->name; 
 		$data['msg'] = "Hello ".$name." I am In";
 		
-		//return $this->view->layout('layout_1')->render('home', $data);
 		return $this->response->json($data); 
 	}
 
@@ -31,6 +30,6 @@ class HomeController {
 		}
 
 		$data['msg'] = "Square : ".$square." and Cube : ".$cube;
-		return $this->view->layout('layout_1')->render('double_page',$data);
+		return $this->view->layout('layout_1')->render('double_page', $data);
 	}	
 }
