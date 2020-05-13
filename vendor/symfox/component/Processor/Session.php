@@ -2,16 +2,18 @@
 
 namespace Symfox\Component\Processor;
 
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\Session\Session as Parent_Session;
 
-class Session {
+class Session extends Parent_Session {
 
-	public function __construct () {}
+	public function __construct ()  
+	{ 
+		parent::__construct(); 
+	}
 
-	public function session () 
-	{	
-		$session_int = new SessionInterface;
-		return $session_int;
+	public function init() 
+	{
+		$this->start();
 	}
 
 } 

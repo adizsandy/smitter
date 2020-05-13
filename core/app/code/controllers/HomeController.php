@@ -5,22 +5,24 @@ namespace App\Controller;
 use App\Model\Calculator;
 use App\Model\Test;
 
-class HomeController{
+class HomeController {
 
-	public function index(){
-		
+	public function index()
+	{	
 		$test = Test::first();
-		
+
+		$this->session->set('First', $test);
+
 		$name = $test->name; 
 		$data['msg'] = "Hello ".$name." I am In";
 		
-		return $this->view->render('templates/home',$data);
+		//return $this->view->layout('layout_1')->render('home', $data);
+		return $this->response->json($data); 
 	}
 
-	public function numberGame($number){
-
+	public function numberGame($number)
+	{
 		$square = 0; $cube = 0;
-
 		$calculator = new Calculator();
 		
 		if(isset($number)){
@@ -29,7 +31,6 @@ class HomeController{
 		}
 
 		$data['msg'] = "Square : ".$square." and Cube : ".$cube;
-
-		return $this->view->render('templates/double_page',$data);
-	}
+		return $this->view->layout('layout_1')->render('double_page',$data);
+	}	
 }

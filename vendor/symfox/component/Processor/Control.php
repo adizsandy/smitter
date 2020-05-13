@@ -7,6 +7,7 @@ use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 class Control {
 
 	private $options;
+	private $response;
 
 	public function __construct($options)
 	{
@@ -19,19 +20,19 @@ class Control {
 	}
 
 	public function handleRequest($control, $args)
-	{
-		$this->setCustoms($control);
+	{	
+		$control = $this->setCustoms($control);
 		return call_user_func_array($control, $args);
 	}
 
 	private function setCustoms($control)
 	{
-		$control[0]->db 	= $this->options[0];
-		$control[0]->fn 	= $this->options[1];
-
-		$this->setViewProcessor($control[0]);
-		$this->setSessionProcessor($control[0]);
-
+		$control[0]->db = $this->options[0];
+		$control[0]->fn = $this->options[1];
+		$control[0] = $this->setSessionProcessor($control[0]);
+		$control[0] = $this->setViewProcessor($control[0]); 
+		$control[0] = $this->setResponseAction($control[0]); 
+		
 		return $control;
 	}
 
@@ -40,21 +41,38 @@ class Control {
 		return $view;
 	}
 
-	private function setViewProcessor($control){
+	private function setViewProcessor($control)
+	{
 		$view = $this->getViewProcessor();
 		$control->view = $view;
+		return $control;
 	}
 
 	private function getSessionProcessor() 
 	{
-		$session = Processor::provide_component('session');
+		$session = Processor::provide_component('session'); 
 		return $session;
 	}
 
 	private function setSessionProcessor($control) 
 	{
 		$session = $this->getSessionProcessor();
+		$session->init();
 		$control->session = $session;
+		return $control;
+	}
+
+	private function getResponseAction() 
+	{
+		$session = Processor::call_component('response'); 
+		return $session;
+	}
+
+	private function setResponseAction($control) 
+	{
+		$response = $this->getResponseAction();
+		$control->response = $response;
+		return $control;
 	}
 
 } 

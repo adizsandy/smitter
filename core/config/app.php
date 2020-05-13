@@ -26,8 +26,8 @@ return [
 
 	'template' => [
 		'default' => [
-			'active' => 'no',
-			'driver' => 'blade'
+			'active' => 'yes',
+			'driver' => 'php'
 		]
 	]
 ];

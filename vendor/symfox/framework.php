@@ -37,12 +37,16 @@ class Framework extends Processor
             $controller = $this->controlProcessor->getResolver()->getController($request);
             $arguments = $this->argumentResolver->getArguments($request, $controller);
 
-            $response = $this->controlProcessor->handleRequest($controller,$arguments);
+            $response = $this->controlProcessor->handleRequest($controller, $arguments);
 
         } catch (\ResourceNotFoundException $exception) {
             $response = new Response('Not Found', 404);
         } catch (\Exception $exception) {
             $response = new Response($exception->getMessage(), 500);
+        }
+
+        if ( empty($response) ) {
+            $response = new Response("Error : No Response Definition Found", 500);
         }
 
         $this->dispatcher->resolve($request, $response);

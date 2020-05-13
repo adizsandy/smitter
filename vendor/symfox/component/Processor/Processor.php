@@ -116,9 +116,28 @@ class Processor
         return new View();
     }
 
+    private function process_session()
+    {   
+       return new Session();  
+    }
+
+    private function call_response()
+    {   
+       return new \Symfox\Component\Action\ResponseAction();  
+    }
+
     public static function provide_component($name)
     {
         $action = "process_" . $name;
+
+        if (method_exists(__CLASS__, $action)) {
+            return self::$action();
+        }
+    }
+
+    public static function call_component($name)
+    {
+        $action = "call_" . $name;
 
         if (method_exists(__CLASS__, $action)) {
             return self::$action();

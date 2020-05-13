@@ -8,7 +8,7 @@ class Collector {
 
 	public function __construct()
 	{	
-		$this->map = require __DIR__.'/../../../../core/register/map.php';
+		$this->map = require __DIR__.'/../../../../core/config/map.php';
 		return $this->map;
 	}
 }
