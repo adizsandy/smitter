@@ -107,7 +107,7 @@ class XliffLintCommandTest extends TestCase
 
     public function testLintFileNotReadable()
     {
-        $this->expectException('RuntimeException');
+        $this->expectException(\RuntimeException::class);
         $tester = $this->createCommandTester();
         $filename = $this->createFile();
         unlink($filename);
@@ -179,10 +179,10 @@ XLIFF;
     {
         foreach ($this->files as $file) {
             if (file_exists($file)) {
-                unlink($file);
+                @unlink($file);
             }
         }
-        rmdir(sys_get_temp_dir().'/translation-xliff-lint-test');
+        @rmdir(sys_get_temp_dir().'/translation-xliff-lint-test');
     }
 
     public function provideStrictFilenames()

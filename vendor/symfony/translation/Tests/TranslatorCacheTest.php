@@ -59,6 +59,10 @@ class TranslatorCacheTest extends TestCase
      */
     public function testThatACacheIsUsed($debug)
     {
+        if (!class_exists(\MessageFormatter::class)) {
+            $this->markTestSkipped(sprintf('Skipping test as the required "%s" class does not exist. Consider installing the "intl" PHP extension or the "symfony/polyfill-intl-messageformatter" package.', \MessageFormatter::class));
+        }
+
         $locale = 'any_locale';
         $format = 'some_format';
         $msgid = 'test';
@@ -101,7 +105,7 @@ class TranslatorCacheTest extends TestCase
         $catalogue->addResource(new StaleResource()); // better use a helper class than a mock, because it gets serialized in the cache and re-loaded
 
         /** @var LoaderInterface|MockObject $loader */
-        $loader = $this->getMockBuilder('Symfony\Component\Translation\Loader\LoaderInterface')->getMock();
+        $loader = $this->createMock(LoaderInterface::class);
         $loader
             ->expects($this->exactly(2))
             ->method('load')
@@ -248,8 +252,8 @@ class TranslatorCacheTest extends TestCase
 
     public function testRefreshCacheWhenResourcesAreNoLongerFresh()
     {
-        $resource = $this->getMockBuilder('Symfony\Component\Config\Resource\SelfCheckingResourceInterface')->getMock();
-        $loader = $this->getMockBuilder('Symfony\Component\Translation\Loader\LoaderInterface')->getMock();
+        $resource = $this->createMock(SelfCheckingResourceInterface::class);
+        $loader = $this->createMock(LoaderInterface::class);
         $resource->method('isFresh')->willReturn(false);
         $loader
             ->expects($this->exactly(2))
@@ -305,7 +309,7 @@ class TranslatorCacheTest extends TestCase
 
     private function createFailingLoader(): LoaderInterface
     {
-        $loader = $this->getMockBuilder('Symfony\Component\Translation\Loader\LoaderInterface')->getMock();
+        $loader = $this->createMock(LoaderInterface::class);
         $loader
             ->expects($this->never())
             ->method('load');
