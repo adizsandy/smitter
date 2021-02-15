@@ -45,6 +45,7 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
             'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\Routing\\' => 26,
+            'Symfony\\Component\\PasswordHasher\\' => 33,
             'Symfony\\Component\\HttpKernel\\' => 29,
             'Symfony\\Component\\HttpFoundation\\' => 33,
             'Symfony\\Component\\EventDispatcher\\' => 34,
@@ -175,6 +176,10 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         array (
             0 => __DIR__ . '/..' . '/symfony/routing',
         ),
+        'Symfony\\Component\\PasswordHasher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/password-hasher',
+        ),
         'Symfony\\Component\\HttpKernel\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/http-kernel',
@@ -298,10 +303,13 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
     );
 
     public static $classMap = array (
-        'App\\Application' => __DIR__ . '/../..' . '/app/Application.php',
+        'App\\Module\\AppModule' => __DIR__ . '/../..' . '/app/modules/AppModule.php',
+        'App\\Module\\Main\\Module2\\Controller\\HomeController' => __DIR__ . '/../..' . '/app/modules/Main/Module2/Controller/HomeController.php',
+        'App\\Module\\Main\\Module2\\Model\\Test2' => __DIR__ . '/../..' . '/app/modules/Main/Module2/Model/Test2.php',
+        'App\\Module\\Main\\Module2\\Service\\Calculator' => __DIR__ . '/../..' . '/app/modules/Main/Module2/Service/Calculator.php',
         'App\\Module\\Main\\Module\\Controller\\HomeController' => __DIR__ . '/../..' . '/app/modules/Main/Module/Controller/HomeController.php',
+        'App\\Module\\Main\\Module\\Model\\Test' => __DIR__ . '/../..' . '/app/modules/Main/Module/Model/Test.php',
         'App\\Module\\Shashank\\ERP01\\Controller\\HomeController' => __DIR__ . '/../..' . '/app/modules/Shashank/ERP01/Controller/HomeController.php',
-        'App\\Service\\Authentication\\Auth' => __DIR__ . '/../..' . '/app/services/Authentication/Auth.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonConverterInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonConverterInterface.php',
@@ -1244,6 +1252,24 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         'Symfony\\Component\\HttpKernel\\RebootableInterface' => __DIR__ . '/..' . '/symfony/http-kernel/RebootableInterface.php',
         'Symfony\\Component\\HttpKernel\\TerminableInterface' => __DIR__ . '/..' . '/symfony/http-kernel/TerminableInterface.php',
         'Symfony\\Component\\HttpKernel\\UriSigner' => __DIR__ . '/..' . '/symfony/http-kernel/UriSigner.php',
+        'Symfony\\Component\\PasswordHasher\\Command\\UserPasswordHashCommand' => __DIR__ . '/..' . '/symfony/password-hasher/Command/UserPasswordHashCommand.php',
+        'Symfony\\Component\\PasswordHasher\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/password-hasher/Exception/ExceptionInterface.php',
+        'Symfony\\Component\\PasswordHasher\\Exception\\InvalidPasswordException' => __DIR__ . '/..' . '/symfony/password-hasher/Exception/InvalidPasswordException.php',
+        'Symfony\\Component\\PasswordHasher\\Exception\\LogicException' => __DIR__ . '/..' . '/symfony/password-hasher/Exception/LogicException.php',
+        'Symfony\\Component\\PasswordHasher\\Hasher\\CheckPasswordLengthTrait' => __DIR__ . '/..' . '/symfony/password-hasher/Hasher/CheckPasswordLengthTrait.php',
+        'Symfony\\Component\\PasswordHasher\\Hasher\\MessageDigestPasswordHasher' => __DIR__ . '/..' . '/symfony/password-hasher/Hasher/MessageDigestPasswordHasher.php',
+        'Symfony\\Component\\PasswordHasher\\Hasher\\MigratingPasswordHasher' => __DIR__ . '/..' . '/symfony/password-hasher/Hasher/MigratingPasswordHasher.php',
+        'Symfony\\Component\\PasswordHasher\\Hasher\\NativePasswordHasher' => __DIR__ . '/..' . '/symfony/password-hasher/Hasher/NativePasswordHasher.php',
+        'Symfony\\Component\\PasswordHasher\\Hasher\\PasswordHasherAwareInterface' => __DIR__ . '/..' . '/symfony/password-hasher/Hasher/PasswordHasherAwareInterface.php',
+        'Symfony\\Component\\PasswordHasher\\Hasher\\PasswordHasherFactory' => __DIR__ . '/..' . '/symfony/password-hasher/Hasher/PasswordHasherFactory.php',
+        'Symfony\\Component\\PasswordHasher\\Hasher\\PasswordHasherFactoryInterface' => __DIR__ . '/..' . '/symfony/password-hasher/Hasher/PasswordHasherFactoryInterface.php',
+        'Symfony\\Component\\PasswordHasher\\Hasher\\Pbkdf2PasswordHasher' => __DIR__ . '/..' . '/symfony/password-hasher/Hasher/Pbkdf2PasswordHasher.php',
+        'Symfony\\Component\\PasswordHasher\\Hasher\\PlaintextPasswordHasher' => __DIR__ . '/..' . '/symfony/password-hasher/Hasher/PlaintextPasswordHasher.php',
+        'Symfony\\Component\\PasswordHasher\\Hasher\\SodiumPasswordHasher' => __DIR__ . '/..' . '/symfony/password-hasher/Hasher/SodiumPasswordHasher.php',
+        'Symfony\\Component\\PasswordHasher\\Hasher\\UserPasswordHasher' => __DIR__ . '/..' . '/symfony/password-hasher/Hasher/UserPasswordHasher.php',
+        'Symfony\\Component\\PasswordHasher\\Hasher\\UserPasswordHasherInterface' => __DIR__ . '/..' . '/symfony/password-hasher/Hasher/UserPasswordHasherInterface.php',
+        'Symfony\\Component\\PasswordHasher\\LegacyPasswordHasherInterface' => __DIR__ . '/..' . '/symfony/password-hasher/LegacyPasswordHasherInterface.php',
+        'Symfony\\Component\\PasswordHasher\\PasswordHasherInterface' => __DIR__ . '/..' . '/symfony/password-hasher/PasswordHasherInterface.php',
         'Symfony\\Component\\Routing\\Annotation\\Route' => __DIR__ . '/..' . '/symfony/routing/Annotation/Route.php',
         'Symfony\\Component\\Routing\\CompiledRoute' => __DIR__ . '/..' . '/symfony/routing/CompiledRoute.php',
         'Symfony\\Component\\Routing\\DependencyInjection\\RoutingResolverPass' => __DIR__ . '/..' . '/symfony/routing/DependencyInjection/RoutingResolverPass.php',
@@ -1499,6 +1525,7 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         'Symfox\\Processor\\Collector' => __DIR__ . '/..' . '/symfox/Processor/Collector.php',
         'Symfox\\Processor\\Processor' => __DIR__ . '/..' . '/symfox/Processor/Processor.php',
         'Symfox\\Response\\ResponseAction' => __DIR__ . '/..' . '/symfox/Response/ResponseAction.php',
+        'Symfox\\Security\\Auth' => __DIR__ . '/..' . '/symfox/Security/Auth.php',
         'Symfox\\Session\\Session' => __DIR__ . '/..' . '/symfox/Session/Session.php',
         'Symfox\\View\\View' => __DIR__ . '/..' . '/symfox/View/View.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',

@@ -11,7 +11,7 @@
  * @license MIT
  */
 
-use App\Application;
+use App\Module\AppModule;
 use Symfox\Sunshine\Framework;  
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,11 +22,11 @@ require_once __DIR__.'/../vendor/autoload.php';
 // Load all environment variables
 (new Dotenv())->bootEnv(__DIR__.'/../.env');
 
-// Initiate Application
-$app = new Application();//dd($app->getStructure());
+// Load Modules
+$modules = (new AppModule())->getStructure();
 
 // Lighten Up
-$symfox = new Framework ($_SERVER['APP_ENV'], $_SERVER['APP_DEBUG'], $app->getStructure());
+$symfox = new Framework ($_SERVER['APP_ENV'], $_SERVER['APP_DEBUG'], $modules);
 
 // Request response lifecycle
 $request = Request::createFromGlobals();

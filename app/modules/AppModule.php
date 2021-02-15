@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Module;
 
-class Application {
+class AppModule {
 
     protected $modules;
     protected $structure = [];
@@ -20,7 +20,7 @@ class Application {
 
     protected function setModules() 
     {
-        $this->modules = require_once(__DIR__.'/../config/modules.php');
+        $this->modules = require_once(__DIR__.'/../../config/modules.php');
     }
 
     public function getStructure() 
@@ -34,7 +34,7 @@ class Application {
             foreach ($this->getModules() as $module_name => $config ) {
                 if ($config['active']) { 
                     $module_path = implode('/', explode("_", ltrim($module_name, 'App_')) );
-                    $folder = str_replace("\/", '/', __DIR__.'/modules/'.$module_path); 
+                    $folder = str_replace("\\", '/', __DIR__. '/' .$module_path); 
                     $info = require_once $folder . '/module.php';
                     
                     // Set Route and Controller Map
@@ -56,10 +56,6 @@ class Application {
                 } 
             }
         }
-        
-        // Set Database connection
-        $app_config = require_once __DIR__. '/../config/app.php';
-        $this->structure['connection'] = $app_config['database'];
 
         // Set Application Directory
         $this->structure['dir'] = __DIR__;
