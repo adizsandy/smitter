@@ -22,7 +22,7 @@ class UserController {
                     if ($resp) {
                         $response['success'] = true;
                         $response['message'] = 'Login Successfull';
-                        $response['data'] = $resp;
+                        $response['data'] = $resp->id;
                     } else {
                         $response['message'] = 'Login Failed!';
                     }
@@ -119,4 +119,5 @@ class UserController {
 
         return $this->response->json($response);
     }
+    
 }

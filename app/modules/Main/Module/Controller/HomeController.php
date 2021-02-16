@@ -19,26 +19,27 @@ class HomeController {
 	}
 
 	public function hashCheck() 
-	{	
-		dd($this->auth->entity('users')->check());
+	{	 
 		$hash = $this->auth->hash('Hello Hi');
 		$get = $this->request->query->get('name');
+
 		return $this->response->json($hash . ' ' .$get);
 	}
 
 	public function numberGame($number)
 	{
-		$square = 0; $cube = 0;
-		$calculator = new Calculator();
-		
-		if (isset($number)) {
-			$square = $calculator->get_square($number);
-			$cube = $calculator->get_cube($number);
-		}
+		$square = 0; $cube = 0;  
+		$data['msg'] = "Square : ".$square." and Cube : ".$cube; 
 
-		$data['msg'] = "Square : ".$square." and Cube : ".$cube;
-		
-		return $this->view->layout('layout_1')->render('double_page', $data);
+		return $this->view 
+			// Set layout from different module
+			->setLayout('layout_1', 'App_Main_Module2') 
+			// Set template from different module
+			->setTemplate('double_page', 'App_Shashank_ERP01') 
+			// Include file from different modules 
+			->includeFile([ ['header/mini_header', 'App_Main_Module'], 'nav/main_nav', 'extra/big_desc' ])
+			->setData($data)
+			->render(); 
 	}	
 
 }
