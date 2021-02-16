@@ -40,6 +40,8 @@ class HomeController {
 			->includeFile([ ['header/mini_header', 'App_Main_Module'], 'nav/main_nav', 'extra/big_desc' ])
 			->setData($data)
 			->render(); 
+
+		//return $this->view->setLayout('layout_1')->setTemplate('double_page')->setData($data)->render();
 	}	
 
 }
