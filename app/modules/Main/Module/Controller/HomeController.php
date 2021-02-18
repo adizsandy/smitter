@@ -43,45 +43,49 @@ class HomeController {
 	public function numberGame($number)
 	{	
 		try {
-			$square = 0; $cube = 0;  
+			$square = $number * $number; $cube = $square * $number;  
 			$data['msg'] = "Square : ".$square." and Cube : ".$cube; 
 
 			// Get HTML for pdf generation
-			$html_content = $this->view->setLayout('layout_1', 'App_Main_Module2')->setTemplate('double_page', 'App_Main_Module2')->setData($data)->render();
-
+			$html_response = $this->view->setLayout('layout_1')->setTemplate('double_page')->setData($data)->generate()->getContent();
+			//$html_response = "<div>Hello Sir</div>";
 			// Generate PDF
-			$pdf_content = $this->response->pdf($html_content);
-			$pdf_file_name = 'public/uploads/pdf/'.md5("randompdfname") .'.pdf'; 
-			
+			$pdf_content = $this->response->pdf($html_response);//dd($pdf_content);
+			$pdf_file_name = 'public/uploads/pdf/'.md5("randompdfname") . $number .'.pdf'; 
+			if ($this->filehandler->has($pdf_file_name)) {
+				$this->filehandler->delete($pdf_file_name);
+			} 
 			$this->filehandler->put($pdf_file_name, $pdf_content); // Upload the generated pdf
 
 			// Generate CSV
+			$csv_file_name = 'public/uploads/csv/'. md5("randomcsvname") . $number .'.csv'; // Custom path + name for csv upload
+			if ($this->filehandler->has($csv_file_name)) { 
+				$this->filehandler->delete($csv_file_name); 
+			} 
+			$this->filehandler->put($csv_file_name, '');	
+			
 			$collection = User::where(['flag' => 0])->get(); // get user data
 			$structure = [ 
-				[ 'S.No.', 'Email', 'Password', 'Created At' ] // labels
+				[ 'S.No.', 'Email', 'Password', 'Created At' ], // labels
 				[ '__i', 'email', 'password', 'created_at' ] // table column_name
-			]; 
-			$csv_content = $this->response->csv($collection, $structure); // Generate csv 
-			$csv_file_name = 'public/uploads/csv/'. md5("randomcsvname") .'.csv'; // Custom path + name for csv upload
-			
-			$this->filehandler->put($csv_file_name, $csv_content); // Upload the generated csv
-			//return $this->filehandler->read($csv_file_name); // Export/Download the csv
+			];  
+			$this->response->csv($collection, $structure, $this->root . $csv_file_name); // Generate csv 
 
 			// Send EMail
 			// $this->mail->composer // For preparing mail content
 			// $this->mail->mailer // For sending mail
-			$mail_content = $this->mail->composer
-				->setSubject("ABC")
-				->setTo("abc@gmail.com")
-				->setFrom("dhuryt@gmail.com")
-				->setBody($html_content)
-				->attach(Swift_Attachment::fromPath($this->root . $csv_file_name));
-				->attach(Swift_Attachment::fromPath($this->root . $pdf_file_name));
+			// $mail_content = $this->mail->composer
+			// 	->setSubject("ABC")
+			// 	->setTo("abc@gmail.com")
+			// 	->setFrom("dhuryt@gmail.com")
+			// 	->setBody($html_response);
+			// 	//->attach(Swift_Attachment::fromPath($this->root . $csv_file_name))
+			// 	//->attach(Swift_Attachment::fromPath($this->root . $pdf_file_name));
 
-			$this->mail->mailer->send($mail_content);
+			// $this->mail->mailer->send($mail_content);
 
 			// Render some success view
-			return $this->view->setLayout('layout_1', 'App_Main_Module2')->setTemplate('double_page', 'App_Main_Module2')->setData($data)->render();
+			return $this->view->setLayout('layout_1')->setTemplate('double_page')->setData($data)->render();
 
 		} catch (\Exception $e) {
 			return $this->response->json(['success' => false, 'message' => $e->getMessage()]);

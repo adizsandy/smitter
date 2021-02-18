@@ -2,6 +2,12 @@
 
 namespace App;
 
+use \stdClass;
+use \Swift_SendmailTransport;
+use \Swift_SmtpTransport;
+use \Swift_Mailer;
+use \Swift_Message;
+
 class Registry {
 
     protected $connection;
@@ -31,17 +37,17 @@ class Registry {
         $this->transport = new stdClass();
         switch($this->config['mail']['default']['driver']) {
             case 'sendmail' : 
-                $transport = new Swift_SendmailTransport($this->config['mail']['default']['host'], $this->config['mail']['default']['port']);
+                $transport = new \Swift_SendmailTransport($this->config['mail']['default']['host'], $this->config['mail']['default']['port']);
                 break;
             case 'smtp' :
-            case default:
-                $transport = new Swift_SmtpTransport($this->config['mail']['default']['host'], $this->config['mail']['default']['port']);
+            default:
+                $transport = new \Swift_SmtpTransport($this->config['mail']['default']['host'], $this->config['mail']['default']['port']);
         }
 
         $transport->setUsername($this->config['mail']['default']['username'])->setPassword($this->config['mail']['default']['password']);
         
-        $this->transport->mailer = new Swift_Mailer($transport);
-        $this->transport->composer = new Swift_Message();
+        $this->transport->mailer = new \Swift_Mailer($transport);
+        $this->transport->composer = new \Swift_Message();
     }
 
     public function getMailTransport() 
