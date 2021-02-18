@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Symfox : Modular, Extensible and Agile  
+ * Symfox : Agile, Extensible, Fast and Modular   
  * 
  * @alias Sunshine
  * @version 2.0.1 | Rising  

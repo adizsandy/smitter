@@ -1,11 +1,12 @@
 {
     "name": "symfox/symfox",
-    "description": "The Symfox Framework.",
+    "description": "The Symfox Framework",
     "keywords": ["framework", "symfox"],
     "license": "MIT",
     "type": "project",
     "require": {
         "doctrine/cache": "^1.8",
+        "dompdf/dompdf": "^1.0",
         "falc/flysystem-local-symlink-plugin": "^1.2",
         "illuminate/database": "^5.0",
         "league/flysystem": "^1.0",
