@@ -2,7 +2,7 @@
 
 namespace Symfox\Controller;
 
-use stdClass;
+use \stdClass;
 use App\Registry;
 use Symfox\View\View;
 use Symfox\Persistance\Persistance; 
@@ -13,6 +13,10 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use League\Flysystem\Filesystem;
 use League\Flysystem\Adapter\Local;
+use \Swift_SendmailTransport;
+use \Swift_SmtpTransport;
+use \Swift_Mailer;
+use \Swift_Message;
 
 class Control {
 
@@ -52,9 +56,8 @@ class Control {
 	}
 
 	protected function setPersistanceService() 
-	{ 	
-		$persistance = new Persistance();
-		$this->controlProvider->db = $persistance->getPersistance();
+	{ 	 
+		$this->controlProvider->db = (new Persistance())->getPersistance();
 	}
 
 	protected function setViewService($controller)
@@ -70,9 +73,8 @@ class Control {
 	}
 
 	protected function setResponseService() 
-	{	
-		$response = new Response();
-		$this->controlProvider->response = $response;
+	{	 
+		$this->controlProvider->response = new Response();
 	}
 
 	protected function setAuthService() 
@@ -97,8 +99,21 @@ class Control {
 	}
 
 	protected function setMailerService() 
-	{
-		$this->controlProvider->mail = $this->registry->getMailTransport();
+	{	
+		$mail_config = $this->registry->getMailTransport();
+		switch($mail_config['driver']) {
+            case 'sendmail' : 
+                $transport = new \Swift_SendmailTransport($mail_config['host'], $mail_config['port']);
+                break;
+            case 'smtp' :
+            default:
+                $transport = new \Swift_SmtpTransport($mail_config['host'], $mail_config['port']);
+        }
+        $transport->setUsername($mail_config['username'])->setPassword($mail_config['password']);
+        
+        $this->controlProvider->mail = new \stdClass;
+        $this->controlProvider->mail->mailer = new \Swift_Mailer($transport);
+        $this->controlProvider->mail->composer = new \Swift_Message(); 
 	}
 
 } 
