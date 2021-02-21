@@ -1,16 +1,87 @@
 <?php
 
-namespace App\Module;
+namespace Boot\Env;
 
-class AppModule {
+final class Configurator {
 
-    protected $modules;
-    protected $structure = [];
-    
-    public function __construct() 
+    // protected $connection;
+    // protected $transport;
+    // protected $config;
+    // protected $modules;
+    // protected static $structure = [];
+
+    public function __construct()
+    {   
+        // $this->config = require __DIR__. '/../config/app.php';
+        // $this->setConnection();
+        // $this->setMailTransport();
+        // $this->setModules();
+        // $this->setStructure();
+    }
+
+    public static function getCachepath() 
     {
-        $this->setModules();
-        $this->setStructure();
+
+    }
+
+    public static function getViewCacheTime() 
+    {
+
+    }
+
+    public static function getAppKey() 
+    {
+
+    }
+
+    public static function getProjectRoot() 
+    {
+
+    }
+
+    public static function getHashType() 
+    {
+        return 'common';
+    }
+
+    public static function getRouteCollection() 
+    {
+
+    }
+
+    public static function getEventCollection() 
+    {
+
+    }
+
+    public static function getModuleDir() 
+    {
+        
+    }
+
+    public static function getListeners() 
+    {
+
+    }
+
+    public static function getConnectionDetails () 
+    {
+
+    }
+
+    protected function getAppConfiguration() 
+    {
+
+    }
+
+    public static function getModuleCollection() 
+    {
+
+    }
+
+    public static function getMailTransportCollection() 
+    {
+
     }
 
     protected function getModules() 
@@ -23,7 +94,7 @@ class AppModule {
         $this->modules = require_once(__DIR__.'/../../config/modules.php');
     }
 
-    public function getStructure() 
+    public static function getStructure() 
     {
         return $this->structure;
     }
@@ -60,4 +131,25 @@ class AppModule {
         // Set Application Directory
         $this->structure['dir'] = __DIR__;
     }
+
+    private function setConnection() 
+    {
+        $this->connection = $this->config['database'];
+    }
+
+    public function getConnection() 
+    {
+        return $this->connection;
+    }
+
+    private function setMailTransport() 
+    {   
+        $this->transport = $this->config['mail']['default'];  
+    }
+
+    public function getMailTransport() 
+    {
+        return $this->transport;
+    }
+
 }

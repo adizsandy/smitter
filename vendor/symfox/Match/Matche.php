@@ -2,6 +2,7 @@
 
 namespace Symfox\Match;
 
+use Boot\Env\Configurator;
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RequestContext;
@@ -11,12 +12,17 @@ class Matche {
 
 	protected $routes;
 
-	public function __construct($routes)
+	public function __construct()
+	{	
+		$this->setMatcher();
+	}
+
+	protected function setMatcher() 
 	{
 		$this->routes = new RouteCollection;
-
-		if (! empty($routes)) {//dd($routes);
-			foreach($routes as $name => $info) {
+		$custom_routes = Configurator::getRouteCollection();
+		if (! empty($custom_routes) && count($custom_routes) > 0 ) {
+			foreach ($custom_routes as $name => $info) {
 				$this->routes->add($name, new Route($info[0], array('_controller' => $info[1])));
 			}
 		} 

@@ -2,6 +2,8 @@
 
 namespace Symfox\Security;
 
+use Boot\Env\Configurator;
+use Boot\Env\Definitions;
 use Symfox\Persistance\Persistance;
 use Symfony\Component\HttpFoundation\Session\Session; 
 use Symfony\Component\PasswordHasher\Hasher\PasswordHasherFactory;
@@ -73,21 +75,14 @@ class Auth {
         return $this->getHasher()->verify($hash, $str);
     }
 
-    protected function setHasher($type = 'common') 
+    protected function setHasher() 
     {    
-        // Hash a plain password
-        // $hash = $passwordHasher->hash('plain'); // returns a bcrypt hash
+        $this->hasher = $this->getHasherFactory()->getPasswordHasher(Configurator::getHashType());
+    }
 
-        // // Verify that a given plain password matches the hash
-        // $passwordHasher->verify($hash, 'wrong'); // returns false
-        // $passwordHasher->verify($hash, 'plain'); // returns true (valid)
-
-        $type_def = [
-            'common' => ['algorithm' => 'bcrypt'],
-            'memory-hard' => ['algorithm' => 'sodium'],
-        ];
-        $factory = new PasswordHasherFactory($type_def);
-        $this->hasher = $factory->getPasswordHasher($type);
+    protected function getHasherFactory() 
+    {
+        return new PasswordHasherFactory(Definitions::getHashAlgorithms());
     }
 
     protected function gethasher() 

@@ -1,18 +1,13 @@
 <?php
 
-namespace Symfox\Sunshine;
+namespace Boot;
 
 use Symfox\Processor\Processor;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/**  
- * Framework Class
- * Base of framework
- * 
- */
-class Framework extends Processor
-{   
+class Kernel extends Processor {
+
     public function handle(Request $request)
     {   
         $this->getMatcher()->getContext()->fromRequest($request);
@@ -39,5 +34,4 @@ class Framework extends Processor
         
         return $response;
     }
-
 }

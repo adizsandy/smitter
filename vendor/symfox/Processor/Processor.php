@@ -11,30 +11,42 @@ use Symfox\Argument\Argument;
   * Processor Class
   * Handling all the processes for framework
   */
-class Processor {
+abstract class Processor {
     
     protected $dispatcher;
     protected $matcher;
     protected $controlProcessor;
     protected $argumentResolver;
     protected $environment;
-    protected $debug;
-    protected $structure;
+    protected $debug; 
 
-    public function __construct($env = 'local', $debug = true, $structure)
+    public function __construct( $env = 'local', $debug = true )
     {
-        $this->environment = $env;
-        $this->debug = $debug;
-        $this->structure = $structure;
+        $this->setEnvironment($env);
+        $this->setDebug($debug); 
         $this->setDispatcher();
         $this->setMatcher();
         $this->setControlProcessor();
         $this->setArgumentResolver();
     }
 
+    protected function setEnvironment($env) 
+    {
+        if ($env == 'prod') {
+            ini_set('error_reporting', 0);
+        } else {
+            ini_set('error_reporting', E_ALL);
+        }
+    }
+
+    protected function setDebug($debug) 
+    {
+        // In dev...
+    }
+
     protected function setDispatcher() 
-    {   
-        $dispatchProcessor = new Dispatch($this->structure['events'], $this->structure['listeners']);
+    {    
+        $dispatchProcessor = new Dispatch();
         $this->dispatcher = $dispatchProcessor;
     }
 
@@ -44,8 +56,8 @@ class Processor {
     }
 
     protected function setMatcher() 
-    {  
-        $matchProcessor = new Matche($this->structure['route']);
+    {   
+        $matchProcessor = new Matche();
         $this->matcher = $matchProcessor->getMatcher();
     }
 
@@ -56,7 +68,7 @@ class Processor {
 
     protected function setControlProcessor() 
     {   
-        $controlProcessor = new Control($this->structure['dir']);
+        $controlProcessor = new Control();
         $this->controlProcessor = $controlProcessor;
     }
 
