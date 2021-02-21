@@ -27,6 +27,7 @@
         ],
         "psr-4": {
             "App\\" : "app", 
+            "Boot\\" : "boot", 
             "App\\Module\\" : "app/modules", 
             "App\\Service\\" : "app/services", 
             "Symfox\\" : "vendor/symfox",
