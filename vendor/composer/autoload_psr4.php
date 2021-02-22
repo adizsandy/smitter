@@ -55,6 +55,8 @@ return array(
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib/Doctrine/Common/Inflector'),
     'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib/Doctrine/Common/Cache'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
+    'Boot\\Env\\' => array($baseDir . '/boot/environment'),
+    'Boot\\' => array($baseDir . '/boot'),
     'App\\Service\\' => array($baseDir . '/app/services'),
     'App\\Module\\' => array($baseDir . '/app/modules'),
     'App\\' => array($baseDir . '/app'),

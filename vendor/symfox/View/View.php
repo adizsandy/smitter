@@ -100,12 +100,10 @@ class View {
 
 	protected function setModuleDir($module = null) 
 	{
-		if (! empty($module)) {
-			$module_name = $module;
-		} else {
-			$module_name = ( Configurator::getModuleCollection() ) [ $this->getRequest()->getUri() ]['module'];
-		}
-		$this->module = Configurator::getModuleDir() . implode("/",explode("_", ltrim($module_name, 'App_')));
+		if (empty($module)) { // Current Request Module
+			$module = ( Configurator::getModuleCollection() ) [ $this->getRequest()->getPathInfo() ]['module'];
+		}  
+		$this->module = Configurator::getModuleDir() . implode("/",explode("_", ltrim($module, 'App_')));
 	}
 
 	protected function getModuleDir() 

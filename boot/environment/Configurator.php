@@ -4,152 +4,102 @@ namespace Boot\Env;
 
 final class Configurator {
 
-    // protected $connection;
-    // protected $transport;
-    // protected $config;
-    // protected $modules;
-    // protected static $structure = [];
-
-    public function __construct()
-    {   
-        // $this->config = require __DIR__. '/../config/app.php';
-        // $this->setConnection();
-        // $this->setMailTransport();
-        // $this->setModules();
-        // $this->setStructure();
-    }
-
-    public static function getCachepath() 
-    {
-
-    }
-
-    public static function getViewCacheTime() 
-    {
-
-    }
-
-    public static function getAppKey() 
-    {
-
-    }
-
     public static function getProjectRoot() 
     {
-
-    }
-
-    public static function getHashType() 
-    {
-        return 'common';
-    }
-
-    public static function getRouteCollection() 
-    {
-
-    }
-
-    public static function getEventCollection() 
-    {
-
+        return __DIR__ . '/../../';
     }
 
     public static function getModuleDir() 
     {
-        
+        return self::getProjectRoot() . 'app/modules/';
     }
 
-    public static function getListeners() 
+    public static function getCachepath() 
     {
+        return self::getProjectRoot() . 'storage/cache/';
+    }
 
+    public static function getViewCacheTime() 
+    {
+        $cachetime = require self::getProjectRoot() . 'config/cache.php';
+        return $cachetime['cache_time']; 
+    }
+
+    public static function getAppKey() 
+    {
+        $app = require self::getProjectRoot() . 'config/app.php';
+        return $app['key'];
+    }
+
+    public static function getHashType() 
+    {
+        $hash = require self::getProjectRoot() . 'config/hash.php';
+        return $hash['hash_type'];
     }
 
     public static function getConnectionDetails () 
     {
-
-    }
-
-    protected function getAppConfiguration() 
-    {
-
-    }
-
-    public static function getModuleCollection() 
-    {
-
+        return require self::getProjectRoot() . 'config/database.php'; 
     }
 
     public static function getMailTransportCollection() 
     {
-
+        return require self::getProjectRoot() . 'config/mail.php'; 
     }
 
-    protected function getModules() 
+    public static function getModuleCollection() 
     {
-        return $this->modules;
+        return require self::getProjectRoot() . 'app/modules/register.php';
     }
-
-    protected function setModules() 
-    {
-        $this->modules = require_once(__DIR__.'/../../config/modules.php');
-    }
-
-    public static function getStructure() 
-    {
-        return $this->structure;
-    }
-
-    protected function setStructure() 
+    
+    public static function getRouteCollection($module = null) 
     {   
-        if (! empty($this->getModules()) && count($this->getModules()) > 0) {
-            foreach ($this->getModules() as $module_name => $config ) {
-                if ($config['active']) { 
-                    $module_path = implode('/', explode("_", ltrim($module_name, 'App_')) );
-                    $folder = str_replace("\\", '/', __DIR__. '/' .$module_path); 
-                    $info = require_once $folder . '/module.php';
+        $route_collection = [];
+        $collection = self::getModuleCollection();
+        if ( !empty($collection) && count($collection) > 0 ) {
+            foreach ( $collection as $name => $module ) {
+                if ($module['active']) { // If a module is active, then only it can be registered
                     
-                    // Set Route and Controller Map
-                    $routes = require_once $folder . ltrim($info['route'], '.');
-                    if (! empty($routes)) {
-                        foreach ($routes as $route_name => $detail) {
+                    // Get basic info about a module 
+                    $module_id = ltrim($name, 'App_');
+                    $module_prefix = strtolower($module_id); 
+                    $module_dir = implode('/', explode("_", $module_id ) );
+                    $module_path = self::getModuleDir() . $module_dir;
+                    $all_info = require $module_path . '/module.php';   
+                    
+                    // Get module declarations
+                    $declarations = $all_info['declarations'];
 
-                            $module_prefix = ltrim(strtolower($info['name']), "app_"); 
-                            $final_url_path = '/'.rtrim(ltrim($info['url_prefix'].ltrim($detail[0], '/'), '/'), '/'); 
-                            $final_controller = str_replace("/", "\\", "App/Module/". implode("/",explode("_", ltrim($module_name,'App_'))) . '/Controller/');
+                    // Get registred routes
+                    $routes = $all_info['routes'];
+                    
+                    // Set route mappings
+                    if ( ! empty($routes) && count($routes) > 0 ) {
+                        foreach ( $routes as $route_name => $detail ) {  
+                            // Prepare prefixed url path
+                            $final_url_path = '/'.rtrim(ltrim($declarations['url_prefix'].ltrim($detail[0], '/'), '/'), '/'); 
                             
-                            $this->structure['route'][ $module_prefix . '_' . $route_name ] = [ $final_url_path, $final_controller . $detail[1] ];
+                            // Prepare prefixed controller
+                            $final_controller = str_replace("/", "\\", "App/Module/". $module_dir . '/Controller/');
+                            
+                            // add to collection
+                            $route_collection[ $module_prefix . '_' . $route_name ] = [ $final_url_path, $final_controller . $detail[1] ];
                         }
-                    }  
-
-                    // Set Event Listeners
-                    $this->structure['events'] = [];
-                    $this->structure['listeners'] = [];
+                    }   
                 } 
             }
         }
-
-        // Set Application Directory
-        $this->structure['dir'] = __DIR__;
+        return $route_collection; 
     }
 
-    private function setConnection() 
+    public static function getEventCollection() 
     {
-        $this->connection = $this->config['database'];
+        return []; // In dev
     }
 
-    public function getConnection() 
+    public static function getListeners() 
     {
-        return $this->connection;
-    }
-
-    private function setMailTransport() 
-    {   
-        $this->transport = $this->config['mail']['default'];  
-    }
-
-    public function getMailTransport() 
-    {
-        return $this->transport;
+        return []; // In dev
     }
 
 }

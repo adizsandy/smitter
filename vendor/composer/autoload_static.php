@@ -20,8 +20,8 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '56351906bdbd72f797f3c53de5cc7aac' => __DIR__ . '/../..' . '/config/constants.php',
-        '6b1be82e83b3fd8ca940b7c722834545' => __DIR__ . '/../..' . '/config/functions.php',
+        '1fa84f8f0e0883c9d8f090b19110e4bf' => __DIR__ . '/../..' . '/app/helpers/constants.php',
+        '63528bef5777a00e9834747ae4c71714' => __DIR__ . '/../..' . '/app/helpers/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -97,6 +97,11 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         'C' => 
         array (
             'Carbon\\' => 7,
+        ),
+        'B' => 
+        array (
+            'Boot\\Env\\' => 9,
+            'Boot\\' => 5,
         ),
         'A' => 
         array (
@@ -303,6 +308,14 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
+        'Boot\\Env\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/boot/environment',
+        ),
+        'Boot\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/boot',
+        ),
         'App\\Service\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app/services',
@@ -328,17 +341,13 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
     );
 
     public static $classMap = array (
-        'App\\Module\\AppModule' => __DIR__ . '/../..' . '/app/modules/AppModule.php',
-        'App\\Module\\Main\\Module2\\Controller\\HomeController' => __DIR__ . '/../..' . '/app/modules/Main/Module2/Controller/HomeController.php',
-        'App\\Module\\Main\\Module2\\Model\\Test2' => __DIR__ . '/../..' . '/app/modules/Main/Module2/Model/Test2.php',
-        'App\\Module\\Main\\Module2\\Service\\Calculator' => __DIR__ . '/../..' . '/app/modules/Main/Module2/Service/Calculator.php',
         'App\\Module\\Main\\Module\\Controller\\HomeController' => __DIR__ . '/../..' . '/app/modules/Main/Module/Controller/HomeController.php',
         'App\\Module\\Main\\Module\\Controller\\UserController' => __DIR__ . '/../..' . '/app/modules/Main/Module/Controller/UserController.php',
-        'App\\Module\\Main\\Module\\Model\\Test' => __DIR__ . '/../..' . '/app/modules/Main/Module/Model/Test.php',
         'App\\Module\\Main\\Module\\Model\\User' => __DIR__ . '/../..' . '/app/modules/Main/Module/Model/User.php',
-        'App\\Module\\Shashank\\ERP01\\Controller\\HomeController' => __DIR__ . '/../..' . '/app/modules/Shashank/ERP01/Controller/HomeController.php',
-        'App\\Registry' => __DIR__ . '/../..' . '/app/Registry.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'Boot\\Env\\Configurator' => __DIR__ . '/../..' . '/boot/environment/Configurator.php',
+        'Boot\\Env\\Definitions' => __DIR__ . '/../..' . '/boot/environment/Definitions.php',
+        'Boot\\Kernel' => __DIR__ . '/../..' . '/boot/Kernel.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonConverterInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonConverterInterface.php',
         'Carbon\\CarbonImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',
@@ -1718,21 +1727,21 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         'Symfony\\Polyfill\\Php73\\Php73' => __DIR__ . '/..' . '/symfony/polyfill-php73/Php73.php',
         'Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
         'Symfox\\Argument\\Argument' => __DIR__ . '/..' . '/symfox/Argument/Argument.php',
+        'Symfox\\Cache\\Cache' => __DIR__ . '/..' . '/symfox/Cache/Cache.php',
+        'Symfox\\Controller\\BaseController' => __DIR__ . '/..' . '/symfox/Controller/BaseController.php',
         'Symfox\\Controller\\Control' => __DIR__ . '/..' . '/symfox/Controller/Control.php',
         'Symfox\\Dispatch\\Dispatch' => __DIR__ . '/..' . '/symfox/Dispatch/Dispatch.php',
-        'Symfox\\Dispatch\\EventCollection' => __DIR__ . '/..' . '/symfox/Dispatch/EventCollection.php',
-        'Symfox\\Dispatch\\ListenerCollection' => __DIR__ . '/..' . '/symfox/Dispatch/ListenerCollection.php',
+        'Symfox\\Filehandler\\Filehandler' => __DIR__ . '/..' . '/symfox/Filehandler/Filehandler.php',
+        'Symfox\\Mail\\Mailer' => __DIR__ . '/..' . '/symfox/Mail/Mailer.php',
         'Symfox\\Match\\Matche' => __DIR__ . '/..' . '/symfox/Match/Matche.php',
         'Symfox\\Match\\RouteCollection' => __DIR__ . '/..' . '/symfox/Match/RouteCollection.php',
-        'Symfox\\Persistance\\ConnCollection' => __DIR__ . '/..' . '/symfox/Persistance/ConnCollection.php',
-        'Symfox\\Persistance\\ModelCollection' => __DIR__ . '/..' . '/symfox/Persistance/ModelCollection.php',
         'Symfox\\Persistance\\Persistance' => __DIR__ . '/..' . '/symfox/Persistance/Persistance.php',
-        'Symfox\\Processor\\Collector' => __DIR__ . '/..' . '/symfox/Processor/Collector.php',
         'Symfox\\Processor\\Processor' => __DIR__ . '/..' . '/symfox/Processor/Processor.php',
         'Symfox\\Response\\ResponseAction' => __DIR__ . '/..' . '/symfox/Response/ResponseAction.php',
         'Symfox\\Security\\Auth' => __DIR__ . '/..' . '/symfox/Security/Auth.php',
         'Symfox\\Session\\Session' => __DIR__ . '/..' . '/symfox/Session/Session.php',
         'Symfox\\View\\View' => __DIR__ . '/..' . '/symfox/View/View.php',
+        'Symfox\\View\\ViewTraits' => __DIR__ . '/..' . '/symfox/View/ViewTraits.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     );
