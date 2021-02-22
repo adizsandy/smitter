@@ -15,6 +15,9 @@ use Boot\Kernel;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
 
+// Start Time
+define('SYMFOX_START', microtime(true));
+
 // Load All dependencies
 require_once __DIR__.'/../vendor/autoload.php';
 
@@ -29,5 +32,4 @@ $request = Request::createFromGlobals();
 
 $response = $kernel->handle($request);
 
-$response->send();
- 
+$response->send(); 

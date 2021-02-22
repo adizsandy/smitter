@@ -16,7 +16,7 @@ final class Configurator {
 
     public static function getCachepath() 
     {
-        return self::getProjectRoot() . 'storage/cache/';
+        return 'storage/cache/';
     }
 
     public static function getViewCacheTime() 
@@ -52,7 +52,7 @@ final class Configurator {
         return require self::getProjectRoot() . 'app/modules/register.php';
     }
     
-    public static function getRouteCollection($module = null) 
+    public static function getRouteCollection($path = null) 
     {   
         $route_collection = [];
         $collection = self::getModuleCollection();
@@ -77,7 +77,15 @@ final class Configurator {
                     if ( ! empty($routes) && count($routes) > 0 ) {
                         foreach ( $routes as $route_name => $detail ) {  
                             // Prepare prefixed url path
-                            $final_url_path = '/'.rtrim(ltrim($declarations['url_prefix'].ltrim($detail[0], '/'), '/'), '/'); 
+                            $final_url_path = '/'.rtrim(ltrim($declarations['url_prefix'].ltrim($detail[0], '/'), '/'), '/');
+                            
+                            // If path is to be searched
+                            // Returns current module name
+                            if (! empty($path)) {
+                                if ( $final_url_path == $path ) {
+                                    return $name; break;
+                                }
+                            }
                             
                             // Prepare prefixed controller
                             $final_controller = str_replace("/", "\\", "App/Module/". $module_dir . '/Controller/');

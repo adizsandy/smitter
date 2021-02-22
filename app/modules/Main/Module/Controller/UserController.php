@@ -33,7 +33,7 @@ class UserController extends BaseController {
             $response['message'] = $e->getMessage();
         } 
 
-        return $this->getResponse()->json($response);
+        return $this->getResponse()->getJson($response);
     }
 
     public function register() 
@@ -68,7 +68,7 @@ class UserController extends BaseController {
             $response['message'] = $e->getMessage();
         } 
 
-        return $this->getResponse()->json($response);
+        return $this->getResponse()->getJson($response);
     }
 
     public function logout () 
@@ -83,7 +83,7 @@ class UserController extends BaseController {
             $response['message'] = $e->getMessage();
         } 
 
-        return $this->getResponse()->json($response);
+        return $this->getResponse()->getJson($response);
     }
 
     public function update() 
@@ -118,7 +118,7 @@ class UserController extends BaseController {
             $response['message'] = $e->getMessage();
         } 
 
-        return $this->getResponse()->json($response);
+        return $this->getResponse()->getJson($response);
     }
     
 }

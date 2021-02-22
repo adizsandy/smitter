@@ -10,17 +10,14 @@ class Cache {
     private static $cachepath;
     private static $filehandler;
     private static $cachetime;
-
-    public function __construct()
-    {   
-        self::$cachepath = Configurator::getCachepath();
-        self::$filehandler = (new Filehandler)->getHandler();
-    }
     
     public static function has($file) 
-    {
-        if (self::$filehandler->has( self::$cachepath . $file)) {
-			if ( ( time() - self::getExpiryTime() ) < self::$filehandler->getTimestamp($file) ) {
+    {   
+        if (empty(self::$filehandler)) self::$filehandler = (new Filehandler)->getHandler();
+        if (empty( self::$cachepath)) self::$cachepath = Configurator::getCachepath();
+
+        if ( self::$filehandler->has( self::$cachepath . $file ) ) {
+			if ( ( time() - self::getExpiryTime() ) < self::$filehandler->getTimestamp(self::$cachepath . $file) ) {
 				return true;
 			} else {
 				self::$filehandler->delete(self::$cachepath . $file);
@@ -30,22 +27,29 @@ class Cache {
     }
 
     public static function put($file, $content) 
-    {
+    {   
+        if (empty(self::$filehandler)) self::$filehandler = (new Filehandler)->getHandler();
+        if (empty( self::$cachepath)) self::$cachepath = Configurator::getCachepath();
+
         self::$filehandler->put(self::$cachepath . $file, $content);
         return;
     }
 
     public static function get($file) 
-    {
+    {   
+        if (empty(self::$filehandler)) self::$filehandler = (new Filehandler)->getHandler();
+        if (empty( self::$cachepath)) self::$cachepath = Configurator::getCachepath();
+
         return self::$filehandler->read(self::$cachepath . $file);
     }
 
     public static function getExpiryTime() 
-    {
+    {   
+        if (empty(self::$cachetime)) self::setExpiryTime();
         return self::$cachetime;
     }
 
-    public static function setExpiryTime($time) 
+    public static function setExpiryTime($time = null) 
     {
         if ( empty($time) ) {
 			self::$cachetime = Configurator::getViewCacheTime();

@@ -15,6 +15,6 @@ final class Definitions {
         return [
             'common' => ['algorithm' => 'bcrypt'],
             'memory-hard' => ['algorithm' => 'sodium'],
-        ]
+        ];
     }
 }

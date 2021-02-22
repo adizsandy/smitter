@@ -2,7 +2,7 @@
 
 namespace Symfox\Persistance;
 
-use App\Registry;
+use Boot\Env\Configurator;
 use Illuminate\Database\Capsule\Manager as Capsule; 
 
 class Persistance {
@@ -20,7 +20,7 @@ class Persistance {
 
 	protected function setConnection() 
 	{	 
-		$this->conn = (new Registry)->getConnection();
+		$this->conn = Configurator::getConnectionDetails();
 	}
 
 	protected function getConnection() 

@@ -13,7 +13,8 @@ class View {
 
 	private $layout;
 	private $template;
-	private $data;  
+	private $data; 
+	private $cacheallowed = true; 
 
 	public function __construct()
 	{ 
@@ -39,7 +40,9 @@ class View {
 			$content = $this->getCacheContent();
 		} else {
 			$content = $this->generateContent($template, $options, $layout);
-			$this->setCacheContent($content);
+			if ($this->cacheallowed) {
+				$this->setCacheContent($content);
+			} 
 		} 
 		return (new ResponseAction)->output($content);
 	}
@@ -71,18 +74,21 @@ class View {
 		return $final_content;
 	}
 
-	protected function getCacheKey() 
-	{
-		return md5($this->getRequest()->getUri() . ':' . Configurator::getAppKey());
-	}
-
 	protected function validCacheAvailable() 
 	{	
-		$file = 'view/' . $this->getCacheKey() . $this->getFileExtension();
-		if ( Cache::has($file) ) {
-			return true;
-		}
+		if ($this->cacheallowed) {
+			$file = 'view/' . $this->getCacheKey() . $this->getFileExtension();
+			if ( Cache::has($file) ) {
+				return true;
+			}
+		} 
 		return false;  
+	}
+
+	public function setCache($status = true) 
+	{
+		$this->cacheallowed = $status;
+		return $this;
 	}
 
 	protected function getCacheContent() 
@@ -96,19 +102,6 @@ class View {
 		$file = 'view/' . $this->getCacheKey() . $this->getFileExtension();
 		Cache::put($file, $content);
 		return;
-	}
-
-	protected function setModuleDir($module = null) 
-	{
-		if (empty($module)) { // Current Request Module
-			$module = ( Configurator::getModuleCollection() ) [ $this->getRequest()->getPathInfo() ]['module'];
-		}  
-		$this->module = Configurator::getModuleDir() . implode("/",explode("_", ltrim($module, 'App_')));
-	}
-
-	protected function getModuleDir() 
-	{
-		return $this->module;
 	}
 
 	public function setlayout($layout, $module = null) 

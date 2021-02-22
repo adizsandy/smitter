@@ -5,9 +5,7 @@ return [
     'declarations' => [
         'name' => 'App_Main_Module',
         'author' => 'Shudhansh Dubey',
-        'url_prefix' => '/',
-        'controller' => './Controller',
-        'view' => './Design'
+        'url_prefix' => '/'
     ],
 
     'routes' => [

@@ -22,22 +22,18 @@ class ResponseAction {
         } else {
             $this->response->setContent($content);
         }
-
         $this->setContentType($type);
-
         return $this->response;
     }
 
-    public function json ($content = null) 
+    public function getJson ($content = null) 
     {
         $this->response->setContent(json_encode($content));
-        
         $this->setContentType('json'); 
-        
         return $this->response;
     }
 
-    public function pdf ($content = null) 
+    public function getPdf ($content = null) 
     {
         $dompdf = new Dompdf();
         $dompdf->setPaper('A4', 'landscape');
@@ -45,7 +41,7 @@ class ResponseAction {
         return $dompdf->output();
     }
 
-    public function csv ($collection, $structure, $path) 
+    public function getCsv ($collection, $structure, $path) 
     {    
         $fp = fopen($path, 'w+');  
         fputcsv($fp, $structure[0]); 
@@ -66,7 +62,7 @@ class ResponseAction {
         fclose($fp);
     }
 
-    public function exportCsv ($collection, $structure, $path, $name = 'document') 
+    public function exportToCsv ($collection, $structure, $path, $name = 'document') 
     {    
         $fp = fopen($path, 'w+'); 
         header('Content-type: application/csv');
@@ -87,7 +83,7 @@ class ResponseAction {
         fclose($fp);
     }
 
-    public function redirect($url) 
+    public function redirectTo($url) 
     {
         $this->response = new RedirectResponse($url);
         return $this->response;
