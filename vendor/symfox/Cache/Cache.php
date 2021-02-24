@@ -31,7 +31,7 @@ class Cache {
         if (empty(self::$filehandler)) self::$filehandler = (new Filehandler)->getHandler();
         if (empty( self::$cachepath)) self::$cachepath = Configurator::getCachepath();
 
-        self::$filehandler->put(self::$cachepath . $file, $content);
+        self::$filehandler->put(self::$cachepath . $file, $content); 
         return;
     }
 

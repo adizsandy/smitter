@@ -1,4 +1,3 @@
-<?php
-
-echo "Welcome home !"; 
-echo "Special message for you.";
+<div>
+    <img src="<?php echo site_url() . '/assets/img/sunshine.png'; ?>" alt="Sunshine Vitamins">
+</div>

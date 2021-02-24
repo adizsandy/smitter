@@ -21,6 +21,8 @@ class View {
 		$this->setFileHandleService();
 		$this->setSessionService();  
 		$this->setAuthService();  
+		
+		if ($_SERVER['APP_ENV'] == 'local') $this->cacheallowed = false;
 	}
 
 	public function getIncludes($file, $module) 

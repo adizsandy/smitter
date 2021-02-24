@@ -8,14 +8,14 @@ class HomeController extends BaseController {
 
 	public function index()
 	{	
-		$data['msg'] = "Hello World! Welcome to Symfox 2.1.1 aka Sunshine";	
-		return $this->getResponse()->getJson($data); 
+		$data['title'] = "Symfox - 2.1.2 | Default Home Page";
+		return $this->getView()->render('home', $data, 'layout_1'); 
 	} 
 
 	public function contact() 
 	{	
 		//Set cache false for highly dynamic pages ->setCache(false)
-		$data = [ 'data' => $this->getDB()->table('users')->get() ];
+		$data = [  'title' => 'Contact page', 'data' => $this->getDB()->table('users')->get() ];
 		return $this->getView()->render('contact', $data, 'layout_1');
 	}
 
