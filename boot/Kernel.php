@@ -2,28 +2,39 @@
 
 namespace Boot;
 
-use Symfox\Processor\Processor;
-use Symfony\Component\HttpFoundation\Request; 
+use Symfox\Match\Matche;
+use Symfox\Dispatch\Dispatch;
+use Symfox\Controller\Control;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\HttpKernel;
 
-class Kernel {
+class Kernel extends HttpKernel { 
 
-    private $processor;
-
-    public function __construct($env = 'local', $debug = true)
-    {
-        $this->processor = new Processor($env, $debug);
+    public function __construct()
+    { 
+        parent::__construct( $this->getDispatcher(), $this->getControlResolver() ); 
     }
 
-    public function handle (Request $request)
+    public function process (Request $request)
     {   
-        $this->processor->getMatcher()->getContext()->fromRequest($request);
-        $request->attributes->add($this->processor->getMatcher()->match($request->getPathInfo()));
+        $this->getMatcher()->getContext()->fromRequest($request);
+        $request->attributes->add($this->getMatcher()->match($request->getPathInfo()));
         
-        return $this->processor->handle($request);
+        return $this->handle($request);
     }
 
-    public function finish($request, $response) 
+    public function getMatcher() 
     {
-        $this->processor->terminate($request, $response);
+        return ( new Matche() )->getMatcher();
+    }
+
+    public function getDispatcher() 
+    {
+        return ( new Dispatch() )->getDispatcher();
+    }
+
+    public function getControlResolver() 
+    {
+        return ( new Control() )->getResolver();
     }
 }

@@ -12,6 +12,7 @@
  */
 
 use Boot\Kernel;  
+use Boot\Env\Environment;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -24,17 +25,20 @@ require_once __DIR__.'/../vendor/autoload.php';
 // Load all environment variables
 (new Dotenv())->bootEnv(__DIR__.'/../.env');
 
-// Lighten Up The Core
-$kernel = new Kernel($_SERVER['APP_ENV'], $_SERVER['APP_DEBUG']);
+// Set Environment
+Environment::set($_SERVER['APP_ENV'], $_SERVER['APP_DEBUG']);
+
+// Lit Up The Core
+$kernel = new Kernel();
 
 // Getting the current request
 $request = Request::createFromGlobals();
 
 // Handle the request and get response
-$response = $kernel->handle($request);
+$response = $kernel->process($request);
 
 // Send the respones to user client 
 $response->send(); 
 
 // Terminate the kernel
-$kernel->finish($request, $response);
+$kernel->terminate($request, $response);
