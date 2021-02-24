@@ -12,11 +12,11 @@ return [
     // Register all routes for the given module
     'routes' => [ 
         'home' => [ '/' , 'HomeController::index' ],
-        'main_contact' => [ '/contact' , 'HomeController::contact' ],
-        'user_login_post' => [ '/user/login' , 'UserController::login' ],
-        'user_register_post' => [ '/user/register', 'UserController::register' ],
-        'user_logout_post' => [ '/user/logout', 'UserController::logout' ],
-        'user_update_post' => [ '/user/update', 'UserController::update' ],
+        'contact' => [ '/contact' , 'HomeController::contact' ],
+        'user_login' => [ '/user/login' , 'UserController::login' ],
+        'user_register' => [ '/user/register', 'UserController::register' ],
+        'user_logout' => [ '/user/logout', 'UserController::logout' ],
+        'user_update' => [ '/user/update', 'UserController::update' ],
     ],
 
     // Register events and listeners
@@ -43,10 +43,7 @@ return [
             'listeners' => []
         ],
         // You may register any custom event/listeners here
-        'order.created' => [
-            'handler' => \App\Module\Api\Order\Event\OrderEvent::class,
-            'listeners' => []
-        ],
+        
     ]
 
 ];
