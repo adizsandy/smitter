@@ -4,6 +4,8 @@ namespace Boot\Env;
 
 final class Configurator {
 
+    public static $route_attributes = [];
+
     public static function getProjectRoot() 
     {
         return __DIR__ . '/../../';
@@ -75,23 +77,24 @@ final class Configurator {
                     
                     // Set route mappings
                     if ( ! empty($routes) && count($routes) > 0 ) {
-                        foreach ( $routes as $route_name => $detail ) {  
+                        foreach ( $routes as $route_name => $detail ) { 
+                             
                             // Prepare prefixed url path
                             $final_url_path = '/'.rtrim(ltrim($declarations['url_prefix'].ltrim($detail[0], '/'), '/'), '/');
-                            
-                            // If path is to be searched
-                            // Returns current module name
-                            if (! empty($path)) {
-                                if ( $final_url_path == $path ) {
-                                    return $name; break;
-                                }
-                            }
                             
                             // Prepare prefixed controller
                             $final_controller = str_replace("/", "\\", "App/Module/". $module_dir . '/Controller/');
                             
                             // add to collection
                             $route_collection[ $module_prefix . '_' . $route_name ] = [ $final_url_path, $final_controller . $detail[1] ];
+
+                            // Pushing collections
+                            self::$route_attributes [ $final_url_path ] = [
+                                'route_name' => $route_name,
+                                'module' => $name,
+                                'controller' => $detail[1],
+                                'controller_path' => $final_controller
+                            ];
                         }
                     }   
                 } 

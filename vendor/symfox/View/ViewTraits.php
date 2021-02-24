@@ -10,8 +10,8 @@ use Boot\Env\Configurator;
 
 trait ViewTraits {
 
-    public $session; 
-	public $auth; 
+	public $auth;
+    public $session;  
     protected $filehandler;
 	protected $module;
 
@@ -38,7 +38,7 @@ trait ViewTraits {
 	protected function setModuleDir($module = null) 
 	{
 		if (empty($module)) { // Current Request Module
-			$module = Configurator::getRouteCollection($this->getRequest()->getPathInfo()); 
+			$module = Configurator::$route_attributes[ $this->getRequest()->getPathInfo() ]['module'];  
 		}  
 		$this->module = Configurator::getModuleDir() . implode("/",explode("_", ltrim($module, 'App_')));
 	}

@@ -2,32 +2,27 @@
 
 namespace Symfox\Processor;
 
-use Symfox\Match\Matche;
+use Symfony\Component\HttpKernel\HttpKernel;
 use Symfox\Dispatch\Dispatch;
-use Symfox\Controller\Control;
-use Symfox\Argument\Argument;
+use Symfox\Controller\Control; 
+use Symfox\Match\Matche; 
 
  /**  
   * Processor Class
   * Handling all the processes for framework
   */
-abstract class Processor {
+class Processor extends HttpKernel {
     
-    protected $dispatcher;
     protected $matcher;
-    protected $controlProcessor;
-    protected $argumentResolver;
     protected $environment;
     protected $debug; 
 
-    public function __construct( $env = 'local', $debug = true )
-    {
+    public function __construct($env, $debug)
+    {   
         $this->setEnvironment($env);
-        $this->setDebug($debug); 
-        $this->setDispatcher();
-        $this->setMatcher();
-        $this->setControlProcessor();
-        $this->setArgumentResolver();
+        $this->setDebug($debug); ; 
+
+        parent::__construct( $this->getDispatcher(), $this->getControlResolver() ); 
     }
 
     protected function setEnvironment($env) 
@@ -44,47 +39,18 @@ abstract class Processor {
         // In dev...
     }
 
-    protected function setDispatcher() 
-    {    
-        $dispatchProcessor = new Dispatch();
-        $this->dispatcher = $dispatchProcessor;
+    public function getMatcher() 
+    {
+        return ( new Matche() )->getMatcher();
     }
 
     public function getDispatcher() 
     {
-        return $this->dispatcher;
+        return ( new Dispatch() )->getDispatcher();
     }
 
-    protected function setMatcher() 
-    {   
-        $matchProcessor = new Matche();
-        $this->matcher = $matchProcessor->getMatcher();
-    }
-
-    public function getMatcher() 
+    public function getControlResolver() 
     {
-        return $this->matcher;
-    }
-
-    protected function setControlProcessor() 
-    {   
-        $controlProcessor = new Control();
-        $this->controlProcessor = $controlProcessor;
-    }
-
-    public function getControlProcessor() 
-    {
-        return $this->controlProcessor;
-    }
-
-    protected function setArgumentResolver() 
-    {   
-        $argumentProcessor = new Argument();
-        $this->argumentResolver = $argumentProcessor->getResolver();
-    }
-
-    public function getArgumentResolver() 
-    {
-        return $this->argumentResolver;
+        return ( new Control() )->getResolver();
     }
 }

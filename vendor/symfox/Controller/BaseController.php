@@ -11,6 +11,28 @@ use Symfox\Filehandler\Filehandler;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;  
 
+/*
+ * |
+ * | BASE CONTROLLER 
+ * | Abstract class for providing all default services to the child custom front controllers
+ * | Note: All services are lazily loaded. Any service will only be initiated once invoked
+ * | 
+ * @author Shudhansh Dubey <sudhanshs4@gmail.com>
+ * |
+ * .-------------------
+ * . Services Included
+ * .-------------------
+ * . Database Layer [ API: $this->getDB ]
+ * . View Handler [ API: $this->getView() ]
+ * . Session Provider [ API: $this->getSession() ]
+ * . Response Generator [ API: $this->getResponse() ]
+ * . Authentication Services [ API: $this->getAuth() ]
+ * . Request Actions [ API: $this->getRequest() ]
+ * . Filehandler Services [ API: $this->getFilehandler() ]
+ * . Mail Services [ API: $this->getMailer() ]
+ * |
+ * |
+ */
 abstract class BaseController {
 
     private $db;

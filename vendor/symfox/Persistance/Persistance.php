@@ -14,8 +14,6 @@ class Persistance {
 	{ 	
 		$this->setConnection();
 		$this->setPersistance();
-
-		return $this->getPersistance();
 	}
 
 	protected function setConnection() 

@@ -16,7 +16,7 @@ class HomeController extends BaseController {
 	{	
 		//Set cache false for highly dynamic pages ->setCache(false)
 		$data = [ 'data' => $this->getDB()->table('users')->get() ];
-		return $this->getView()->render('contact', $data, 'layout_1');
+		return $this->getView()->setCache(false)->render('contact', $data, 'layout_1');
 	}
 
 }

@@ -15,8 +15,8 @@ use Boot\Kernel;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
 
-// Start Time
-define('SYMFOX_START', microtime(true));
+// Start Timer
+define('GET_SUNSHINE', microtime(true));
 
 // Load All dependencies
 require_once __DIR__.'/../vendor/autoload.php';
@@ -24,12 +24,17 @@ require_once __DIR__.'/../vendor/autoload.php';
 // Load all environment variables
 (new Dotenv())->bootEnv(__DIR__.'/../.env');
 
-// Lighten Up
+// Lighten Up The Core
 $kernel = new Kernel($_SERVER['APP_ENV'], $_SERVER['APP_DEBUG']);
 
-// Request response lifecycle
+// Getting the current request
 $request = Request::createFromGlobals();
 
+// Handle the request and get response
 $response = $kernel->handle($request);
 
+// Send the respones to user client 
 $response->send(); 
+
+// Terminate the kernel
+$kernel->finish($request, $response);

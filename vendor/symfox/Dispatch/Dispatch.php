@@ -18,29 +18,19 @@ class Dispatch {
 		$this->setListeners();
 	}
 
+	public function getDispatcher() 
+	{
+		return $this->dispatcher;
+	}
+
 	protected function setDispatcher() 
 	{
 		$this->dispatcher = new EventDispatcher(); 
 	}
 
-	public function addEventListener($event_name, $event, $listener) 
-	{
-		if (!isset(($this->getEvents())[$event_name])) {
-			($this->getEvents())[$event_name] = $event();
-			if (is_array($listener)) {
-				foreach ($listener as $l) {
-					($this->getListeners())[$event_name][] = $l;
-				} 
-			} else {
-				($this->getListeners())[$event_name][] = $listener;
-			}
-		} else {
-			($this->getListeners())[$event_name][] = $listener;
-		}
-	}
-
 	public function getEvents() 
 	{
+		if (empty($this->events)) $this->setEvents();
 		return $this->events;
 	}
 
@@ -50,7 +40,8 @@ class Dispatch {
 	}
 
 	public function getListeners() 
-	{
+	{	
+		if (empty($this->listeners)) $this->setListeners();
 		return $this->listeners;
 	}
 
@@ -62,16 +53,16 @@ class Dispatch {
 	public function resolve($request, $response)
 	{
 		if ( !empty($this->getEvents()) && count($this->getEvents()) > 0 ) {
-            foreach( $this->getEvents() as $e_name => $event){
-                if(!empty($this->listeners[$e_name])){
-                    foreach($this->listeners[$e_name] as $listener){
+            foreach( $this->getEvents() as $event_key => $event ) {
+				$listeners = $this->getListeners($event_key);
+                if ( count($listeners) > 0 ){
+                    foreach ( $listeners as $listener ) {
                         $this->dispatcher->addSubscriber(new $listener());
                     }
-                    $this->dispatcher->dispatch($e_name, new $event($response, $request));
+                    $this->dispatcher->dispatch($event_key, new $event($response, $request));
                 } 
             }
         }
-
 		return;
 	}
 } 
