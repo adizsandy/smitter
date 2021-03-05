@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '48de522d0582c6287e541d62c3b3b7f3884994f4',
+    'reference' => '4016482f524995b77bd08905b324b4f28d21c820',
     'name' => 'symfox/web-framework',
   ),
   'versions' => 
@@ -158,15 +158,6 @@ private static $installed = array (
       array (
       ),
       'reference' => '5fa61b65e612ce1ae15f69b3d223cb14ecc60e32',
-    ),
-    'phpoption/phpoption' => 
-    array (
-      'pretty_version' => '1.7.5',
-      'version' => '1.7.5.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '994ecccd8f3283ecf5ac33254543eb0ac946d525',
     ),
     'psr/cache' => 
     array (
@@ -513,16 +504,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '48de522d0582c6287e541d62c3b3b7f3884994f4',
-    ),
-    'vlucas/phpdotenv' => 
-    array (
-      'pretty_version' => 'v4.2.0',
-      'version' => '4.2.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'da64796370fc4eb03cc277088f6fede9fde88482',
+      'reference' => '4016482f524995b77bd08905b324b4f28d21c820',
     ),
   ),
 );
