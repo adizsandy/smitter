@@ -2,18 +2,17 @@
 
 namespace App\Module\Main\Module\Controller;
 
-use Symfox\Controller\BaseController;
 use App\Module\Main\Module\Model\User;
 
-class UserController extends BaseController {
+class UserController {
     
     public function login() 
     {   
         $response = [ 'success' => false, 'message' => '', 'data' => null ];
 
         try {
-            $user = $this->getAuth()->entity('users'); // Get auth instance for users table
-            $data = $this->getRequest()->request->all(); // $_POST data, but much secure
+            $user = auth()->entity('users'); // Get auth instance for users table
+            $data = request()->allPost(); // All $_POST data, but much secure
             if (! empty($data)) {
                 $login_data = [ 'email' => $data['email'], 'password' => $data['password'] ];
                 if ( $user->check() ) {
@@ -33,7 +32,7 @@ class UserController extends BaseController {
             $response['message'] = $e->getMessage();
         } 
 
-        return $this->getResponse()->getJson($response);
+        return response()->getJson($response);
     }
 
     public function register() 
@@ -42,17 +41,18 @@ class UserController extends BaseController {
 
         try { 
             
-            $data = $this->getRequest()->request->all();  // $_POST data, but much secure
-            // $files = $this->request->files->all(); // $_FILES data, All the files attached in the request
+            $data = request()->allPost();  // $_POST data, but much secure
+            // $foo = request()->get('foo') // Request data named `foo` $_GET/$_POST
+            // $files = request()->allFiles(); // $_FILES data, All the files attached in the request
 
             if (! empty($data)) { 
-                if ( $this->getAuth()->entity('users')->check() ) { // Check for possible login
+                if ( auth()->entity('users')->check() ) { // Check for possible login
                     $response['message'] = 'Already Logged In, Cannot Register';
                 } else {
                     $user_check = User::where(['email' => $data['email']])->first();
                     if (empty($user_check)) {
                         $user = new User(); // ORM part begins, user entity instance
-                        $user->password = $this->getAuth()->hash($data['password']); // Hash the password
+                        $user->password = auth()->hash($data['password']); // Hash the password
                         $user->email = $data['email']; 
                         if ( $user->save($data) ) { // Save the data
                             $response['success'] = true;
@@ -68,7 +68,7 @@ class UserController extends BaseController {
             $response['message'] = $e->getMessage();
         } 
 
-        return $this->getResponse()->getJson($response);
+        return response()->getJson($response);
     }
 
     public function logout () 
@@ -76,14 +76,14 @@ class UserController extends BaseController {
         $response = [ 'success' => false, 'message' => '', 'data' => null ];
 
         try { 
-            $this->getAuth()->entity('users')->logout();
+            auth()->entity('users')->logout();
             $response['success'] = true;
             $response['message'] = 'Logged out successfully';
         } catch (\Exception $e) {
             $response['message'] = $e->getMessage();
         } 
 
-        return $this->getResponse()->getJson($response);
+        return response()->getJson($response);
     }
 
     public function update() 
@@ -92,11 +92,11 @@ class UserController extends BaseController {
 
         try { 
             
-            $data = $this->getRequest()->request->all();  // $_POST data, but much secure
-            // $files = $this->request->files->all(); // $_FILES data, All the files attached in the request
+            $data = request()->allPost();  // $_POST data, but much secure
+            // $files = request()->allFiles(); // $_FILES data, All the files attached in the request
 
             if (! empty($data)) { 
-                if ( $this->getAuth()->entity('users')->check() ) { // Check for possible login
+                if ( auth()->entity('users')->check() ) { // Check for possible login
                     $response['message'] = 'Already Logged In, Cannot Register';
                 } else {
                     $user_check = User::where(['email' => $data['email']])->first();
@@ -104,7 +104,7 @@ class UserController extends BaseController {
                         $response['message'] = 'User with email not exists';
                     } else { 
                         $user = $user_check; // ORM part begins, user entity instance
-                        if(isset($data['password'])) $user->password = $this->getAuth()->hash($data['password']); // Hash the password
+                        if(isset($data['password'])) $user->password = auth()->hash($data['password']); // Hash the password
                         $user->email = $data['email']; 
                         if ( $user->save($data) ) { // Save the data ( Actually updates here )
                             $response['success'] = true;
@@ -118,7 +118,7 @@ class UserController extends BaseController {
             $response['message'] = $e->getMessage();
         } 
 
-        return $this->getResponse()->getJson($response);
+        return response()->getJson($response);
     }
     
 }

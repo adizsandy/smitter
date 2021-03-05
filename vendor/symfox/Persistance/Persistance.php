@@ -10,15 +10,15 @@ class Persistance {
 	protected $conn;
 	protected $persistance;
 
-	public function __construct()
+	public function __construct($connection = 'default')
 	{ 	
-		$this->setConnection();
+		$this->setConnection($connection);
 		$this->setPersistance();
 	}
 
-	protected function setConnection() 
+	protected function setConnection($connection) 
 	{	 
-		$this->conn = Configurator::getConnectionDetails();
+		$this->conn = Configurator::getConnectionDetails($connection);
 	}
 
 	protected function getConnection() 
@@ -32,6 +32,13 @@ class Persistance {
 		$capsule->addConnection($this->getConnection()); 
 		$capsule->bootEloquent();
 		$this->persistance = $capsule->getDatabaseManager();
+	}
+
+	public function connection($connection_name = 'default') 
+	{
+		$this->setConnection($connection_name);
+		$this->setPersistance();
+		return $this;
 	}
 
 	public function getPersistance() 

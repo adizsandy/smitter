@@ -39,9 +39,9 @@ final class Configurator {
         return $hash['hash_type'];
     }
 
-    public static function getConnectionDetails () 
+    public static function getConnectionDetails ($connection) 
     {
-        return require self::getProjectRoot() . 'config/database.php'; 
+        return ( require self::getProjectRoot() . 'config/database.php' ) [ $connection ]; 
     }
 
     public static function getMailTransportCollection() 

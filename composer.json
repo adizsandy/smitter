@@ -35,6 +35,7 @@
             "Symfony\\" : "vendor/symfony"
         }, 
         "files": [
+            "boot/container/functions.php",
             "app/helpers/constants.php",
             "app/helpers/functions.php"
         ]
