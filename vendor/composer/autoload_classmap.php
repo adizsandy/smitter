@@ -1404,6 +1404,7 @@ return array(
     'Symfox\\Mail\\Mailer' => $vendorDir . '/symfox/Mail/Mailer.php',
     'Symfox\\Match\\Matche' => $vendorDir . '/symfox/Match/Matche.php',
     'Symfox\\Persistance\\Persistance' => $vendorDir . '/symfox/Persistance/Persistance.php',
+    'Symfox\\Request\\RequestAction' => $vendorDir . '/symfox/Request/RequestAction.php',
     'Symfox\\Response\\ResponseAction' => $vendorDir . '/symfox/Response/ResponseAction.php',
     'Symfox\\Security\\Auth' => $vendorDir . '/symfox/Security/Auth.php',
     'Symfox\\Session\\Session' => $vendorDir . '/symfox/Session/Session.php',
