@@ -9,7 +9,7 @@ function container()
 
 function db() 
 {
-    return container()->get('db');
+    return ( container()->get('db') )->getPersistance();
 }
 
 function response() 

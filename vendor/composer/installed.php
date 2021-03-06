@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '4016482f524995b77bd08905b324b4f28d21c820',
+    'reference' => '8ad79ccf31446f19317e89f280bbb0830252226f',
     'name' => 'symfox/web-framework',
   ),
   'versions' => 
@@ -164,12 +164,12 @@
     ),
     'psr/container' => 
     array (
-      'pretty_version' => '1.0.0',
-      'version' => '1.0.0.0',
+      'pretty_version' => '1.1.1',
+      'version' => '1.1.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'b7ce3b176482dbbc1245ebf52b181af44c2cf55f',
+      'reference' => '8622567409010282b7aeebe4bb841fe98b58dcaf',
     ),
     'psr/event-dispatcher' => 
     array (
@@ -230,12 +230,12 @@
     ),
     'swiftmailer/swiftmailer' => 
     array (
-      'pretty_version' => 'v6.2.5',
-      'version' => '6.2.5.0',
+      'pretty_version' => 'v6.2.6',
+      'version' => '6.2.6.0',
       'aliases' => 
       array (
       ),
-      'reference' => '698a6a9f54d7eb321274de3ad19863802c879fb7',
+      'reference' => 'd2791ff0b73247cdc2096b14f5580aba40c12bff',
     ),
     'symfony/cache' => 
     array (
@@ -349,7 +349,7 @@
       array (
         0 => '9999999-dev',
       ),
-      'reference' => '54c4e82a28077430aab4e674441a4dcd2fd209fd',
+      'reference' => '1bf1438df98d852c4a18b7993166a99ad43f9022',
     ),
     'symfony/polyfill-ctype' => 
     array (
@@ -491,7 +491,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '4016482f524995b77bd08905b324b4f28d21c820',
+      'reference' => '8ad79ccf31446f19317e89f280bbb0830252226f',
     ),
   ),
 );

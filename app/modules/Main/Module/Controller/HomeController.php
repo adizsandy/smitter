@@ -18,7 +18,7 @@ class HomeController {
 		//$data = [  'title' => 'Contact page', 'data' => db()->connection('db2')->table('users')->get() ];
 		
 		$data = [  'title' => 'Contact page', 'data' => db()->table('users')->get() ];
-		return view()->render('contact', $data, 'layout_1');
+		return view()->setCache(false)->render('contact', $data, 'layout_1');
 	}
 
 	public function di() 

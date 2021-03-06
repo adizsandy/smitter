@@ -16,7 +16,7 @@ class Container implements ContainerInterface
         $item = $this->resolve($id);
         if (!($item instanceof ReflectionClass)) {
             return $item;
-        }
+        } 
         return $this->getInstance($item);
     }
 

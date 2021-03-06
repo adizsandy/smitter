@@ -13,7 +13,7 @@ class Persistance {
 	public function __construct($connection = 'default')
 	{ 	
 		$this->setConnection($connection);
-		$this->setPersistance();
+		$this->setPersistance(); 
 	}
 
 	protected function setConnection($connection) 

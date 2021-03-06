@@ -29,7 +29,7 @@ class View {
 	{	
 		ob_start();
 		if(!empty($this->getData())) extract($this->getData(), EXTR_SKIP); 
-		$include_file = Configurator::getModuleDir() . implode("/",explode("_", ltrim($module_name, 'App_'))) . '/Design/includes/' . $file . $this->getFileExtension();
+		$include_file = Configurator::getModuleDir() . implode("/",explode("_", ltrim($module, 'App_'))) . '/Design/includes/' . $file . $this->getFileExtension();
 		if (file_exists($include_file)) include_once $include_file;
 		$includes = ob_get_contents();
 		ob_end_clean(); 

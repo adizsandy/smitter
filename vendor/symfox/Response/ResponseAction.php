@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ResponseAction {
 
-    public $response;
+    private $response;
 
     public function __construct()
     {
