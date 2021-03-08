@@ -20,33 +20,4 @@ return [
         'user_update' => [ '/user/update', 'UserController::update' ],
     ],
 
-    // Register events and listeners
-    'events' => [
-        // Register listeners for default events
-        'kernel.request' => [
-            'handler' => \Symfony\Component\HttpKernel\Event\RequestEvent::class ,
-            'listeners' => [
-                [ App\Mediator\Request\CsrfTokenMediator::class, 'execute' ]
-            ]
-        ],
-        'kernel.controller' => [
-            'handler' => \Symfony\Component\HttpKernel\Event\ControllerEvent::class,
-            'listeners' => []
-        ],
-        'kernel.controller_arguments' => [
-            'handler' => \Symfony\Component\HttpKernel\Event\ControllerArgumentsEvent::class,
-            'listeners' => []
-        ],
-        'kernel.view' => [
-            'handler' => \Symfony\Component\HttpKernel\Event\ViewEvent::class,
-            'listeners' => []
-        ],
-        'kernel.terminate' => [
-            'handler' => \Symfony\Component\HttpKernel\Event\TerminateEvent::class,
-            'listeners' => []
-        ],
-        // You may register any custom event/listeners here
-        
-    ]
-
 ];
