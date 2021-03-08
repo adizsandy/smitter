@@ -11,22 +11,19 @@
  * @license MIT
  */
 
-// Start Timer
-define('GET_SUNSHINE', microtime(true));
-
-// Load All dependencies
+// Load dependencies
 require_once __DIR__.'/../vendor/autoload.php';
 
-// Load all environment variables
+// Load environment variables
 (new \Symfony\Component\Dotenv\Dotenv())->bootEnv(__DIR__.'/../.env');
 
 // Set Environment
 \Boot\Env\Environment::set($_SERVER['APP_ENV'], $_SERVER['APP_DEBUG']);
 
-// Load Application Container
-require_once __DIR__ . '/../boot/application.php';
+// Instantiate Application Container
+$app = require_once __DIR__ . '/../boot/application.php';
 
-// Lit Up The Core
+// Instantiate Kernel
 $kernel = new \Boot\Kernel($app);
 
 // Getting the current request
@@ -38,5 +35,5 @@ $response = $kernel->process($request);
 // Send the respones to user client 
 $response->send(); 
 
-// Terminate the kernel
+// Terminate the cycle
 $kernel->terminate($request, $response);
