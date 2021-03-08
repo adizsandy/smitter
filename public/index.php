@@ -4,7 +4,7 @@
  * Symfox : Agile, Extensible, Fast and Modular 
  * 
  * @alias Sunshine
- * @version 2.21.3
+ * @version 21.3
  * @author Shudhansh Shekhar Dubey < sudhanshs4@gmail.com >
  * @link https://adizsandy@bitbucket.org/adizsandy/symfox.git
  * @copyright 2021 Symfox, All rights reserved
