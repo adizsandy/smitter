@@ -21,6 +21,11 @@ final class Configurator {
         return 'storage/cache/';
     }
 
+    public static function getTemplateExtension() 
+    {
+        return '.php';
+    }
+
     public static function getViewCacheTime() 
     {
         $cachetime = require self::getProjectRoot() . 'config/cache.php';

@@ -1,14 +1,18 @@
 <?php
 
+/**
+ * Collection of Service Factory Functions
+ * Public API
+ */
+
 function container() 
 {
-    global $kernel;
-	$container = $kernel->getContainer();
-    return $container;
+    global $app;
+    return $app;
 }
 
 function db() 
-{
+{   
     return ( container()->get('db') )->getPersistance();
 }
 

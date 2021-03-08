@@ -2,108 +2,66 @@
 
 namespace Symfox\View;
 
-use Symfox\View\ViewTraits;
-use Symfox\Cache\Cache;
-use Boot\Env\Configurator;
-use Symfox\Response\ResponseAction;
+use Boot\Env\Configurator; 
 
 class View {
 
-	use ViewTraits;
-
 	private $layout;
 	private $template;
-	private $data; 
-	private $cacheallowed = true; 
+	private $data;  
+	private $response; 
+	private $viewcache;
+	private $request;
+	public $auth;
+	public $session; 
 
 	public function __construct()
-	{ 
-		$this->setFileHandleService();
-		$this->setSessionService();  
-		$this->setAuthService();  
-		
-		if ($_SERVER['APP_ENV'] == 'local') $this->cacheallowed = false;
+	{ 	
+		global $app; 
+		$this->auth = $app->get('auth');
+		$this->session = $app->get('session'); 
+		$this->response = $app->get('response'); 
+		$this->viewcache = $app->get('viewcache'); 
+		$this->request = $app->get('request');
 	}
 
-	public function getIncludes($file, $module) 
-	{	
-		ob_start();
-		if(!empty($this->getData())) extract($this->getData(), EXTR_SKIP); 
-		$include_file = Configurator::getModuleDir() . implode("/",explode("_", ltrim($module, 'App_'))) . '/Design/includes/' . $file . $this->getFileExtension();
-		if (file_exists($include_file)) include_once $include_file;
-		$includes = ob_get_contents();
-		ob_end_clean(); 
-		return $includes;
-	}
-
-	public function render ( $template = null, $options = null, $layout = null )
-	{	
-		if ($this->validCacheAvailable()) {
-			$content = $this->getCacheContent();
+	protected function resolve ( $template = null, $options = null, $layout = null ) 
+	{
+		if ($this->viewcache->validCacheAvailable()) {
+			$content = $this->viewcache->getCacheContent();
 		} else {
-			$content = $this->generateContent($template, $options, $layout);
-			if ($this->cacheallowed) {
-				$this->setCacheContent($content);
+			if ( isset($layout) && ! empty($layout) )  { 
+				$this->setLayout($layout);
+			}
+			if ( isset($template) && ! empty($template) ) { 
+				$this->setTemplate($template); 
+			}
+			if ( isset($options) && ! empty($options) ) { 
+				$this->setData($options); 
+			}
+			$content = $this->generateContent();
+			if ($this->viewcache->cacheallowed) {
+				$this->viewcache->setCacheContent($content);
 			} 
 		} 
-		return (new ResponseAction)->output($content);
+		return $content;
 	}
 
-	public function generateContent($template = null, $options = null, $layout = null) 
+	protected function generateContent() 
 	{
-		if ( isset($layout) && ! empty($layout) )  { 
-			$this->setLayout($layout);
-		}
-		if ( isset($template) && ! empty($template) ) { 
-			$this->setTemplate($template); 
-		}
-		if ( isset($options) && ! empty($options) ) { 
-			$this->setData($options); 
-		}
-
 		ob_start(); 
 		if(!empty($this->getData())) extract($this->getData(), EXTR_SKIP); 
-		require $this->getTemplate() . $this->getFileExtension(); 
+		require $this->getTemplate() . Configurator::getTemplateExtension(); 
 		$templateContent = ob_get_contents(); 
 		ob_end_clean();  
 
 		ob_start(); 
 		extract(['content' => $templateContent], EXTR_SKIP); 
-		if (! empty($this->getLayout())) require $this->getLayout() . $this->getFileExtension(); 
+		if (! empty($this->getLayout())) require $this->getLayout() . Configurator::getTemplateExtension(); 
 		$final_content = ob_get_contents(); 
 		ob_end_clean(); 
 
 		return $final_content;
-	}
-
-	protected function validCacheAvailable() 
-	{	
-		if ($this->cacheallowed) {
-			$file = 'view/' . $this->getCacheKey() . $this->getFileExtension();
-			if ( Cache::has($file) ) {
-				return true;
-			}
-		} 
-		return false;  
-	}
-
-	public function setCache($status = true) 
-	{
-		$this->cacheallowed = $status;
-		return $this;
-	}
-
-	protected function getCacheContent() 
-	{	
-		$file = 'view/' . $this->getCacheKey() . $this->getFileExtension();
-		return Cache::get($file);
-	}
-
-	protected function setCacheContent($content) 
-	{
-		$file = 'view/' . $this->getCacheKey() . $this->getFileExtension();
-		Cache::put($file, $content);
-		return;
 	}
 
 	public function setlayout($layout, $module = null) 
@@ -130,6 +88,19 @@ class View {
 		return $this->template;
 	}
 
+	protected function setModuleDir($module = null) 
+	{
+		if (empty($module)) { // Current Request Module
+			$module = Configurator::$route_attributes[ $this->request->getPathInfo() ]['module'];  
+		}  
+		$this->module = Configurator::getModuleDir() . implode("/",explode("_", ltrim($module, 'App_')));
+	}
+
+	protected function getModuleDir() 
+	{
+		return $this->module;
+	}
+
 	public function setData($data) 
 	{	
 		if ( !empty($data) ) $this->data = $data; 
@@ -141,9 +112,27 @@ class View {
 		return $this->data;
 	}
 
-	private function getFileExtension() 
+	public function setCache($status = true) 
+	{
+		$this->viewcache->cacheallowed = $status;
+		return $this;
+	}
+
+	public function getIncludes($file, $module) 
 	{	
-		return '.php'; 
+		ob_start();
+		if(!empty($this->getData())) extract($this->getData(), EXTR_SKIP); 
+		$include_file = Configurator::getModuleDir() . implode("/",explode("_", ltrim($module, 'App_'))) . '/Design/includes/' . $file . Configurator::getTemplateExtension();
+		if (file_exists($include_file)) include_once $include_file;
+		$includes = ob_get_contents();
+		ob_end_clean(); 
+		return $includes;
+	}
+
+	public function render ( $template = null, $options = null, $layout = null )
+	{	
+		$content = $this->resolve($template, $options, $layout);
+		return $this->response->output($content);
 	}
 
 } 
