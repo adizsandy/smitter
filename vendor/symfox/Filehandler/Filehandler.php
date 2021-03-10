@@ -6,23 +6,10 @@ use Boot\Env\Configurator;
 use League\Flysystem\Filesystem;
 use League\Flysystem\Adapter\Local; 
 
-class Filehandler {
-
-    private $handler;
+class Filehandler extends Filesystem implements FilehandlerInterface {
 
     public function __construct()
-    {
-        $this->setHandler(Configurator::getProjectRoot()); 
-    }
-
-    public function getHandler() 
-    {
-        return $this->handler;
-    }
-
-    protected function setHandler($root) 
-    {
-        $adapter = new Local($root);
-		$this->handler = new Filesystem($adapter); 
-    }
+    {   
+        parent::__construct(new Local(Configurator::getProjectRoot()));
+    } 
 }

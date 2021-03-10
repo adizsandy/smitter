@@ -3,30 +3,30 @@
 namespace Symfox\Dispatch;
 
 use Boot\Env\Configurator;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\EventDispatcher\EventDispatcher; 
 
-class Dispatch {
+class Dispatch extends EventDispatcher {
 
-	private $dispatcher;
+	//private $dispatcher;
 	private $events = [];
 	private $listeners = [];
 
 	public function __construct()
 	{	
-		$this->setDispatcher();
+		//$this->setDispatcher();
 		$this->setEvents();
 		$this->setListeners();
 	}
 
-	public function getDispatcher() 
-	{
-		return $this->dispatcher;
-	}
+	// public function getDispatcher() 
+	// {
+	// 	return $this->dispatcher;
+	// }
 
-	protected function setDispatcher() 
-	{
-		$this->dispatcher = new EventDispatcher(); 
-	}
+	// protected function setDispatcher() 
+	// {
+	// 	$this->dispatcher = new EventDispatcher(); 
+	// }
 
 	public function getEvents() 
 	{
@@ -39,7 +39,7 @@ class Dispatch {
 		$this->events = Configurator::getEventCollection(); 
 	}
 
-	public function getListeners() 
+	public function getListenerList($event_key) 
 	{	
 		if (empty($this->listeners)) $this->setListeners();
 		return $this->listeners;
@@ -54,12 +54,12 @@ class Dispatch {
 	{
 		if ( !empty($this->getEvents()) && count($this->getEvents()) > 0 ) {
             foreach( $this->getEvents() as $event_key => $event ) {
-				$listeners = $this->getListeners($event_key);
+				$listeners = $this->getListenerList($event_key);
                 if ( count($listeners) > 0 ){
                     foreach ( $listeners as $listener ) {
-                        $this->dispatcher->addSubscriber(new $listener());
+                        $this->addSubscriber(new $listener());
                     }
-                    $this->dispatcher->dispatch($event_key, new $event($response, $request));
+                    $this->dispatch($event_key, new $event($response, $request));
                 } 
             }
         }

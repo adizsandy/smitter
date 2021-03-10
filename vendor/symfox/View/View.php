@@ -2,7 +2,12 @@
 
 namespace Symfox\View;
 
-use Boot\Env\Configurator; 
+use Boot\Env\Configurator;
+use Symfony\Component\HttpFoundation\Session\SessionInterface; 
+use Symfox\Request\RequestInterface; 
+use Symfox\Response\ResponseInterface;
+use Symfox\Security\AuthInterface;
+use Symfox\View\ViewInterface;
 
 class View {
 
@@ -15,14 +20,14 @@ class View {
 	public $auth;
 	public $session; 
 
-	public function __construct()
+	public function __construct( AuthInterface $auth, SessionInterface $session, RequestInterface $request,  ViewInterface $viewcache, ResponseInterface $response )
 	{ 	
-		global $app; 
-		$this->auth = $app->get('auth');
-		$this->session = $app->get('session'); 
-		$this->response = $app->get('response'); 
-		$this->viewcache = $app->get('viewcache'); 
-		$this->request = $app->get('request');
+		$this->auth = $auth;
+		$this->session = $session; 
+		$this->response = $response; 
+		$this->viewcache = $viewcache; 
+		$this->request = $request; 
+
 	}
 
 	protected function resolve ( $template = null, $options = null, $layout = null ) 

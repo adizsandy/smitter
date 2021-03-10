@@ -2,69 +2,36 @@
 
 namespace Symfox\Security;
 
-use Boot\Env\Configurator;
-use Boot\Env\Definitions;
-use Symfox\Persistance\Persistance;
-use Symfony\Component\HttpFoundation\Session\Session; 
-use Symfony\Component\PasswordHasher\Hasher\PasswordHasherFactory;
+use Symfox\Security\PasswordHasherFactoryInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfox\Persistance\PersistanceFactoryInterface;
 
 /**
  * Auth Service Class
  */
-class Auth {
+class Auth implements AuthInterface {
 
     private $db;
     private $session;
     private $entity;
     private $hasher;
 
-    protected function getSession() 
-    {   
-        if (empty($this->session)) $this->setSession();
-        return $this->session;
-    }
-
-    protected function setSession() 
+    public function __construct ( SessionInterface $session,  PersistanceFactoryInterface $persistance, PasswordHasherFactoryInterface $hasher ) 
     {
-        $this->session = new Session;
-    }
-
-    protected function getDB() 
-    {   
-        if (empty($this->db)) $this->setDB();
-        return $this->db;
-    }
-
-    protected function setDB() 
-    {
-        $this->db = (new Persistance)->getPersistance();
+        $this->session = $session;
+        $this->db = $persistance->getPersistance();
+        $this->hasher = $hasher->getHasher();
     }
 
     protected function filterLoginData($data) 
     {   
-        if (is_array($data) && ! empty($data)) {
+        if ( is_array($data) && ! empty($data) ) {
             foreach($data as $k => $d) {
                 if ($k == 'password') {
-                    $data[$k] = $this->getHasher()->hash($d);
+                    $data[$k] = $this->hasher->hash($d);
                 }
             }
         } 
-    }
-
-    protected function setHasher() 
-    {    
-        $this->hasher = $this->getHasherFactory()->getPasswordHasher(Configurator::getHashType());
-    }
-
-    protected function getHasherFactory() 
-    {
-        return new PasswordHasherFactory(Definitions::getHashAlgorithms());
-    }
-
-    protected function gethasher() 
-    {   
-        if (empty($this->hasher)) $this->setHasher();
-        return $this->hasher;
     }
 
     protected function setEntity($entity) 
@@ -79,22 +46,22 @@ class Auth {
 
     public function data() 
     {
-        return $this->getSession()->get($this->entity);
+        return $this->session->get($this->entity);
     }
 
     public function logout() 
     {
-        return $this->getSession()->remove($this->entity);
+        return $this->session->remove($this->entity);
     }
 
     public function hash($str) 
     {
-        return $this->getHasher()->hash($str);
+        return $this->hasher->hash($str);
     }
 
     public function verify($hash, $str) 
     {
-        return $this->getHasher()->verify($hash, $str);
+        return $this->hasher->verify($hash, $str);
     }
 
     public function entity($entity) 
@@ -105,15 +72,15 @@ class Auth {
     
     public function check() 
     {
-        return $this->getSession()->has($this->getEntity());
+        return $this->session->has($this->getEntity());
     } 
 
     public function login($data) 
     {   
         if (! $this->check()) {
-            $result = $this->getDB()->table($this->getEntity())->where($this->filterLoginData($data))->first();
+            $result = $this->db->table($this->getEntity())->where($this->filterLoginData($data))->first();
             if (! empty($result)) {
-                $this->getSession()->set($this->getEntity(), $result);
+                $this->session->set($this->getEntity(), $result);
                 return $result;
             } else {
                 return false;

@@ -4,8 +4,9 @@ namespace Symfox\Persistance;
 
 use Boot\Env\Configurator;
 use Symfox\Persistance\Persistance;
+use Symfox\Persistance\PersistanceFactoryInterface;
 
-class PersistanceFactory {
+class PersistanceFactory implements PersistanceFactoryInterface {
 
     private $connection;
 
@@ -16,7 +17,7 @@ class PersistanceFactory {
     }
 
     public function getPersistance() 
-    {
+    {   
         return ( new Persistance($this->connection) )->getPersistance();
     }
 
@@ -26,7 +27,7 @@ class PersistanceFactory {
 		return $this;
 	}
 
-    protected function setConnection($connection) 
+    protected function setConnection($connection = 'default') 
     {
         $this->connection = Configurator::getConnectionDetails($connection);
     } 

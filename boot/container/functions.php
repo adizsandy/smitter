@@ -28,17 +28,17 @@ function auth()
 
 function session() 
 {
-    return ( container()->get('session') )->getSession();
+    return container()->get('session');
 }
 
 function filehandler() 
 {
-    return ( container()->get('filehandler') )->getHandler();
+    return container()->get('filehandler');
 }
 
 function mailer() 
 {
-    return ( container()->get('mailer') )->getMailer();
+    return container()->get('mailer');
 }
 
 function cache() 

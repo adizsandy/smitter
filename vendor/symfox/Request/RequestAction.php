@@ -4,7 +4,12 @@ namespace Symfox\Request;
 
 use Symfony\Component\HttpFoundation\Request;
 
-class RequestAction extends Request {
+class RequestAction extends Request implements RequestInterface {
+
+    public function __construct()
+    {
+        parent::__construct($_GET, $_POST, [], $_COOKIE, $_FILES, $_SERVER);
+    }
 
     public function allPost() 
     {

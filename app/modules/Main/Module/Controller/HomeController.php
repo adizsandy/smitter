@@ -26,7 +26,7 @@ class HomeController {
 
 	public function di() 
 	{ 
-		return response()->getJson("Dependency Injection Tested");
+		return response()->json("Dependency Injection Tested");
 	}
 
 }

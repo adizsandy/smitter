@@ -13,7 +13,7 @@ class Cache {
     public static function has($file) 
     {   
         global $app;
-        if (empty(self::$filehandler)) self::$filehandler = $app->get('filehandler')->getHandler();
+        if (empty(self::$filehandler)) self::$filehandler = $app->get('filehandler');
         if (empty( self::$cachepath)) self::$cachepath = Configurator::getCachepath();
 
         if ( self::$filehandler->has( self::$cachepath . $file ) ) {
@@ -29,7 +29,7 @@ class Cache {
     public static function put($file, $content) 
     {   
         global $app;
-        if (empty(self::$filehandler)) self::$filehandler = $app->get('filehandler')->getHandler();
+        if (empty(self::$filehandler)) self::$filehandler = $app->get('filehandler');
         if (empty( self::$cachepath)) self::$cachepath = Configurator::getCachepath();
 
         self::$filehandler->put(self::$cachepath . $file, $content); 
@@ -39,7 +39,7 @@ class Cache {
     public static function get($file) 
     {   
         global $app;
-        if (empty(self::$filehandler)) self::$filehandler = $app->get('filehandler')->getHandler();
+        if (empty(self::$filehandler)) self::$filehandler = $app->get('filehandler');
         if (empty( self::$cachepath)) self::$cachepath = Configurator::getCachepath();
 
         return self::$filehandler->read(self::$cachepath . $file);

@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '8ad79ccf31446f19317e89f280bbb0830252226f',
+    'reference' => '2fc5401a4a0fb9681686cc484b7a02f7b7000a3d',
     'name' => 'symfox/web-framework',
   ),
   'versions' => 
@@ -141,6 +141,15 @@ private static $installed = array (
       ),
       'reference' => '528783b188bdb853eb21239b1722831e0f000a8d',
     ),
+    'opis/closure' => 
+    array (
+      'pretty_version' => '3.6.1',
+      'version' => '3.6.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '943b5d70cc5ae7483f6aff6ff43d7e34592ca0f5',
+    ),
     'phenx/php-font-lib' => 
     array (
       'pretty_version' => '0.5.2',
@@ -158,6 +167,33 @@ private static $installed = array (
       array (
       ),
       'reference' => '5fa61b65e612ce1ae15f69b3d223cb14ecc60e32',
+    ),
+    'php-di/invoker' => 
+    array (
+      'pretty_version' => '2.0.0',
+      'version' => '2.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '540c27c86f663e20fe39a24cd72fa76cdb21d41a',
+    ),
+    'php-di/php-di' => 
+    array (
+      'pretty_version' => '6.3.0',
+      'version' => '6.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '955cacea6b0beaba07e8c11b8367f5b3d5abe89f',
+    ),
+    'php-di/phpdoc-reader' => 
+    array (
+      'pretty_version' => '2.2.1',
+      'version' => '2.2.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '66daff34cbd2627740ffec9469ffbac9f8c8185c',
     ),
     'psr/cache' => 
     array (
@@ -183,6 +219,13 @@ private static $installed = array (
       array (
       ),
       'reference' => '8622567409010282b7aeebe4bb841fe98b58dcaf',
+    ),
+    'psr/container-implementation' => 
+    array (
+      'provided' => 
+      array (
+        0 => '^1.0',
+      ),
     ),
     'psr/event-dispatcher' => 
     array (
@@ -504,7 +547,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '8ad79ccf31446f19317e89f280bbb0830252226f',
+      'reference' => '2fc5401a4a0fb9681686cc484b7a02f7b7000a3d',
     ),
   ),
 );

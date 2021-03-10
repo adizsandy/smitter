@@ -6,7 +6,7 @@ use Dompdf\Dompdf;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-class ResponseAction {
+class ResponseAction implements ResponseInterface {
 
     private $response;
 
@@ -26,14 +26,14 @@ class ResponseAction {
         return $this->response;
     }
 
-    public function getJson ($content = null) 
+    public function json ($content = null) 
     {
         $this->response->setContent(json_encode($content));
         $this->setContentType('json'); 
         return $this->response;
     }
 
-    public function getPdf ($content = null) 
+    public function pdf ($content = null) 
     {
         $dompdf = new Dompdf();
         $dompdf->setPaper('A4', 'landscape');
@@ -41,7 +41,7 @@ class ResponseAction {
         return $dompdf->output();
     }
 
-    public function getCsv ($collection, $structure, $path) 
+    public function csv ($collection, $structure, $path) 
     {    
         $fp = fopen($path, 'w+');  
         fputcsv($fp, $structure[0]); 

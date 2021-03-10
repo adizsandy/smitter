@@ -10,7 +10,7 @@ class Persistance {
 	protected $conn;
 	protected $persistance;
 
-	public function __construct($connection = 'default')
+	public function __construct(array $connection)
 	{ 	
 		$this->setConnection($connection);
 		$this->setPersistance(); 
@@ -18,7 +18,7 @@ class Persistance {
 
 	protected function setConnection($connection) 
 	{	 
-		$this->conn = Configurator::getConnectionDetails($connection);
+		$this->conn = $connection;
 	}
 
 	protected function getConnection() 

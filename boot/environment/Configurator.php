@@ -44,7 +44,7 @@ final class Configurator {
         return $hash['hash_type'];
     }
 
-    public static function getConnectionDetails ($connection) 
+    public static function getConnectionDetails ($connection = 'default') 
     {
         return ( require self::getProjectRoot() . 'config/database.php' ) [ $connection ]; 
     }

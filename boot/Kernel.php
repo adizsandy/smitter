@@ -2,26 +2,28 @@
 
 namespace Boot;
 
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
 use Symfox\Request\RequestAction;
 use Symfony\Component\HttpKernel\HttpKernel;
-use Symfox\Container\Container;
+use Symfox\Match\MatchFactoryInterface;
 
 class Kernel extends HttpKernel { 
 
-    private $container;
+    private $matcher;
 
-    public function __construct(Container $container)
+    public function __construct( EventDispatcherInterface $dispatcher, ControllerResolverInterface $control, MatchFactoryInterface $matcher )
     {   
-        // Set the Service Container
-        $this->container = $container;  
-
         // Invoke the HTTP Kernel
-        parent::__construct( $this->container->get('dispatcher'), $this->container->get('control') );  
+        parent::__construct( $dispatcher, $control );
+
+        // Set URL Matcher
+        $this->matcher = $matcher; 
     }
 
-    public function process (RequestAction $request)
+    public function process ( RequestAction $request )
     {   
-        $url_matcher = ( $this->container->get('matcher') )->getUrlMatcher();  
+        $url_matcher = $this->matcher->getUrlMatcher();  
         $url_matcher->getContext()->fromRequest($request);
         $request->attributes->add($url_matcher->match($request->getPathInfo()));
         

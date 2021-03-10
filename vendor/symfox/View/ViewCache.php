@@ -4,17 +4,17 @@ namespace Symfox\View;
 
 use Boot\Env\Configurator;
 use Symfox\Cache\Cache;
+use Symfox\Request\RequestInterface;
 
-class ViewCache {
+class ViewCache implements ViewInterface {
  
     private $request;
-    public $cacheallowed = true;
+    public $cacheallowed = false;
 
-    public function __construct()
+    public function __construct(RequestInterface $request)
     {   
-        global $app; 
         if ($_SERVER['APP_ENV'] == 'local') $this->cacheallowed = false; 
-        $this->request = $app->get('request');
+        $this->request = $request;
     }
 
     public function validCacheAvailable() 

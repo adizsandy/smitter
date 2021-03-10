@@ -21,12 +21,12 @@ require_once __DIR__.'/../vendor/autoload.php';
 \Boot\Env\Environment::set($_SERVER['APP_ENV'], $_SERVER['APP_DEBUG']);
 
 // Instantiate Application Container
-$app = require_once __DIR__ . '/../boot/application.php';
+$app = (new \Boot\Application)->make();
 
-// Instantiate Kernel
-$kernel = new \Boot\Kernel($app);
+// Get Kernel
+$kernel = $app->get('kernel');
 
-// Getting the current request
+// Get the current request
 $request = \Symfox\Request\RequestAction::createFromGlobals();
 
 // Handle the request and get response
