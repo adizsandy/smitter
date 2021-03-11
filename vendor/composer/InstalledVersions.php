@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '2fc5401a4a0fb9681686cc484b7a02f7b7000a3d',
+    'reference' => '60454671e491c0a53abbd0747667a9e824814417',
     'name' => 'symfox/web-framework',
   ),
   'versions' => 
@@ -488,6 +488,24 @@ private static $installed = array (
       ),
       'reference' => 'cafa138128dfd6ab6be1abf6279169957b34f662',
     ),
+    'symfony/security-core' => 
+    array (
+      'pretty_version' => 'v5.2.5',
+      'version' => '5.2.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '688b21a293a7e4168e8e493a97625ac24280629f',
+    ),
+    'symfony/security-csrf' => 
+    array (
+      'pretty_version' => 'v5.2.4',
+      'version' => '5.2.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e22ef49d5d3773014942f3dfe301b168a4a833dc',
+    ),
     'symfony/service-contracts' => 
     array (
       'pretty_version' => 'v2.2.0',
@@ -547,7 +565,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '2fc5401a4a0fb9681686cc484b7a02f7b7000a3d',
+      'reference' => '60454671e491c0a53abbd0747667a9e824814417',
     ),
   ),
 );

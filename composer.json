@@ -20,7 +20,8 @@
         "symfony/http-foundation": "^5.2",
         "symfony/http-kernel": "^5.2",
         "symfony/password-hasher": "9999999-dev",
-        "symfony/routing": "^5.2"
+        "symfony/routing": "^5.2",
+        "symfony/security-csrf": "^5.2"
     },
     "autoload": {
         "classmap": [

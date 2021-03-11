@@ -31,4 +31,14 @@ class RequestAction extends Request implements RequestInterface {
         return $this->files;
     }
 
+    public function isPost() 
+    {
+        return $this->getMethod() == 'POST';
+    }
+
+    public function isGet() 
+    {
+        return $this->getMethod() == 'GET';
+    }
+
 }

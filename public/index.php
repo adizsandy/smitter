@@ -26,8 +26,8 @@ $app = (new \Boot\Application)->make();
 // Get Kernel
 $kernel = $app->get('kernel');
 
-// Get the current request
-$request = \Symfox\Request\RequestAction::createFromGlobals();
+// Get the current request 
+$request = $app->get('request');
 
 // Handle the request and get response
 $response = $kernel->process($request);

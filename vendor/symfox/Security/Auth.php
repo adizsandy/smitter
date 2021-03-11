@@ -5,6 +5,8 @@ namespace Symfox\Security;
 use Symfox\Security\PasswordHasherFactoryInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfox\Persistance\PersistanceFactoryInterface;
+use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
+use Symfony\Component\Security\Csrf\CsrfToken;
 
 /**
  * Auth Service Class
@@ -15,12 +17,19 @@ class Auth implements AuthInterface {
     private $session;
     private $entity;
     private $hasher;
+    private $csrf_handler;
 
-    public function __construct ( SessionInterface $session,  PersistanceFactoryInterface $persistance, PasswordHasherFactoryInterface $hasher ) 
+    public function __construct ( 
+        SessionInterface $session,  
+        PersistanceFactoryInterface $persistance, 
+        PasswordHasherFactoryInterface $hasher,
+        CsrfTokenManagerInterface $csrf_handler
+    ) 
     {
         $this->session = $session;
         $this->db = $persistance->getPersistance();
         $this->hasher = $hasher->getHasher();
+        $this->csrf_handler = $csrf_handler;
     }
 
     protected function filterLoginData($data) 
@@ -86,5 +95,15 @@ class Auth implements AuthInterface {
                 return false;
             }
         } 
+    }
+
+    public function csrf() 
+    {
+        return $this->csrf_handler;
+    }
+
+    public function csrfOk($id, $token) 
+    {
+        return $this->csrf_handler->isTokenValid(new CsrfToken($id, $token));
     }
 }

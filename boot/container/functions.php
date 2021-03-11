@@ -55,3 +55,9 @@ function request()
 {
     return container()->get('request');
 }
+
+function csrf_token($name = null) 
+{   
+    $name = empty($name) ? 'symfox' : $name;
+    return auth()->csrf()->getToken($name)->__toString();
+}
