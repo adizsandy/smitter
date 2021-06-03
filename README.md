@@ -38,12 +38,11 @@ It is divided in three parts:
             // put 'Standard Module Name' for the same
         ] 
 ```
+Each module consist of a module definition file `module.php`, which has module declarations and module specific route definitions.
 
-    Each module consist of a module definition file `module.php`, which has module declarations and module specific route definitions.
+Folder structure within module consists of `Controller`, `Design` [ `layouts`, `templates` ], `Model` folders with respective functionalities.
 
-    Folder structure within module consists of `Controller`, `Design` [ `layouts`, `templates` ], `Model` folders with respective functionalities.
-
-    By default, `App_Main_Module` is default module, provided for quick setup of simple and uni-modular web applications along with some basic information for creation of other modules.
+By default, `App_Main_Module` is default module, provided for quick setup of simple and uni-modular web applications along with some basic information for creation of other modules.
 
 - `~/app/services` folder consists of custom services/libraries.
 
