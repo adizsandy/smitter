@@ -29,7 +29,7 @@ It is divided in three parts:
     To define a module, `<Title>/<ModuleName>` folder structure must be followed.
 
     For any new module, register module information within `~/app/modules/register.php` as :
-        ``
+        `
         'App_Title_ModuleName' => [ // Standard Module Name : `App_` prefix is required
             'id' => 'tsitle.module_name',
             'active' => true,
@@ -37,7 +37,7 @@ It is divided in three parts:
             // put 'Standard Module Name' for the same
         ] 
         
-        ``
+        `
 
     Each module consist of a module definition file `module.php`, which has module declarations and module specific route definitions.
 
