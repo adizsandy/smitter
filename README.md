@@ -16,10 +16,5 @@ Symfox uses several best components of different open source libraries:
 - [Flysystem](https://github.com/thephpleague/flysystem) - Best file handler library 
 - [Swiftmailer](https://github.com/swiftmailer/swiftmailer) - Highly extensible mailer library
 
-## Installation
-```sh
-git clone --single-branch --branch minimal "https://bitbucket.org/adizsandy/symfox.git" sunshine
-```
-
 ## License
 MIT
