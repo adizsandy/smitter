@@ -29,22 +29,28 @@ It is divided in three parts:
     To define a module, `<Title>/<ModuleName>` folder structure must be followed.
 
     For any new module, register module information within `~/app/modules/register.php` as :
-    
+
 ```php
-        'App_Title_ModuleName' => [ // Standard Module Name : `App_` prefix is required
-            'id' => 'tsitle.module_name',
+        // Unique Standard Module Name : `App_` prefix is required
+        'App_Title_ModuleName' => [ 
+            
+            // IDENTITY: Unique Module ID
+            'id' => 'title.module_name', 
+
+             // SWITCH: Turn active/inactive a given module
             'active' => true,
-            'parent' => false // If given module is a submodule or dependant on other modules, if there is any
-            // put 'Standard Module Name' for the same
+            
+            /**
+            * INHERITANCE: If given module is a submodule or dependant on other modules, if there is any, put 'Standard Module Name' of that parent module for the same Only single inheritance is   allowed for now.
+            */
+            'parent' => false  
         ] 
-        
 ```
+Each module consist of a module definition file `module.php`, which has module declarations and        module specific route definitions.
 
-    Each module consist of a module definition file `module.php`, which has module declarations and module specific route definitions.
+Folder structure within module consists of `Controller`, `Design` [ `layouts`, `templates` ], `Model` folders with respective functionalities.
 
-    Folder structure within module consists of `Controller`, `Design` [ `layouts`, `templates` ], `Model` folders with respective functionalities.
-
-    By default, `App_Main_Module` is default module, provided for quick setup of simple and uni-modular web applications along with some basic information for creation of other modules.
+By default, `App_Main_Module` is default module, provided for quick setup of simple and uni-modular web applications along with some basic information for creation of other modules.
 
 - `~/app/services` folder consists of custom services/libraries.
 
