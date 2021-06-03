@@ -37,7 +37,6 @@ It is divided in three parts:
             'parent' => false // If given module is a submodule or dependant on other modules, if there is any
             // put 'Standard Module Name' for the same
         ] 
-        
 ```
 
     Each module consist of a module definition file `module.php`, which has module declarations and module specific route definitions.
