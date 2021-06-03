@@ -46,11 +46,7 @@ It is divided in three parts:
             'parent' => false  
         ] 
 ```
-<<<<<<< HEAD
 Each module consist of a module definition file `module.php`, which has module declarations and        module specific route definitions.
-=======
-Each module consist of a module definition file `module.php`, which has module declarations and module specific route definitions.
->>>>>>> fa1470bdafbd885f3bb19d7abf2ce804288bde24
 
 Folder structure within module consists of `Controller`, `Design` [ `layouts`, `templates` ], `Model` folders with respective functionalities.
 
