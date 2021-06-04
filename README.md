@@ -1,3 +1,7 @@
+![GitHub release](https://img.shields.io/badge/release-21.03.06-orange)
+[![GitHub license](https://img.shields.io/github/license/adizsandy/symfox)](https://github.com/adizsandy/symfox/blob/master/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/adizsandy/symfox)](https://GitHub.com/adizsandy/symfox/stargazers/)
+
 # Symfox 
 
 ## Agile, Extensible, Fast and Modular PHP Framework 
