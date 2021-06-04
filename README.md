@@ -21,10 +21,10 @@ MIT
 
 ## Installation
 - Using composer:
-  composer create-project symfox/web-framework
+composer create-project symfox/web-framework
 
 - Using clone:
-  git clone https://github.com/adizsandy/symfox
+git clone https://github.com/adizsandy/symfox
 
 ## Basic Documentation
 All custom development sources must reside within `~/app` folder.
