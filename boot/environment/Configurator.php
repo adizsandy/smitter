@@ -71,13 +71,13 @@ final class Configurator {
                     $module_prefix = strtolower($name); 
                     $module_dir = implode('/', explode("_", $name ) );
                     $module_path = self::getModuleDir() . $module_dir;
-                    $all_info = require $module_path . '/module.php';   
+                    // $all_info = require $module_path . '/module.php';   
                     
                     // Get module declarations
-                    $declarations = $all_info['declarations'];
+                    $declarations = include $module_path . '/module.php'; 
 
                     // Get registred routes
-                    $routes = $all_info['routes'];
+                    $routes = include $module_path . '/routes.php'; 
                     
                     // Set route mappings
                     if ( ! empty($routes) && count($routes) > 0 ) {

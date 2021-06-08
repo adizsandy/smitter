@@ -53,14 +53,16 @@ It is divided in three parts:
             'parent' => false  
         ] 
 ```
-Each module consist of a module definition file `module.php`, which has module declarations and        module specific route definitions.
+Each module consist of a module definition file `module.php` and `routes.php`, which has module declarations and module specific route definitions respectively.
 
 Folder structure within module consists of `Controller`, `Design` [ `layouts`, `templates` ], `Model` folders with respective functionalities.
 
-By default, `Main_Module` is default module, provided for quick setup of simple and uni-modular web applications along with some basic information for creation of other modules.
+By default, `Main_Module` is provided for quick setup of simple and uni-modular web applications along with some basic information for creation of other modules.
 
-- `~/app/services` folder consists of custom services/libraries.
+- `~/app/common` folder consists of common shared services/libraries to be used by different modules independently.
 
 For setting configurations of project, use `~/.env.example` file and register respective details after  renaming it as : `~/.env`
 
-All public assets can be saved within `~/public/assets` folder.
+All public assets can be saved within `~/public/` folder.
+
+In production environment, DO NOT REMEMBER to redirect your server to public folder via `htaccess` as rest of the folders are kept as private folder over production environment.
