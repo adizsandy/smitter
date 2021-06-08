@@ -57,7 +57,7 @@ Each module consist of a module definition file `module.php`, which has module d
 
 Folder structure within module consists of `Controller`, `Design` [ `layouts`, `templates` ], `Model` folders with respective functionalities.
 
-By default, `App_Main_Module` is default module, provided for quick setup of simple and uni-modular web applications along with some basic information for creation of other modules.
+By default, `Main_Module` is default module, provided for quick setup of simple and uni-modular web applications along with some basic information for creation of other modules.
 
 - `~/app/services` folder consists of custom services/libraries.
 
