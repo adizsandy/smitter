@@ -41,11 +41,8 @@ It is divided in three parts:
     For any new module, register module information within `~/app/modules/register.php` as :
 
 ```php
-        // Unique Standard Module Name : `App_` prefix is required
-        'App_Title_ModuleName' => [ 
-            
-            // IDENTITY: Unique Module ID
-            'id' => 'title.module_name', 
+        // Unique Standard Module Name 
+        'Title_ModuleName' => [ 
 
              // SWITCH: Turn active/inactive a given module
             'active' => true,

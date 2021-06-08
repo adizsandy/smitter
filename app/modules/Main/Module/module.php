@@ -4,10 +4,11 @@ return [
 
     // Declare specification of module
     'declarations' => [
-        'name' => 'App_Main_Module',
+        'name' => 'Main_Module',
         'author' => 'Shudhansh Dubey',
-        'version' => '1.0.0',
-        'url_prefix' => '/'
+        'version' => '1.0.0', // Module version
+        'url_prefix' => '/', // define common prefix for all request paths
+        'stateless' => false // State for given module is required or not, REST API or Non-API 
     ],
 
     // Register all routes for the given module

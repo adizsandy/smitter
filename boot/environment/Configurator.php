@@ -67,10 +67,9 @@ final class Configurator {
             foreach ( $collection as $name => $module ) {
                 if ($module['active']) { // If a module is active, then only it can be registered
                     
-                    // Get basic info about a module 
-                    $module_id = ltrim($name, 'App_');
-                    $module_prefix = strtolower($module_id); 
-                    $module_dir = implode('/', explode("_", $module_id ) );
+                    // Get basic info about a module  
+                    $module_prefix = strtolower($name); 
+                    $module_dir = implode('/', explode("_", $name ) );
                     $module_path = self::getModuleDir() . $module_dir;
                     $all_info = require $module_path . '/module.php';   
                     

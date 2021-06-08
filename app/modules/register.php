@@ -2,9 +2,6 @@
 
 // Register modules here
 return [
-	'App_Main_Module' => [
-		'id' => 'main.module',
-		'active' => true,
-		'parent' => false 
-	] 
+	// Default Module
+	'Main_Module' => [ 'active' => true, 'parent' => false ] 
 ];
