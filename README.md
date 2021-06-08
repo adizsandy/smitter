@@ -65,4 +65,4 @@ For setting configurations of project, use `~/.env.example` file and register re
 
 All public assets can be saved within `~/public/` folder.
 
-In production environment, DO NOT REMEMBER to redirect your server to public folder via `htaccess` as rest of the folders are kept as private folder over production environment.
+In production environment, ALWAYS redirect your server to public folder via `htaccess` as rest of the folders are kept as private folder over production environment.
