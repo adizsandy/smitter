@@ -6,6 +6,7 @@ return [
     'declarations' => [
         'name' => 'App_Main_Module',
         'author' => 'Shudhansh Dubey',
+        'version' => '1.0.0',
         'url_prefix' => '/'
     ],
 
