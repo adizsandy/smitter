@@ -18,7 +18,6 @@ Symfox uses several best components of different open source libraries:
 - [Symfony](https://symfony.com/) - Core of Symfox: HTTP Foundation, Routing, Event Dispatcher, DotEnv and Security Components
 - [Eloquent ORM](https://laravel.com/docs/5.0/eloquent) - ORM implementation for database relations and operations 
 - [Flysystem](https://github.com/thephpleague/flysystem) - Library used for including robust file handling features 
-- [Swiftmailer](https://github.com/swiftmailer/swiftmailer) - Highly extensible mailer library
 
 ## License
 MIT
