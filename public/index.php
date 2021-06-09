@@ -1,7 +1,7 @@
 <?php
 
 /** 
- * Symfox : Agile, Extensible, Fast and Modular 
+ * Symfox : Agile, Extensible, Fast and Modular PHP Framework
  * 
  * @alias Sunshine
  * @version 21.03.06
