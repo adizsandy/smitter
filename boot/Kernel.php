@@ -12,7 +12,11 @@ class Kernel extends HttpKernel {
 
     private $matcher;
 
-    public function __construct( EventDispatcherInterface $dispatcher, ControllerResolverInterface $control, MatchFactoryInterface $matcher )
+    public function __construct( 
+        EventDispatcherInterface $dispatcher, 
+        ControllerResolverInterface $control, 
+        MatchFactoryInterface $matcher 
+    )
     {   
         // Invoke the HTTP Kernel
         parent::__construct( $dispatcher, $control );

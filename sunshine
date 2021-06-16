@@ -1,0 +1,24 @@
+<?php
+
+/** 
+ * Symfox : Agile, Extensible, Fast and Modular 
+ * 
+ * @alias Sunshine
+ * @version 21.03.06
+ * @author Shudhansh Shekhar Dubey < sudhanshs4@gmail.com >
+ * @link https://github.com/adizsandy/symfox
+ * @copyright 2021 Symfox, All rights reserved
+ * @license MIT
+ */
+
+// Load dependencies
+require __DIR__.'/../vendor/autoload.php';
+
+// Load environment variables
+(new \Symfony\Component\Dotenv\Dotenv())->bootEnv(__DIR__.'/../.env'); 
+
+$application = new Symfony\Component\Console\Application();
+
+// ... register commands
+
+$application->run();

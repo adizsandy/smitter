@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
+    'pretty_version' => '1.0.0+no-version-set',
+    'version' => '1.0.0.0',
     'aliases' => 
     array (
     ),
-    'reference' => '7009b840aa98d1e6f03004b209b3e0e2f856965b',
+    'reference' => NULL,
     'name' => 'symfox/web-framework',
   ),
   'versions' => 
@@ -67,8 +67,8 @@
     ),
     'illuminate/container' => 
     array (
-      'pretty_version' => 'v6.20.27',
-      'version' => '6.20.27.0',
+      'pretty_version' => 'v6.20.28',
+      'version' => '6.20.28.0',
       'aliases' => 
       array (
       ),
@@ -76,8 +76,8 @@
     ),
     'illuminate/contracts' => 
     array (
-      'pretty_version' => 'v6.20.27',
-      'version' => '6.20.27.0',
+      'pretty_version' => 'v6.20.28',
+      'version' => '6.20.28.0',
       'aliases' => 
       array (
       ),
@@ -85,8 +85,8 @@
     ),
     'illuminate/database' => 
     array (
-      'pretty_version' => 'v6.20.27',
-      'version' => '6.20.27.0',
+      'pretty_version' => 'v6.20.28',
+      'version' => '6.20.28.0',
       'aliases' => 
       array (
       ),
@@ -94,8 +94,8 @@
     ),
     'illuminate/support' => 
     array (
-      'pretty_version' => 'v6.20.27',
-      'version' => '6.20.27.0',
+      'pretty_version' => 'v6.20.28',
+      'version' => '6.20.28.0',
       'aliases' => 
       array (
       ),
@@ -121,12 +121,12 @@
     ),
     'nesbot/carbon' => 
     array (
-      'pretty_version' => '2.48.1',
-      'version' => '2.48.1.0',
+      'pretty_version' => '2.49.0',
+      'version' => '2.49.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '8d1f50f1436fb4b05e7127360483dd9c6e73da16',
+      'reference' => '93d9db91c0235c486875d22f1e08b50bdf3e6eee',
     ),
     'opis/closure' => 
     array (
@@ -166,12 +166,12 @@
     ),
     'php-di/php-di' => 
     array (
-      'pretty_version' => '6.3.3',
-      'version' => '6.3.3.0',
+      'pretty_version' => '6.3.4',
+      'version' => '6.3.4.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'da8e476cafc8011477e2ec9fd2e4706947758af2',
+      'reference' => 'f53bcba06ab31b18e911b77c039377f4ccd1f7a5',
     ),
     'php-di/phpdoc-reader' => 
     array (
@@ -305,6 +305,15 @@
         0 => '1.0|2.0',
       ),
     ),
+    'symfony/console' => 
+    array (
+      'pretty_version' => 'v5.3.0',
+      'version' => '5.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '058553870f7809087fa80fa734704a21b9bcaeb2',
+    ),
     'symfony/deprecation-contracts' => 
     array (
       'pretty_version' => 'v2.4.0',
@@ -391,7 +400,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '1e66f5423f44a175b32333c3197990bd2ab702cc',
+      'reference' => '4d249ee8f91b047d9afbf3bf01c9fd4f4f7f5973',
     ),
     'symfony/polyfill-ctype' => 
     array (
@@ -410,6 +419,15 @@
       array (
       ),
       'reference' => '63b5bb7db83e5673936d6e3b8b3e022ff6474933',
+    ),
+    'symfony/polyfill-intl-grapheme' => 
+    array (
+      'pretty_version' => 'v1.23.0',
+      'version' => '1.23.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '24b72c6baa32c746a4d0840147c9715e42bb68ab',
     ),
     'symfony/polyfill-intl-idn' => 
     array (
@@ -501,6 +519,15 @@
       ),
       'reference' => 'f040a30e04b57fbcc9c6cbcf4dbaa96bd318b9bb',
     ),
+    'symfony/string' => 
+    array (
+      'pretty_version' => 'v5.3.0',
+      'version' => '5.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a9a0f8b6aafc5d2d1c116dcccd1573a95153515b',
+    ),
     'symfony/translation' => 
     array (
       'pretty_version' => 'v5.3.0',
@@ -544,14 +571,23 @@
       ),
       'reference' => '7a7c9dd972541f78e7815c03c0bae9f81e0e9dbb',
     ),
-    'symfox/web-framework' => 
+    'symfox/core' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => '21.16.06',
+      'version' => '21.16.06.0',
       'aliases' => 
       array (
       ),
-      'reference' => '7009b840aa98d1e6f03004b209b3e0e2f856965b',
+      'reference' => 'a204a7b923a9d1429030fb17586facde5e6a2500',
+    ),
+    'symfox/web-framework' => 
+    array (
+      'pretty_version' => '1.0.0+no-version-set',
+      'version' => '1.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => NULL,
     ),
   ),
 );

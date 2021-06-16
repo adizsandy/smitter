@@ -3,6 +3,7 @@
 namespace App\Module\Main\Module\Controller;
 
 use App\Module\Main\Module\Model\User;
+use App\Module\Main\Module\Auth\Entity\UserAuth;
 
 class UserController {
     
@@ -11,14 +12,18 @@ class UserController {
         $response = [ 'success' => false, 'message' => '', 'data' => null ];
 
         try {
-            $user = auth()->entity('users'); // Get auth instance for users table
-            $data = request()->allPost(); // All $_POST data, but much secure
-            if (! empty($data)) {
-                $login_data = [ 'email' => $data['email'], 'password' => $data['password'] ];
-                if ( $user->check() ) {
+            // Get user auth instance
+            $userAuth = new UserAuth; 
+
+            // All $_POST data, but much secure
+            $data = request()->allPost(); 
+
+            if (! empty($data)) { 
+                if ( $userAuth->loggedIn() ) {
                     $response['message'] = 'Already Logged In';
                 } else {
-                    $resp = $user->login($login_data); // Perform Login Process, Returns users data if logged in
+                    // Perform Login Process, Returns users data if logged in
+                    $resp = $userAuth->tryLogin(); 
                     if ($resp) {
                         $response['success'] = true;
                         $response['message'] = 'Login Successfull';
@@ -42,14 +47,16 @@ class UserController {
         try { 
             
             $data = request()->allPost();  // $_POST data, but much secure
-            // $foo = request()->get('foo') // Request data named `foo` $_GET/$_POST
-            // $files = request()->allFiles(); // $_FILES data, All the files attached in the request
 
-            if (! empty($data)) { 
-                if ( auth()->entity('users')->check() ) { // Check for possible login
+            if (! empty($data)) {  
+                // Get user auth instance
+                $userAuth = new UserAuth;
+                // Alternatively we may use :
+                // $userAuth = auth()->entity(UserAuth::class);
+                if ( $userAuth->loggedIn() ) { // Check for possible login
                     $response['message'] = 'Already Logged In, Cannot Register';
                 } else {
-                    $user_check = User::where(['email' => $data['email']])->first();
+                    $user_check = User::where(['email' => $data['email']])->first(); 
                     if (empty($user_check)) {
                         $user = new User(); // ORM part begins, user entity instance
                         $user->password = auth()->hash($data['password']); // Hash the password
@@ -76,7 +83,7 @@ class UserController {
         $response = [ 'success' => false, 'message' => '', 'data' => null ];
 
         try { 
-            auth()->entity('users')->logout();
+            auth()->entity(UserAuth::class)->tryLogout();
             $response['success'] = true;
             $response['message'] = 'Logged out successfully';
         } catch (\Exception $e) {
@@ -96,7 +103,7 @@ class UserController {
             // $files = request()->allFiles(); // $_FILES data, All the files attached in the request
 
             if (! empty($data)) { 
-                if ( auth()->entity('users')->check() ) { // Check for possible login
+                if ( auth()->entity(UserAuth::class)->loggedIn() ) { // Check for possible login
                     $response['message'] = 'Already Logged In, Cannot Register';
                 } else {
                     $user_check = User::where(['email' => $data['email']])->first();

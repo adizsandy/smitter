@@ -1,10 +1,10 @@
 <?php
 
 /** 
- * Symfox : Agile, Extensible, Fast and Modular PHP Framework
+ * Symfox : Agile, Extensible, Fast and Modular 
  * 
  * @alias Sunshine
- * @version 21.03.06
+ * @version 21.16.06
  * @author Shudhansh Shekhar Dubey < sudhanshs4@gmail.com >
  * @link https://github.com/adizsandy/symfox
  * @copyright 2021 Symfox, All rights reserved
@@ -18,10 +18,10 @@ require_once __DIR__.'/../vendor/autoload.php';
 (new \Symfony\Component\Dotenv\Dotenv())->bootEnv(__DIR__.'/../.env');
 
 // Set Environment
-\Boot\Env\Environment::set($_SERVER['APP_ENV'], $_SERVER['APP_DEBUG']);
+\Boot\Environment::set($_SERVER['APP_ENV'], $_SERVER['APP_DEBUG']);
 
-// Instantiate Application Container
-$app = (new \Boot\Application)->make();
+// Instantiate Application Container 
+$app = require_once __DIR__.'/../boot/application.php';
 
 // Get Kernel
 $kernel = $app->get('kernel');
