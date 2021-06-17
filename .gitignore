@@ -1,4 +1,4 @@
 .env
 .env.local
-vendor
-storage
+/vendor/
+/storage/

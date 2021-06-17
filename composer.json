@@ -15,9 +15,7 @@
             "App\\" : "app", 
             "Boot\\" : "boot",  
             "App\\Module\\" : "app/modules", 
-            "App\\Service\\" : "app/services", 
-            "Symfox\\" : "vendor/symfox/framework/src", 
-            "Symfony\\" : "vendor/symfony"
+            "App\\Service\\" : "app/services" 
         }, 
         "files": [ 
             "app/helpers/constants.php",

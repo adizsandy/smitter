@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c61384bc4af06a4269bb7de9e63b319e",
+    "content-hash": "6436f8e1cbc3204e963d22c917dffc45",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -4092,20 +4092,21 @@
         },
         {
             "name": "symfox/framework",
-            "version": "v21.17.06.02",
+            "version": "v21.17.06.07",
             "source": {
                 "type": "git",
                 "url": "https://github.com/adizsandy/symfox-framework.git",
-                "reference": "2c49eb4ac4c2a320a1cb200049b53e9e056af7e2"
+                "reference": "a5e031efa1470663526c5a08eaf57bea2ffdc994"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adizsandy/symfox-framework/zipball/2c49eb4ac4c2a320a1cb200049b53e9e056af7e2",
-                "reference": "2c49eb4ac4c2a320a1cb200049b53e9e056af7e2",
+                "url": "https://api.github.com/repos/adizsandy/symfox-framework/zipball/a5e031efa1470663526c5a08eaf57bea2ffdc994",
+                "reference": "a5e031efa1470663526c5a08eaf57bea2ffdc994",
                 "shasum": ""
             },
             "require": {
                 "doctrine/cache": "^1.8",
+                "dompdf/dompdf": "^1.0",
                 "falc/flysystem-local-symlink-plugin": "^1.2",
                 "illuminate/database": "^6.20.26",
                 "illuminate/support": "^6.0",
@@ -4123,21 +4124,26 @@
                 "symfony/routing": "^5.2",
                 "symfony/security-csrf": "^5.2.10"
             },
-            "type": "project",
+            "type": "library",
             "autoload": {
                 "classmap": [],
-                "psr-4": {
-                    "App\\": "app",
-                    "Symfox\\": "vendor/symfox/framework/src",
-                    "Symfony\\": "vendor/symfony"
-                },
                 "files": [
                     "src/Foundation/functions.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfox\\": "src/",
+                    "Boot\\": "boot/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shudhansh Shekhar Dubey",
+                    "email": "sudhanshs4@gmail.com"
+                }
             ],
             "description": "The Components behind Symfox",
             "keywords": [
@@ -4146,17 +4152,15 @@
             ],
             "support": {
                 "issues": "https://github.com/adizsandy/symfox-framework/issues",
-                "source": "https://github.com/adizsandy/symfox-framework/tree/v21.17.06.02"
+                "source": "https://github.com/adizsandy/symfox-framework"
             },
-            "time": "2021-06-17T08:06:02+00:00"
+            "time": "2021-06-17T14:11:50+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "symfony/password-hasher": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
