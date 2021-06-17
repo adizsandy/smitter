@@ -12,18 +12,18 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
-        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
-        '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
-        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'b33e3d135e5d9e47d845c576147bda89' => __DIR__ . '/..' . '/php-di/php-di/src/functions.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
+        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '1fa84f8f0e0883c9d8f090b19110e4bf' => __DIR__ . '/../..' . '/app/helpers/constants.php',
         '63528bef5777a00e9834747ae4c71714' => __DIR__ . '/../..' . '/app/helpers/functions.php',
     );
@@ -127,7 +127,8 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
     public static $prefixDirsPsr4 = array (
         'Symfox\\' => 
         array (
-            0 => __DIR__ . '/..' . '/symfox/src',
+            0 => __DIR__ . '/..' . '/symfox/core/src',
+            1 => __DIR__ . '/..' . '/symfox/framework/vendor/symfox/core/src',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
@@ -248,6 +249,7 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         'Symfony\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony',
+            1 => __DIR__ . '/..' . '/symfox/framework/vendor/symfony',
         ),
         'Svg\\' => 
         array (
@@ -364,6 +366,7 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
+            1 => __DIR__ . '/..' . '/symfox/framework/app',
         ),
     );
 
@@ -383,7 +386,6 @@ class ComposerStaticInitc06521ea8be3af445cf28fb25b1f9b4d
         'App\\Module\\Main\\Module\\Controller\\UserController' => __DIR__ . '/../..' . '/app/modules/Main/Module/Controller/UserController.php',
         'App\\Module\\Main\\Module\\Model\\User' => __DIR__ . '/../..' . '/app/modules/Main/Module/Model/User.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
-        'Boot\\Env\\Configurator' => __DIR__ . '/../..' . '/boot/environment/Configurator.php',
         'Boot\\Environment' => __DIR__ . '/../..' . '/boot/Environment.php',
         'Boot\\Kernel' => __DIR__ . '/../..' . '/boot/Kernel.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',

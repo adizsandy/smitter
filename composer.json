@@ -23,7 +23,7 @@
         "symfony/password-hasher": "5.4.x-dev",
         "symfony/routing": "^5.2",
         "symfony/security-csrf": "^5.2.10",
-        "symfox/core" : "^21.16.06"
+        "symfox/framework": "^21.17"
     },
     "autoload": {
         "classmap": [
@@ -31,11 +31,10 @@
         ],
         "psr-4": {
             "App\\" : "app", 
-            "Boot\\" : "boot", 
-            "Boot\\Env\\" : "boot/environment", 
+            "Boot\\" : "boot",  
             "App\\Module\\" : "app/modules", 
             "App\\Service\\" : "app/services", 
-            "Symfox\\" : "vendor/symfox/src",
+            "Symfox\\" : "vendor/symfox/framework/src", 
             "Symfony\\" : "vendor/symfony"
         }, 
         "files": [ 

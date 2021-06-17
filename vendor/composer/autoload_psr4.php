@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Symfox\\' => array($vendorDir . '/symfox/src'),
+    'Symfox\\' => array($vendorDir . '/symfox/core/src', $vendorDir . '/symfox/framework/vendor/symfox/core/src'),
     'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
     'Symfony\\Polyfill\\Php73\\' => array($vendorDir . '/symfony/polyfill-php73'),
     'Symfony\\Polyfill\\Php72\\' => array($vendorDir . '/symfony/polyfill-php72'),
@@ -36,7 +36,7 @@ return array(
     'Symfony\\Component\\Dotenv\\' => array($vendorDir . '/symfony/dotenv'),
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'Symfony\\Component\\Cache\\' => array($vendorDir . '/symfony/cache'),
-    'Symfony\\' => array($vendorDir . '/symfony'),
+    'Symfony\\' => array($vendorDir . '/symfony', $vendorDir . '/symfox/framework/vendor/symfony'),
     'Svg\\' => array($vendorDir . '/phenx/php-svg-lib/src/Svg'),
     'Psr\\SimpleCache\\' => array($vendorDir . '/psr/simple-cache/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
@@ -65,5 +65,5 @@ return array(
     'Boot\\' => array($baseDir . '/boot'),
     'App\\Service\\' => array($baseDir . '/app/services'),
     'App\\Module\\' => array($baseDir . '/app/modules'),
-    'App\\' => array($baseDir . '/app'),
+    'App\\' => array($baseDir . '/app', $vendorDir . '/symfox/framework/app'),
 );

@@ -11,7 +11,6 @@ return array(
     'App\\Module\\Main\\Module\\Controller\\UserController' => $baseDir . '/app/modules/Main/Module/Controller/UserController.php',
     'App\\Module\\Main\\Module\\Model\\User' => $baseDir . '/app/modules/Main/Module/Model/User.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
-    'Boot\\Env\\Configurator' => $baseDir . '/boot/environment/Configurator.php',
     'Boot\\Environment' => $baseDir . '/boot/Environment.php',
     'Boot\\Kernel' => $baseDir . '/boot/Kernel.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',

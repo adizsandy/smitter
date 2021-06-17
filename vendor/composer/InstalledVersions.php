@@ -25,12 +25,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '34f8df124e3f2b33d0b5e6a1eb745ffa196c60e6',
     'name' => 'symfox/web-framework',
   ),
   'versions' => 
@@ -595,23 +595,23 @@ private static $installed = array (
       ),
       'reference' => '7a7c9dd972541f78e7815c03c0bae9f81e0e9dbb',
     ),
-    'symfox/core' => 
+    'symfox/framework' => 
     array (
-      'pretty_version' => '21.16.06',
-      'version' => '21.16.06.0',
+      'pretty_version' => '21.17.06',
+      'version' => '21.17.06.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'a204a7b923a9d1429030fb17586facde5e6a2500',
+      'reference' => '2e718ba5ab8b2f9fd76db10d39b80aae9e96401c',
     ),
     'symfox/web-framework' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '34f8df124e3f2b33d0b5e6a1eb745ffa196c60e6',
     ),
   ),
 );
