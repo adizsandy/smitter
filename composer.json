@@ -39,7 +39,8 @@
         }, 
         "files": [ 
             "app/helpers/constants.php",
-            "app/helpers/functions.php"
+            "app/helpers/functions.php",
+            "src/Foundation/functions.php"
         ]
     },
     "autoload-dev": {

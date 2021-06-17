@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e8b4e59c5ee4b47b6ebe21e04a6f745",
+    "content-hash": "c61384bc4af06a4269bb7de9e63b319e",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -4092,16 +4092,16 @@
         },
         {
             "name": "symfox/framework",
-            "version": "21.17.06",
+            "version": "v21.17.06.02",
             "source": {
                 "type": "git",
                 "url": "https://github.com/adizsandy/symfox-framework.git",
-                "reference": "2e718ba5ab8b2f9fd76db10d39b80aae9e96401c"
+                "reference": "2c49eb4ac4c2a320a1cb200049b53e9e056af7e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adizsandy/symfox-framework/zipball/2e718ba5ab8b2f9fd76db10d39b80aae9e96401c",
-                "reference": "2e718ba5ab8b2f9fd76db10d39b80aae9e96401c",
+                "url": "https://api.github.com/repos/adizsandy/symfox-framework/zipball/2c49eb4ac4c2a320a1cb200049b53e9e056af7e2",
+                "reference": "2c49eb4ac4c2a320a1cb200049b53e9e056af7e2",
                 "shasum": ""
             },
             "require": {
@@ -4128,10 +4128,12 @@
                 "classmap": [],
                 "psr-4": {
                     "App\\": "app",
-                    "Symfox\\": "vendor/symfox/core/src",
+                    "Symfox\\": "vendor/symfox/framework/src",
                     "Symfony\\": "vendor/symfony"
                 },
-                "files": []
+                "files": [
+                    "src/Foundation/functions.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -4144,9 +4146,9 @@
             ],
             "support": {
                 "issues": "https://github.com/adizsandy/symfox-framework/issues",
-                "source": "https://github.com/adizsandy/symfox-framework/tree/21.17.06"
+                "source": "https://github.com/adizsandy/symfox-framework/tree/v21.17.06.02"
             },
-            "time": "2021-06-17T07:43:10+00:00"
+            "time": "2021-06-17T08:06:02+00:00"
         }
     ],
     "packages-dev": [],
