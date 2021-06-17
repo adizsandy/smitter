@@ -25,7 +25,7 @@ MIT
 
 ## Installation
 - Using composer:
-  ``` composer create-project symfox/web-framework ```
+  ``` composer create-project symfox/symfox ```
 
 - Using clone:
   ``` git clone https://github.com/adizsandy/symfox ```
