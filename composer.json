@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {  
-        "symfox/framework": "^1.0"  
+        "symfox/framework": "1.0.10"  
     },
     "autoload": {
         "classmap": [
