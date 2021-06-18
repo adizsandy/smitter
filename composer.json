@@ -4,8 +4,8 @@
     "keywords": ["framework", "symfox"],
     "license": "MIT",
     "type": "project",
-    "require": { 
-        "symfox/framework": "^1.0"
+    "require": {  
+        "symfox/framework": "^1.0"  
     },
     "autoload": {
         "classmap": [

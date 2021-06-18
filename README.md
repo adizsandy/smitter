@@ -1,6 +1,7 @@
-![GitHub release](https://img.shields.io/badge/release-21.16.06-orange)
+![GitHub release](https://img.shields.io/github/v/release/adizsandy/symfox)
 [![GitHub license](https://img.shields.io/github/license/adizsandy/symfox)](https://github.com/adizsandy/symfox/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/adizsandy/symfox)](https://GitHub.com/adizsandy/symfox/stargazers/)
+![GitHub downloads](https://img.shields.io/github/downloads/adizsandy/symfox/total)
 
 # Symfox 
 
@@ -24,7 +25,7 @@ MIT
 
 ## Installation
 - Using composer:
-  ``` composer create-project symfox/web-framework ```
+  ``` composer create-project symfox/symfox ```
 
 - Using clone:
   ``` git clone https://github.com/adizsandy/symfox ```
