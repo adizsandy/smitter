@@ -31,6 +31,9 @@ MIT
 
 - Using clone:
   ``` git clone https://github.com/adizsandy/symfox ```
+  
+  After successfull clone, do not forget to run - 
+  ``` composer update ```, which will install all dependencies.
 
 ## Basic Documentation
 All custom development sources must reside within `~/app` folder.
