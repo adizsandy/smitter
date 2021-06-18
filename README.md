@@ -20,6 +20,7 @@ Symfox uses several best components of different open source libraries:
 - [Symfony](https://symfony.com/) - Core of Symfox: HTTP Foundation, Routing, Event Dispatcher, DotEnv and Security Components
 - [Eloquent ORM](https://laravel.com/docs/5.0/eloquent) - ORM implementation for database relations and operations 
 - [Flysystem](https://github.com/thephpleague/flysystem) - Library used for including robust file handling features 
+- [PHP-DI](https://github.com/PHP-DI/PHP-DI) - Dependency injection container used for black magics :P
 
 ## License
 MIT
