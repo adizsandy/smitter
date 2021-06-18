@@ -3,9 +3,10 @@
 [![GitHub stars](https://img.shields.io/github/stars/adizsandy/symfox)](https://GitHub.com/adizsandy/symfox/stargazers/)
 ![GitHub downloads](https://img.shields.io/github/downloads/adizsandy/symfox/total)
 
-# Symfox 
+![Symfox: Sunshine Vitamins](https://github.com/adizsandy/symfox/blob/master/public/assets/img/sunshine.png)
 
-## Agile, Extensible, Fast and Modular PHP Framework 
+# About Symfox 
+Symfox is a modular, fast, secure and highly extensible PHP framework built for providing closer to native PHP development experience while following the MVC pattern to its core.
 
 ## Features
 - Seperation of common development layer from the abstractions/source code
