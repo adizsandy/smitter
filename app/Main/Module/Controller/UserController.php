@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Module\Main\Module\Controller;
+namespace App\Main\Module\Controller;
 
-use App\Module\Main\Module\Model\User;
-use App\Module\Main\Module\Auth\Entity\UserAuth;
+use App\Main\Module\Model\User;
+use App\Main\Module\Auth\Entity\UserAuth;
 
 class UserController {
     

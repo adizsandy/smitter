@@ -1,4 +1,6 @@
 .env
 .env.local
+composer.lock
 /vendor/
 /storage/
+composer.lock

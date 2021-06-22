@@ -1,6 +1,6 @@
 {
     "name": "symfox/symfox",
-    "description": "The Symfox Framework",
+    "description": "Agile, Extensible, Modular PHP Framework",
     "keywords": ["framework", "symfox"],
     "license": "MIT",
     "type": "project",
@@ -13,13 +13,12 @@
         ],
         "psr-4": {
             "App\\" : "app", 
-            "Boot\\" : "boot",  
-            "App\\Module\\" : "app/modules", 
-            "App\\Service\\" : "app/services" 
+            "Boot\\" : "boot",   
+            "Library\\" : "lib"
         }, 
         "files": [ 
-            "app/helpers/constants.php",
-            "app/helpers/functions.php" 
+            "misc/helpers/constants.php",
+            "misc/helpers/functions.php" 
         ]
     },
     "autoload-dev": {

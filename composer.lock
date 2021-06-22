@@ -2544,12 +2544,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/password-hasher.git",
-                "reference": "4d249ee8f91b047d9afbf3bf01c9fd4f4f7f5973"
+                "reference": "6c384e6abd88e73fdd7353be31710412e04efa1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/password-hasher/zipball/4d249ee8f91b047d9afbf3bf01c9fd4f4f7f5973",
-                "reference": "4d249ee8f91b047d9afbf3bf01c9fd4f4f7f5973",
+                "url": "https://api.github.com/repos/symfony/password-hasher/zipball/6c384e6abd88e73fdd7353be31710412e04efa1f",
+                "reference": "6c384e6abd88e73fdd7353be31710412e04efa1f",
                 "shasum": ""
             },
             "require": {
@@ -2609,7 +2609,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-11T14:58:29+00:00"
+            "time": "2021-06-21T21:43:37+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",

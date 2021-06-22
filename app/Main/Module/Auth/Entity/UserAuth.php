@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Module\Main\Module\Auth\Entity;
+namespace App\Main\Module\Auth\Entity;
 
-use Symfox\Security\Auth\Entity\BaseAuth;
+use Symfox\Auth\BaseAuth;
 
 class UserAuth extends BaseAuth {
 
