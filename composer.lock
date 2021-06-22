@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "118cbd272c680bc5844796787b9db98d",
+    "content-hash": "de514e4ba878ec2c561530c7816faab8",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -4092,16 +4092,16 @@
         },
         {
             "name": "symfox/framework",
-            "version": "v1.0.10",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/adizsandy/symfox-framework.git",
-                "reference": "bed77dc99706b837a5a049c11b4d064be257c647"
+                "reference": "c6af6cd773a3ea69fb352cc17058aee4768ba9d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adizsandy/symfox-framework/zipball/bed77dc99706b837a5a049c11b4d064be257c647",
-                "reference": "bed77dc99706b837a5a049c11b4d064be257c647",
+                "url": "https://api.github.com/repos/adizsandy/symfox-framework/zipball/c6af6cd773a3ea69fb352cc17058aee4768ba9d6",
+                "reference": "c6af6cd773a3ea69fb352cc17058aee4768ba9d6",
                 "shasum": ""
             },
             "require": {
@@ -4153,7 +4153,7 @@
                 "issues": "https://github.com/adizsandy/symfox-framework/issues",
                 "source": "https://github.com/adizsandy/symfox-framework"
             },
-            "time": "2021-06-17T14:16:49+00:00"
+            "time": "2021-06-22T10:00:22+00:00"
         }
     ],
     "packages-dev": [],
