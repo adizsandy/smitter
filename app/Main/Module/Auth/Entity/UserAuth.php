@@ -8,7 +8,7 @@ class UserAuth extends BaseAuth {
 
     // Model associated with the auth entity
     // optional if table name provided
-    protected $model = App\Module\Main\Module\Model\User::class; 
+    protected $model = App\Main\Module\Model\User::class; 
 
     // Table name can also be used in the place of model
     // This property is optional and should only be used 
