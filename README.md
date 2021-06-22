@@ -57,6 +57,21 @@ Basic structure of framework is as follows:
         'parent' => false  
     ] 
   ```
+  A `Wrapper` is recommended to include modules of same kind or submodules.
+  Any submodule is defined as a parallel module within same wrapper, just `parent` field is set to the name of `ParentModuleName` in module registry.
+
+  For example, to define a sub-module of `Wrapper_ModuleName`, `<Wrapper>/<SubModuleName>` folder structure must be followed.
+  
+  Within `register.php`:
+
+  ```php
+    // Unique Standard Module Name 
+    'Wrapper_SubModuleName' => [ 
+        'active' => true,
+        'parent' => 'Wrapper_ModuleName'
+    ] 
+  ```
+
   Each module consist of a module definition file `module.php` and `routes.php`, which has module declarations and module specific route definitions respectively.
 
   Folder structure within module consists of `Controller`, `Design` [ `layouts`, `templates` ], `Model` folders with respective functionalities.
@@ -81,7 +96,6 @@ Basic structure of framework is as follows:
 
 - `~/vendor/`
   All composer installed packages/dependencies
-
 
 For setting configurations of project, use `~/.env.example` file and register respective details after  renaming it as : `~/.env`
 

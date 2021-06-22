@@ -57,10 +57,6 @@ return [
 	   'csrf' => [ 
 		   'abstract' => Symfony\Component\Security\Csrf\CsrfTokenManagerInterface::class,
 		   'concrete' => Symfony\Component\Security\Csrf\CsrfTokenManager::class
-	   ],
-	   'auth' => [ 
-		   'abstract' => \Symfox\Security\AuthInterface::class,
-		   'concrete' => \Symfox\Security\Auth::class 
 	   ],  
 	   'viewcache' => [ 
 		   'abstract' => \Symfox\View\ViewInterface::class,

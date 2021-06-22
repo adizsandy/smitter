@@ -29,14 +29,9 @@ class HomeController {
 		return view()->render('contact', $data, 'layout_1');
 	}
 
-	public function di() 
-	{ 
-		return response()->json("Dependency Injection Tested");
-	}
-
-	public function focused() 
+	public function test() 
 	{
-		return response()->json($users);
+		return response()->json("Hi i am the new route..... testing sunshine :) ");
 	}
 
 }
