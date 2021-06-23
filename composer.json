@@ -1,11 +1,11 @@
 {
-    "name": "symfox/symfox",
+    "name": "smitter/smitter",
     "description": "Agile, Extensible, Modular PHP Framework",
-    "keywords": ["framework", "symfox"],
+    "keywords": ["framework", "smitter"],
     "license": "MIT",
     "type": "project",
     "require": {  
-        "symfox/framework": "1.1.0"  
+        "smitter/framework": "1.1.0"  
     },
     "autoload": {
         "classmap": [
