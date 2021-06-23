@@ -1,6 +1,6 @@
 <?php
 
-use Symfox\Foundation\Application;
+use Smitter\Foundation\Application;
 
 // Create a new instance and return application container
 $app = (new Application( dirname(__DIR__) ))->make();

@@ -1,12 +1,12 @@
 <?php
 
 /** 
- * Symfox : Agile, Extensible, Fast and Modular 
+ * Smitter : Agile, Extensible, Fast and Modular 
  * 
  * @alias Sunshine
  * @author Shudhansh Shekhar Dubey < sudhanshs4@gmail.com >
- * @link https://github.com/adizsandy/symfox
- * @copyright 2021 Symfox, All rights reserved
+ * @link https://github.com/adizsandy/smitter
+ * @copyright 2021 Smitter, All rights reserved
  * @license MIT
  */
 
@@ -17,7 +17,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 (new \Symfony\Component\Dotenv\Dotenv())->bootEnv(__DIR__.'/../.env');
 
 // Set Environment
-\Symfox\Environment\Environment::set($_SERVER['APP_ENV'], $_SERVER['APP_DEBUG']);
+\Smitter\Environment\Environment::set($_SERVER['APP_ENV'], $_SERVER['APP_DEBUG']);
 
 // Instantiate Application Container 
 $app = require_once __DIR__.'/../boot/application.php';

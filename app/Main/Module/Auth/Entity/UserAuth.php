@@ -2,7 +2,7 @@
 
 namespace App\Main\Module\Auth\Entity;
 
-use Symfox\Auth\BaseAuth;
+use Smitter\Auth\BaseAuth;
 
 class UserAuth extends BaseAuth {
 

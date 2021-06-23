@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "de514e4ba878ec2c561530c7816faab8",
+    "content-hash": "8e359bacbee24930d78a2788e866f1d6",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -469,7 +469,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v6.20.28",
+            "version": "v6.20.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -517,7 +517,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v6.20.28",
+            "version": "v6.20.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -565,16 +565,16 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v6.20.28",
+            "version": "v6.20.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "99c655ec11d85017eeff07004ca48602002fcce1"
+                "reference": "3f546b56347ca8ad8b50dc9570f1f85d0752999e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/99c655ec11d85017eeff07004ca48602002fcce1",
-                "reference": "99c655ec11d85017eeff07004ca48602002fcce1",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/3f546b56347ca8ad8b50dc9570f1f85d0752999e",
+                "reference": "3f546b56347ca8ad8b50dc9570f1f85d0752999e",
                 "shasum": ""
             },
             "require": {
@@ -626,11 +626,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-05-07T18:24:12+00:00"
+            "time": "2021-06-15T13:31:15+00:00"
         },
         {
             "name": "illuminate/support",
-            "version": "v6.20.28",
+            "version": "v6.20.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
@@ -1556,6 +1556,71 @@
                 "source": "https://github.com/sabberworm/PHP-CSS-Parser/tree/8.3.1"
             },
             "time": "2020-06-01T09:10:00+00:00"
+        },
+        {
+            "name": "smitter/framework",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adizsandy/smitter-framework.git",
+                "reference": "cd223e4e7d97f393f4270d30300969c48c16b11a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adizsandy/smitter-framework/zipball/cd223e4e7d97f393f4270d30300969c48c16b11a",
+                "reference": "cd223e4e7d97f393f4270d30300969c48c16b11a",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/cache": "^1.8",
+                "dompdf/dompdf": "^1.0",
+                "falc/flysystem-local-symlink-plugin": "^1.2",
+                "illuminate/database": "^6.20.26",
+                "illuminate/support": "^6.0",
+                "league/flysystem": "^1.0",
+                "nesbot/carbon": "^2.34",
+                "php-di/php-di": "^6.3",
+                "swiftmailer/swiftmailer": "^6.2",
+                "symfony/cache": "^5.0",
+                "symfony/console": "^5.3",
+                "symfony/dotenv": "^5.2",
+                "symfony/event-dispatcher": "^5.2",
+                "symfony/http-foundation": "^5.2",
+                "symfony/http-kernel": "^5.2",
+                "symfony/password-hasher": "5.4.x-dev",
+                "symfony/routing": "^5.2",
+                "symfony/security-csrf": "^5.2.10"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [],
+                "files": [
+                    "src/Foundation/functions.php"
+                ],
+                "psr-4": {
+                    "Smitter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shudhansh Shekhar Dubey",
+                    "email": "sudhanshs4@gmail.com"
+                }
+            ],
+            "description": "The Components behind Smitter",
+            "keywords": [
+                "framework",
+                "smitter"
+            ],
+            "support": {
+                "issues": "https://github.com/adizsandy/smitter-framework/issues",
+                "source": "https://github.com/adizsandy/smitter-framework"
+            },
+            "time": "2021-06-23T07:43:40+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4089,71 +4154,6 @@
                 }
             ],
             "time": "2021-06-09T10:57:10+00:00"
-        },
-        {
-            "name": "symfox/framework",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/adizsandy/symfox-framework.git",
-                "reference": "c6af6cd773a3ea69fb352cc17058aee4768ba9d6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/adizsandy/symfox-framework/zipball/c6af6cd773a3ea69fb352cc17058aee4768ba9d6",
-                "reference": "c6af6cd773a3ea69fb352cc17058aee4768ba9d6",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/cache": "^1.8",
-                "dompdf/dompdf": "^1.0",
-                "falc/flysystem-local-symlink-plugin": "^1.2",
-                "illuminate/database": "^6.20.26",
-                "illuminate/support": "^6.0",
-                "league/flysystem": "^1.0",
-                "nesbot/carbon": "^2.34",
-                "php-di/php-di": "^6.3",
-                "swiftmailer/swiftmailer": "^6.2",
-                "symfony/cache": "^5.0",
-                "symfony/console": "^5.3",
-                "symfony/dotenv": "^5.2",
-                "symfony/event-dispatcher": "^5.2",
-                "symfony/http-foundation": "^5.2",
-                "symfony/http-kernel": "^5.2",
-                "symfony/password-hasher": "5.4.x-dev",
-                "symfony/routing": "^5.2",
-                "symfony/security-csrf": "^5.2.10"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [],
-                "files": [
-                    "src/Foundation/functions.php"
-                ],
-                "psr-4": {
-                    "Symfox\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Shudhansh Shekhar Dubey",
-                    "email": "sudhanshs4@gmail.com"
-                }
-            ],
-            "description": "The Components behind Symfox",
-            "keywords": [
-                "framework",
-                "symfox"
-            ],
-            "support": {
-                "issues": "https://github.com/adizsandy/symfox-framework/issues",
-                "source": "https://github.com/adizsandy/symfox-framework"
-            },
-            "time": "2021-06-22T10:00:22+00:00"
         }
     ],
     "packages-dev": [],

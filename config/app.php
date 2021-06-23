@@ -27,51 +27,51 @@ return [
    
 	   // Default services 
 	   'request' => [ 
-		   'abstract' => Symfox\Request\RequestInterface::class,
-		   'concrete' => \Symfox\Request\RequestAction::class, 
+		   'abstract' => Smitter\Request\RequestInterface::class,
+		   'concrete' => \Smitter\Request\RequestAction::class, 
 	   ],  
 	   'response' => [ 
-		   'abstract' => \Symfox\Response\ResponseInterface::class,
-		   'concrete' => \Symfox\Response\ResponseAction::class, 
+		   'abstract' => \Smitter\Response\ResponseInterface::class,
+		   'concrete' => \Smitter\Response\ResponseAction::class, 
 	   ],
 	   'filehandler' => [ 
-		   'abstract' => \Symfox\Filehandler\FilehandlerInterface::class,
-		   'concrete' => \Symfox\Filehandler\Filehandler::class 
+		   'abstract' => \Smitter\Filehandler\FilehandlerInterface::class,
+		   'concrete' => \Smitter\Filehandler\Filehandler::class 
 	   ], 
 	   'mailer' => [ 
-		   'abstract' => \Symfox\Mail\MailerInterface::class,
-		   'concrete' => \Symfox\Mail\Mailer::class 
+		   'abstract' => \Smitter\Mail\MailerInterface::class,
+		   'concrete' => \Smitter\Mail\Mailer::class 
 	   ], 
 	   'db' => [ 
-		   'abstract' => \Symfox\Persistance\PersistanceFactoryInterface::class,
-		   'concrete' => \Symfox\Persistance\PersistanceFactory::class
+		   'abstract' => \Smitter\Persistance\PersistanceFactoryInterface::class,
+		   'concrete' => \Smitter\Persistance\PersistanceFactory::class
 	   ], 
 	   'session' => [ 
 		   'abstract' => Symfony\Component\HttpFoundation\Session\SessionInterface::class,
 		   'concrete' => Symfony\Component\HttpFoundation\Session\Session::class 
 	   ], 
 	   'hasher' => [ 
-		   'abstract' => Symfox\Security\PasswordHasherFactoryInterface::class,
-		   'concrete' => Symfox\Security\PasswordHasherFactory::class
+		   'abstract' => Smitter\Security\PasswordHasherFactoryInterface::class,
+		   'concrete' => Smitter\Security\PasswordHasherFactory::class
 	   ],
 	   'csrf' => [ 
 		   'abstract' => Symfony\Component\Security\Csrf\CsrfTokenManagerInterface::class,
 		   'concrete' => Symfony\Component\Security\Csrf\CsrfTokenManager::class
 	   ],  
 	   'viewcache' => [ 
-		   'abstract' => \Symfox\View\ViewInterface::class,
-		   'concrete' => \Symfox\View\ViewCache::class 
+		   'abstract' => \Smitter\View\ViewInterface::class,
+		   'concrete' => \Smitter\View\ViewCache::class 
 	   ], 
 	   'view' => [ 
-		   'concrete' => \Symfox\View\View::class 
+		   'concrete' => \Smitter\View\View::class 
 	   ],    
 	   'matcher' => [ 
-		   'abstract' => \Symfox\Match\MatchFactoryInterface::class,
-		   'concrete' => \Symfox\Match\MatchFactory::class 
+		   'abstract' => \Smitter\Match\MatchFactoryInterface::class,
+		   'concrete' => \Smitter\Match\MatchFactory::class 
 	   ],   
 	   'dispatcher' => [ 
 		   'abstract' => Symfony\Component\EventDispatcher\EventDispatcherInterface::class,
-		   'concrete' => \Symfox\Dispatch\Dispatch::class 
+		   'concrete' => \Smitter\Dispatch\Dispatch::class 
 	   ],
 	   'control' => [ 
 		   'abstract' => Symfony\Component\HttpKernel\Controller\ControllerResolverInterface::class,

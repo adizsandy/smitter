@@ -4,9 +4,9 @@ namespace Boot;
 
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
-use Symfox\Request\RequestAction;
+use Smitter\Request\RequestAction;
 use Symfony\Component\HttpKernel\HttpKernel;
-use Symfox\Match\MatchFactoryInterface;
+use Smitter\Match\MatchFactoryInterface;
 
 class Kernel extends HttpKernel { 
 
