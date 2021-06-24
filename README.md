@@ -7,23 +7,13 @@
 
 # About Smitter 
 Smitter is a modular, fast, secure and highly extensible PHP framework built for providing closer to native PHP development experience while following the MVC pattern to its core.
+The purpose of this framework is to maintain the fun and remove the pain of development process.
 
 ## Features
 - Seperation of common development layer from the abstractions/source code
 - Easiest Public API for implementing all available services
 - Flexible project architecture, i.e., Can be used as modular or normal
 - Built on the top of a powerful service dependency injection layer
-
-## Tech
-Smitter uses several best components of different open source libraries:
-
-- [Symfony](https://symfony.com/) - Core of Smitter: HTTP Foundation, Routing, Event Dispatcher, DotEnv and Security Components
-- [Eloquent ORM](https://laravel.com/docs/5.0/eloquent) - ORM implementation for database relations and operations 
-- [Flysystem](https://github.com/thephpleague/flysystem) - Library used for including robust file handling features 
-- [PHP-DI](https://github.com/PHP-DI/PHP-DI) - Dependency injection container used for black magics :P
-
-## License
-MIT
 
 ## Installation
 - Using composer:
@@ -75,6 +65,41 @@ Basic structure of framework is as follows:
   Each module consist of a module definition file `module.php` and `routes.php`, which has module declarations and module specific route definitions respectively.
 
   Folder structure within module consists of `Controller`, `Design` [ `layouts`, `templates` ], `Model` folders with respective functionalities.
+
+  `Controller` :  
+    In Smitter, Controllers are just plain and independent PHP classes, used for handling the requests and providing the response.
+    All extensible features like Request Parameters, Response Processe, Session etc. can be handled by the helper functions available with equivalent names :)
+
+    ```php
+
+    namespace App\Main\Module\Controller;
+
+    class HomeController { 
+      //..... code resides here
+    }
+
+    ```
+  
+  `Model` : 
+    Model classes include business logics that maybe database related depending on requirements.
+    If database related logics are to be handled, the class should extend the `Illuminate\Database\Eloquent\Model` class, for implementing the complete ORM features of `Eloquent ORM` and mapping the model as an database `Entity`. 
+    However if you need to just run SQL queries anywhere within your codebase, you may use the `db()` function, which returns the Eloquent instance. 
+
+    ```php 
+    
+    namespace App\Main\Module\Model;
+
+    use Illuminate\Database\Eloquent\Model;
+
+    class User extends Model {
+        
+        protected $table = 'users';  
+    }
+    
+    ```
+
+  `Design` : 
+    It includes the VIEW logics, having `layouts` and `templates` folder.
 
   By default, `Main_Module` is provided for quick setup of simple and uni-modular web applications along with some basic information for creation of other modules.
 
