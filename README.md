@@ -1,9 +1,9 @@
+![Smitter: Code Smile](https://github.com/adizsandy/smitter/blob/master/public/assets/img/sunshine.png)
+
 ![GitHub release](https://img.shields.io/github/v/release/adizsandy/smitter)
 [![GitHub license](https://img.shields.io/github/license/adizsandy/smitter)](https://github.com/adizsandy/smitter/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/adizsandy/smitter)](https://GitHub.com/adizsandy/smitter/stargazers/)
 ![GitHub downloads](https://img.shields.io/github/downloads/adizsandy/smitter/total)
-
-![Smitter: Sunshine Vitamins](https://github.com/adizsandy/smitter/blob/master/public/assets/img/sunshine.png)
 
 # About Smitter 
 Smitter is a modular, fast, secure and highly extensible PHP framework built for providing closer to native PHP development experience while following the MVC pattern to its core.
