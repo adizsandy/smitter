@@ -7,13 +7,13 @@
 
 # About Smitter 
 Smitter is a modular, fast, secure and highly extensible PHP framework built for providing closer to native PHP development experience while following the MVC pattern to its core.
-The purpose of this framework is to maintain the fun and remove the pain of development process while keeping the scalability, security and performance fine tuned irrespective of project scenarios.
+The purpose of this framework is to maintain the fun and remove the pain of development process while keeping the scalability, security and performance fine tuned irrespective of project conditions.
 
 ## Features
-- Seperation of common development layer from the abstractions/source code
-- Easiest Public API for implementing all available services
-- Flexible project architecture, i.e., Can be used as modular or normal
-- Built on the top of a powerful service dependency injection layer
+- Simple, maintainable, extensible and robust development layer for hassle free and quickest development
+- Easiest Public API for implementing all services
+- Setting up a project is as quick and fun, as your smile :)
+- Built over a powerful service dependency injection layer 
 
 ## Installation
 - Using composer:
