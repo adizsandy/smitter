@@ -67,7 +67,8 @@ Basic structure of framework is as follows:
   Folder structure within module consists of `Controller`, `Design` [ `layouts`, `templates` ], `Model` folders with respective functionalities.
 
   `Controller` :  
-    In Smitter, Controllers are just plain and independent PHP classes, used for handling the requests and providing the response.
+  
+    In Smitter, Controllers are just plain and independent PHP classes, used for handling the requests and providing the response.<br>
     All extensible features like Request Parameters, Response Processe, Session etc. can be handled by the helper functions available with equivalent names :)
 
     ```php
@@ -81,8 +82,10 @@ Basic structure of framework is as follows:
     ```
   
   `Model` : 
+  
     Model classes include business logics that maybe database related depending on requirements.
     If database related logics are to be handled, the class should extend the `Illuminate\Database\Eloquent\Model` class, for implementing the complete ORM features of `Eloquent ORM` and mapping the model as an database `Entity`. 
+    
     However if you need to just run SQL queries anywhere within your codebase, you may use the `db()` function, which returns the Eloquent instance. 
 
     ```php 
