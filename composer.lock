@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e359bacbee24930d78a2788e866f1d6",
+    "content-hash": "849eab86fbe82cd2909614e2598df462",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -695,16 +695,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "9be3b16c877d477357c015cec057548cf9b2a14a"
+                "reference": "f3ad69181b8afed2c9edf7be5a2918144ff4ea32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/9be3b16c877d477357c015cec057548cf9b2a14a",
-                "reference": "9be3b16c877d477357c015cec057548cf9b2a14a",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/f3ad69181b8afed2c9edf7be5a2918144ff4ea32",
+                "reference": "f3ad69181b8afed2c9edf7be5a2918144ff4ea32",
                 "shasum": ""
             },
             "require": {
@@ -720,7 +720,6 @@
                 "phpunit/phpunit": "^8.5.8"
             },
             "suggest": {
-                "ext-fileinfo": "Required for MimeType",
                 "ext-ftp": "Allows you to use FTP server storage",
                 "ext-openssl": "Allows you to use FTPS server storage",
                 "league/flysystem-aws-s3-v2": "Allows you to use S3 storage with AWS SDK v2",
@@ -778,7 +777,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/1.x"
+                "source": "https://github.com/thephpleague/flysystem/tree/1.1.4"
             },
             "funding": [
                 {
@@ -786,7 +785,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2020-08-23T07:39:11+00:00"
+            "time": "2021-06-23T21:56:05+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -846,16 +845,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.49.0",
+            "version": "2.50.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "93d9db91c0235c486875d22f1e08b50bdf3e6eee"
+                "reference": "f47f17d17602b2243414a44ad53d9f8b9ada5fdb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/93d9db91c0235c486875d22f1e08b50bdf3e6eee",
-                "reference": "93d9db91c0235c486875d22f1e08b50bdf3e6eee",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/f47f17d17602b2243414a44ad53d9f8b9ada5fdb",
+                "reference": "f47f17d17602b2243414a44ad53d9f8b9ada5fdb",
                 "shasum": ""
             },
             "require": {
@@ -907,15 +906,15 @@
                 {
                     "name": "Brian Nesbitt",
                     "email": "brian@nesbot.com",
-                    "homepage": "http://nesbot.com"
+                    "homepage": "https://markido.com"
                 },
                 {
                     "name": "kylekatarnls",
-                    "homepage": "http://github.com/kylekatarnls"
+                    "homepage": "https://github.com/kylekatarnls"
                 }
             ],
             "description": "An API extension for DateTime that supports 281 different languages.",
-            "homepage": "http://carbon.nesbot.com",
+            "homepage": "https://carbon.nesbot.com",
             "keywords": [
                 "date",
                 "datetime",
@@ -935,7 +934,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-02T07:31:40+00:00"
+            "time": "2021-06-28T22:38:45+00:00"
         },
         {
             "name": "opis/closure",
@@ -1559,16 +1558,16 @@
         },
         {
             "name": "smitter/framework",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/adizsandy/smitter-framework.git",
-                "reference": "cd223e4e7d97f393f4270d30300969c48c16b11a"
+                "reference": "a294df1f2c8abf5f72e69cffbd448626797433c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adizsandy/smitter-framework/zipball/cd223e4e7d97f393f4270d30300969c48c16b11a",
-                "reference": "cd223e4e7d97f393f4270d30300969c48c16b11a",
+                "url": "https://api.github.com/repos/adizsandy/smitter-framework/zipball/a294df1f2c8abf5f72e69cffbd448626797433c4",
+                "reference": "a294df1f2c8abf5f72e69cffbd448626797433c4",
                 "shasum": ""
             },
             "require": {
@@ -1598,7 +1597,8 @@
                     "src/Foundation/functions.php"
                 ],
                 "psr-4": {
-                    "Smitter\\": "src/"
+                    "Smitter\\": "src/",
+                    "Boot\\": "boot/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1620,7 +1620,7 @@
                 "issues": "https://github.com/adizsandy/smitter-framework/issues",
                 "source": "https://github.com/adizsandy/smitter-framework"
             },
-            "time": "2021-06-23T07:43:40+00:00"
+            "time": "2021-06-29T10:10:13+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2609,12 +2609,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/password-hasher.git",
-                "reference": "6c384e6abd88e73fdd7353be31710412e04efa1f"
+                "reference": "b921872ac695f29690babeaa0d1b55b30a2980a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/password-hasher/zipball/6c384e6abd88e73fdd7353be31710412e04efa1f",
-                "reference": "6c384e6abd88e73fdd7353be31710412e04efa1f",
+                "url": "https://api.github.com/repos/symfony/password-hasher/zipball/b921872ac695f29690babeaa0d1b55b30a2980a0",
+                "reference": "b921872ac695f29690babeaa0d1b55b30a2980a0",
                 "shasum": ""
             },
             "require": {
@@ -2674,7 +2674,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-21T21:43:37+00:00"
+            "time": "2021-06-27T12:46:39+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
